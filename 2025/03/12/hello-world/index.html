@@ -1,207 +1,1469 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hello World | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2025/03/12/hello-world/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-12T07:04:52.735Z">
-<meta property="article:modified_time" content="2025-03-12T07:04:52.735Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+<title>鬼谷八荒百科by晚安安</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+	/* 目录样式 */
+	.sidebar {
+		width: 100%;
+		height: 9.5em;
+		background-color: #EEEEEEF0;
+		position: fixed; /* 固定位置 */
+		bottom: 0; /* 放在页面底部 */
+		overflow-x: auto; /* 允许水平滚动 */
+		overflow-y: hidden; /* 竖直方向滚动隐藏 */
+		white-space: nowrap; /* 防止换行 */
+		display: flex; /* 横着排版 */
+	}
+	.sidebar h2 {
+		margin-top: 0.4em;
+		font-size: 1.5em;
+		color: #333;
+	}
+	.sidebar ul {
+		list-style-type: none;
+		padding: 0;
+		display: flex; /* 横着排版 */
+	}
+	.sidebar ul li {
+		margin-top: 0;
+	}
+	.sidebar ul li a {
+		text-decoration: none;
+		color: #555;
+		transition: color 0.3s ease;
+		writing-mode: vertical-rl; /* 竖着排版 */
+	}
+	.sidebar ul li a:hover {
+		color: #000;
+	}
+	.sidebar ul li a.active {
+		color: #007BFF;
+		font-weight: bold;
+	}
+	#toc li a[data-level="h1"] {
+		font-size: 1.125em;
+		padding-top: 0.75em;
+		padding-left: 0.375em;
+		line-height: 1.25;
+	}
+	#toc li a[data-level="h2"] {
+		font-size: 1em;
+		line-height: 1.125;
+	}
+	#toc li a[data-level="h3"] {
+		font-size: 1em;
+		padding-top: 0.75em;
+		padding-left: 0.25em;
+		line-height: 1.25;
+	}
+	#toc li a[data-level="h4"] {
+		font-size: 0.875em;
+		line-height: 1.1;
+	}
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+	/* 正文样式 */
+	.content {
+		padding-right: 1em;
+		padding-left: 1em;
+	}
+	.content h1 {
+		margin: 0;
+		margin-top: 1em;
+		font-size:2.75em;
+	}
+	.content h2 {
+		margin: 0;
+		margin-top: 1em;
+		font-size:2.3em;
+	}
+	.content h3 {
+		margin: 0;
+		margin-top: 1em;
+		font-size:2.3em;
+	}
+	.content h4 {
+		float:left;
+		margin:0;
+		padding-top:1em;
+		margin-right:10pt;
+	}
+	.content img {
+		max-width: 100%;
+	}
+	.content p {
+		margin: 0;
+		margin-bottom: 0.5em;
+		text-align: justify;
+		line-height: 1;
+	}
+	.content p.dialog_box {
+		text-align:center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 2.3em;
+		width: 12em;
+		border: 0.15em solid;
+	}
+	.content p.dialog_box2 {
+		text-align:center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 3.3em;
+		width: 12em;
+		border: 0.15em solid;
+	}
+	.content p.indent_2em {
+		text-indent: 2em;
+	}
+	.content p.task {
+		font-size: 1.5em;
+		line-height: 1.2;
+	}
+	.content p.trigger,
+	.content p.success,
+	.content p.failure {
+		font-size: 1.3em;
+		line-height: 1.2;
+	}
+	.content p.tips {
+		font-size: 1.3em;
+		line-height: 1.2;
+	}
+	.content p.roast,
+	.content p.BUG {
+		font-size: 1.3em;
+		line-height: 1.2;
+		color:gray;
+	}
+	.content p.association {
+		line-height: 1.2;
+	}
+	.content p.task::before {
+		content: "📜";
+	}
+	.content p.trigger::before {
+		content: "🔑";
+		color:green;
+	}
+	.content p.success::before {
+		content: "👍";
+	}
+	.content p.failure::before {
+		content: "👎";
+	}
+	.content p.tips::before {
+		content: "🔔";
+	}
+	.content p.roast::before {
+		content: "✂";
+	}
+	.content p.BUG::before {
+		content: "🪲";
+	}
+	.content p.association::before {
+		content: "🔍";
+	}
+</style>
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+</head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
 
-      <div class="outer">
-        <section id="main"><article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/12/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2025-03-12T07:04:52.735Z" itemprop="datePublished">2025-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Hello World
-    </h1>
-  
+<div class="sidebar">
+	<h2>目<br>录</h2>
+	<ul id="toc"></ul>
+</div>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<div class="content">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h1 id="主线">主线</h1>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h2 id="初入八荒">初入八荒</h2>
+<p>先天气运1介绍</p>
+<p>先天气运2介绍</p>
+<p>先天气运3介绍</p>
+<p>有一天，你在后山玩耍，走入了一片竹林…</p>
+<p>竹林中气氛诡异，似乎从未有人来过此处…微风吹动竹林发出“沙沙的响声，仿佛在引导你继续前往深处</p>
+<p>你在竹林深处发现了一张石桌，你不由自主地朝着石桌走去…</p>
+<p>？？？：你来了？</p>
+<p>我：…此地是何处？</p>
+<p>？？？：你可以…称这里为——鬼谷。</p>
+<p>我：你是何人？</p>
+<p>？？？：你可以…称老夫为——张三。</p>
+<p>我：这是棋盘吗？</p>
+<p>？？？：这盘棋已经下了三千年了，没有开始，也永远不会结束…你亦可以称之为“八荒山海图”。</p>
+<p>我：我是谁？我来自哪里？我要去哪里？</p>
+<p>？？？：哈哈哈，问得好，问得好！<br>你是谁？你来自哪里？你要去哪里？<br>小友，不如我们先手谈一盘如何？我可以让你一子。</p>
+<hr>
+<p class="dialog_box">昊天眼</p>
+<p class="dialog_box">双鱼佩</p>
+<p class="dialog_box">炼妖壶</p>
+<hr>
+<p>我：（这是何地？方才那名老者到底是…）</p>
+<p>？？？：天…元…山…</p>
+<p>我：？！</p>
+<p>？？？：到天元山来…我会一直在天元山中等你…</p>
+<p>我：你是谁？！天元山在何处？</p>
+<p>我：（……声音彻底消失了。）</p>
+<p>我：（天元山…先到附近寻人打听一番，看看是否有人知道此地吧。）</p>
+<p>我：（…棋盘的正中央，刻着“天元山”的字样。）</p>
+<p>我：前方似乎有杀气。</p>
+<p>我：来者不善，我得谨慎行动。</p>
+<hr>
+<p>药灵：年轻的修仙者哟~要不要尝尝又香又甜的剧毒蘑菇噢？吃完保证会死哦~</p>
+<p>药灵：很好吃的哦，看的我都流口水了~~吭呲…哎呀！被我自己吃掉了！！</p>
+<p>药灵：哎呦——好惨呐~请不要吃我，呜呜呜……嗯？？这是什么光？好刺眼！</p>
+<p>（此时炼妖壶发出耀眼的光芒，将药灵吸入其中）</p>
+<p>药灵之灵：呜~呼——刚才发生了什么？感觉自己好像被炼化了一样…！！我的样子？怎么变成这样了！？</p>
+<p>我：……</p>
+<p>药灵之灵：都是你害的，你赔！呜呜呜……还不快点保护我离开这里！！</p>
+<hr>
+<p>我：好强的灵力！还不止一个，究竟是何人？！</p>
+<p>正道修士：正魔自古不两立，我既为某宗门内门弟子，今日定要取你性命！</p>
+<p>魔道修士：正道？不过是一群以冠冕堂皇的理由行卑劣之事的伪君子罢了！废话少说，要战便战！</p>
+<hr>
+<p>我：此人的伤势非常严重，定然是刚才的雷龙所为。该怎么做？</p>
+<p class="dialog_box">救助</p>
+<p>修士：非常感谢道友出手相救。在下【修士名】，是某宗门的内门弟子。我身上有一封推荐信，我见道友还是一名散修，若无其它去处，可凭此推荐信加入我某宗门。后会有期！</p>
+<p>修士：谢谢你救了我…我是【修士名】，某宗门的内门弟子。这次出来为宗门寻找有潜力的弟子，谁知碰上了贼人…我这里有一封推荐信，你若没有别的去处，就来某宗门找我吧！后会有期！</p>
+<p class="dialog_box">杀害</p>
+<p class="dialog_box">观察</p>
+<p class="dialog_box">我再想想</p>
+<hr>
+<p>我：（方才那人所给的宗门信物似乎发生了一些变化…怎么回事？！）</p>
+<p>我：（看来只要有宗门信物，无论身在何处都能寻到此宗门。）</p>
+<p>我：（先寻一处落脚点，慢慢收集情报吧。）</p>
+<p>我：（不远处似乎有一个城镇，先过去看看。）</p>
+<hr>
+<p>药灵之灵：到这里应该安全了，你的葫芦还不赖嘛~叫炼妖壶是吧？待在里边还挺舒服的，我要在这儿种蘑菇！</p>
+<p>药灵之灵：刚才我在里边研究了一下，你的这个葫芦好像是可以将一些特定妖兽吸收进来、然后进行炼化。之后他们的外观嘛，就会发现类似我这样的变化。</p>
+<p>药灵之灵：感觉还不错，我还蛮喜欢这个新造型的…我决定了！就让你一直做我的护卫吧！！多多利用你这个葫芦，在战斗中好好儿保护我！嘿嘿~</p>
+<p>药灵之灵：这个叫炼妖壶的葫芦，除了让你做我的护卫之外，似乎还有许多其他作用。具体我也不太懂，你自己看着研究算了。加油干吧，我的专职护卫！！</p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="前往城镇">前往城镇</h2>
+<p><img alt="新达镇" title="新达镇" src="鬼谷八荒.files/新达镇.jpg"></p>
+<p class="task">前往新达镇中的酒馆，打听消息。</p>
+<p class="success">去新达镇的路上领取到主线任务：<a href="#进入山洞">进入山洞</a>。</p>
+<p class="success">在白源区大地图移动一格触发奇遇：<a href="#造化丹和筑基坐骑">造化丹和筑基坐骑</a>。</p>
+<p class="success">到达新达镇后领取到主线任务：<a href="#前往酒馆">前往酒馆</a>。</p>
+<hr>
+<p>我：先寻一处落脚点，慢慢收集情报吧。</p>
+<p>我：不远处似乎有一个城镇，先过去看看。</p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="进入山洞">进入山洞</h2>
+<p class="association"><a href="#前往城镇">前往城镇</a></p>
+<p><img alt="山洞" title="山洞" src="鬼谷八荒.files/山洞.jpg"></p>
+<p class="task">进入山洞中，寻找妖气的源头。</p>
+<p class="success">完成奖励：<a href="#石沉戒">石沉戒</a>×1、灵石×500、<a href="#六品化瘀丹">六品化瘀丹</a>×25±、<a href="#六品聚气丹">六品聚气丹</a>×25±。</p>
+<p class="success">完成后领取到主线任务：<a href="#前往城镇">前往城镇</a>。</p>
+<p class="tips">请在任务完成后立刻装备石沉戒、化瘀丹和聚气丹。</p>
+<hr>
+<p>我：（这个山洞…在此处都能够感觉到洞中的妖气，要不要进去看看呢？</p>
+<p>我：嗯？！这竟是木精的栖息地！</p>
+<p>我：…木精们似乎在守护着这个箱子，恐怕是木精不知从何处掳掠而来的物资，让我看看究竟是何物。</p>
+<p>我：这…难道是传说中的储物戒？！想不到会在这种地方被我寻到…</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/12/hello-world/" data-id="cm85ktv9s000054w89ldcbqut" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-  
-</article>
+<h2 id="前往酒馆">前往酒馆</h2>
+<p class="association"><a href="#前往城镇">前往城镇</a></p>
+<p><img alt="酒馆" title="酒馆" src="鬼谷八荒.files/酒馆.jpg"></p>
+<p class="task">前往新达镇中的酒馆，打听消息。</p>
+<p class="success">进入酒馆后领取到主线任务：<a href="#打听消息">打听消息</a>。</p>
+<p class="roast">用得着分这么细吗！</p>
 
+<h2 id="打听消息">打听消息</h2>
+<p class="association"><a href="#前往酒馆">前往酒馆</a></p>
+<p><img alt="打听消息" title="打听消息" src="鬼谷八荒.files/打听消息.jpg"></p>
+<p class="task">向酒馆老板打听天元山的消息。</p>
+<p class="success">完成后领取到主线任务：<a href="#前往村庄">前往村庄</a>。</p>
+<hr>
+<p>我：天元山在何处？</p>
+<p>酒馆老板：天元山？我想想…</p>
+<p>酒馆老板：天元山…那可是传说之地，我确实不知此山的所在地，抱歉…</p>
+<p>酒馆老板：但…你若要前往天元山，必定要离开此地，而此地被无数的高山所围绕，若无飞行坐骑根本无法离开…</p>
+<p>我：除了使用飞行坐骑，可还有其它方法？</p>
+<p>酒馆老板：只要翻越东北方向的太行山或王屋山便可…但从十多年前，便无人能够翻越这二山了。据说是因为山中布下了强大的禁制。</p>
+<p>酒馆老板：听闻不远处有一个村庄，其中一位村民打算将大山给搬走，你或许可以过去看看他有什么办法。</p>
+<p>我：先到太行山附近看看吧！据酒馆老板所说，此山位于东北方。</p>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<h2 id="前往村庄">前往村庄</h2>
+<p class="association"><a href="#打听消息">打听消息</a></p>
+<p><img alt="愚村" title="愚村" src="鬼谷八荒.files/愚村.jpg"></p>
+<p class="task">前往新达镇东北方的愚村，寻找前往外界的方法。</p>
+<p class="success">到达愚村后领取到主线任务：<a href="#向村民打听消息">向村民打听消息</a>。</p>
+<hr>
+<p>愚公：到底是谁在捣鬼！这已不知是第几次了！</p>
+<p>村民：又来了吗？你也别生气了，实在不行就别干了吧。这个事情本来也不是普通人能够做到的，你已经很努力了。</p>
+<p>愚公：不可能！只要我还有一口气在，我便与它不死不休！</p>
+<p>村民：也许真的有山神在山中某处看着呢，说不定移山的举动惹怒它了。</p>
+<p>愚公：哪来的什么山神，只怕是不知从哪冒出来的妖精罢了！如果真的是山神，为什么要用这两座大山困住村子如此之久？</p>
+<p>村民：能够使被毁掉的石土草木再生，恐怕也只有神能够做到了。</p>
+<p>愚公：大家每天这么辛苦才获得的劳动成果，就这么被它给毁去。我实在是不甘心啊！</p>
+<p>智叟：别折腾了，此山根本不是寻常人能够撼动的。即便举全村之力，在我们有生之年根本无法将山移走。</p>
+<p>愚公：即便我死了，我的儿子也会继承我的意志，孙子又会继承儿子的意志…我相信终有一日，我们定能将此山移走！</p>
+<p>智叟：……</p>
+<p>智叟：（如果我说它一直在保护着我们，大家会不会相信呢…）</p>
 
-  
-    
+<h2 id="向村民打听消息">向村民打听消息</h2>
+<p class="association"><a href="#前往村庄">前往村庄</a></p>
+<p><img alt="向村民打听消息" title="向村民打听消息" src="鬼谷八荒.files/向村民打听消息.jpg"></p>
+<p class="task">向村民询问愚村中的情况。</p>
+<p class="success">完成后领取到主线任务：<a href="#前往太行山">前往太行山</a>。</p>
+<hr>
+<p>我：老人家…</p>
+<p>愚公：你应该是修仙者吧？来到此地，可是为了翻越太行山？</p>
+<p>我：是的，你在此地生活多年，可知前往外部的方法？</p>
+<p>愚公：每隔一段时间，便会有像你这样的年轻人来到此地，想要前往外部世界。</p>
+<p>愚公：又何止是你呢？我们也想要到外界去呀…所以我领着家人与部分村民凿山挖石，想要开出一条通往外界的路。</p>
+<p>愚公：但近日来，我们发现山中有一个能够操控山中草木砂石的妖怪，它一直在阻挠我们移山。每当我们将山中的砂石挖走了一部分后，在第二日上山时，先前被挖走的砂石竟然又出现了！</p>
+<p>愚公：修仙者，此妖物一日不除，我们绝无可能去往外界！我们需要一个如你这般有本事之人，去将此妖物彻底铲除！</p>
+<p>我：（掌控山中的一切?听着倒像个山神。）</p>
+<hr>
+<p>我：你是愚村的村民吗？</p>
+<p>智叟：是的。</p>
+<p>我：我来此是为了寻找翻越太行山之法。方才你说有一人在保护着你们，是什么意思？</p>
+<p>智叟：我也不确定它到底是不是人类…它虽然一直在妨碍村民移山，但却从未伤过村子里的人。</p>
+<p>智叟：多年前…人们都可凭借着自己的本事翻越大山去到外界，自然也就会有外界的强者翻山来到这里。而我们这些毫无修为的普通人，却只能遭受外来强者的欺压，毫无还手之力…</p>
+<p>智叟：后来，山中被布下了强大的禁制，任何人都无法穿越太行山与王屋山了。虽然我们无法前往外界，但生活无忧，再也不用遭受强者的欺压了。</p>
+<p>我：何处能寻到它？</p>
+<p>智叟：我也不知…村中无一人见过其面目。</p>
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
-    </div>
-  </div>
+<h2 id="前往太行山">前往太行山</h2>
+<p class="association"><a href="#向村民打听消息">向村民打听消息</a></p>
+<p><img alt="太行山" title="太行山" src="鬼谷八荒.files/太行山.jpg"></p>
+<p class="task">前往太行山中，调查村民口中的妖怪。</p>
+<p class="success">不敌武罗（自身血量低于一半）领取到主线任务：<a href="#回城镇休整">回城镇休整</a>，同时获得后天气运重伤6月。</p>
+<p class="success">战胜武罗后选择杀了它领取到主线任务：<a href="#突破筑基境">突破筑基境</a>，同时增加50魔道值。</p>
+<p class="success">战胜武罗后选择询问前往外界的方法获得<a href="#武罗遗失的书信">武罗遗失的书信</a>×1，领取到主线任务：<a href="#击杀树妖">击杀树妖</a>。</p>
+<p class="tips">初见就战胜武罗可以直接获得最高资质对应的灰色武技和绝技各一本，也就是原本不敌武罗需要的在后续<a href="#前往琅琊阁">前往琅琊阁</a>和<a href="#购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</a>任务中购买的秘籍。</p>
+<p class=BUG>BUG：初见就战胜武罗会导致酒馆不刷出<a href="#前往擎天寨">擎天寨</a>任务。</p>
+<hr>
+<p><img alt="愚公移山.阵法" title="愚公移山.阵法" src="鬼谷八荒.files/愚公移山.阵法.jpg"></p>
+<p>你进入山中仔细查探了一番，发现此山竟存在一个极其强大的阵法。布阵之人对阵法的理解已然登峰造极，完美的利用了两山连绵环绕之势，阵法与大自然几乎融为一体。</p>
+<p>若是此处的主人不想其他人进入山中，只怕是高阶的修仙者来了也无法踏入此地半步。但此时你处于阵法的核心位置，行动起来却是方便了许多，没有受到太大影响。</p>
+<p><img alt="愚公移山.山洞" title="愚公移山.山洞" src="鬼谷八荒.files/愚公移山.山洞.jpg"></p>
+<p>你经过一番查探后，找到了阵眼所在之处。此处竟处于距愚村不远处的山洞中，只是这处地方极其隐蔽，想必村民们一直都不知道这处山洞的存在。</p>
+<p class="dialog_box">接近山洞</p>
+<p>你刚靠近山洞，便感到了前所未有的危机！</p>
+<p><img alt="愚公移山.白影袭来" title="愚公移山.白影袭来" src="鬼谷八荒.files/愚公移山.白影袭来.jpg"></p>
+<p>片刻后，一道白影从山洞中朝你袭来。你早有准备，侧身躲过了这一击。</p>
+<p><img alt="愚公移山.武罗袭来" title="愚公移山.武罗袭来" src="鬼谷八荒.files/愚公移山.武罗袭来.jpg"></p>
+<p>你打量了敌人一番，发现竟是一只武罗！武罗完全不给你喘息的机会，调整一番后便继续朝你袭来！</p>
+<p class="dialog_box">进入战斗</p>
+<hr>
+<p>我：（唔…这样下去我必败无疑！必须要想办法逃走。）</p>
+<p><img alt="武罗" title="武罗" src="鬼谷八荒.files/武罗.jpg"></p>
+<p>武罗：…</p>
+<p>我：（它似乎没有追上来的打算，就这样逃走吧！）</p>
+<p>我：（凭我现在的状态，根本无法战胜敌人…先回城镇休整吧。）</p>
 
+<h2 id="回城镇休整">回城镇休整</h2>
+<p class="association"><a href="#前往太行山">前往太行山</a></p>
+<p><img alt="客栈" title="客栈" src="鬼谷八荒.files/客栈.jpg"></p>
+<p class="task">回到新达镇中，前往客栈恢复自身状态。</p>
+<p class="success">在客栈投宿后解除重伤,领取到主线任务：<a href="#提升修为">提升修为</a>。</p>
+<hr>
+<p>我：（在回去挑战敌人之前，我得先寻一处灵气充沛的修炼之地，提升自己的修为。）</p>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2025/03/12/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+<h2 id="提升修为">提升修为</h2>
+<p class="association"><a href="#回城镇休整">回城镇休整</a></p>
+<p><img alt="灵气充沛之地" title="灵气充沛之地" src="鬼谷八荒.files/灵气充沛之地.jpg"></p>
+<p class="task">在大地图中寻找一处灵气充沛之地，提升自己的修为，突破当前境界。</p>
+<p class="task">当修为达到了瓶颈后，可以服用聚气丸来突破瓶颈。聚气丸可以在城镇中的坊市中购买获得。</p>
+<p class="success">完成后如果身处城外，领取到主线任务：<a href="#前往城镇2">前往城镇</a>。</p>
+<p class="success">完成后如果身处城内，领取到主线任务：<a href="#前往琅琊阁">前往琅琊阁</a>。</p>
+<p class="tips">修为达到练气初期和中期之间的瓶颈后在大地图移动一格触发奇遇<a href="#李四的聚气丸">李四的聚气丸</a>，地狱和洪荒难度下选择在李四处购买，其它难度下在新达镇坊市购买。</p>
+<hr>
+<p>我：（去城镇中看看是否能寻到适合我的功法吧。）</p>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2025 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
+<h2 id="前往城镇2">前往城镇</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p><img alt="新达镇" title="新达镇" src="鬼谷八荒.files/新达镇.jpg"></p>
+<p class="task">前往城镇中，购买一本绝技。</p>
+<p class="success">到达城镇后领取到主线任务：<a href="#前往琅琊阁">前往琅琊阁</a>。</p>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+<h2 id="前往琅琊阁">前往琅琊阁</h2>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#提升修为">提升修为</a>，<a href="#前往城镇2">前往城镇</a></p>
+<p><img alt="琅琊阁" title="琅琊阁" src="鬼谷八荒.files/琅琊阁.jpg"></p>
+<p class="task">在城镇的琅琊阁中，寻找适合自己的绝技。</p>
+<p class="success">购买绝技后领取到主线任务：<a href="#购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</a>。</p>
+<p class="tips">注意购买满足学习条件的绝技，也就是相应的资质要足够。</p>
 
+<h2 id="购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</h2>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#前往琅琊阁">前往琅琊阁</a></p>
+<p class="task">在琅琊阁中购买适合自己的武技与绝技，成功学习后装备至技能栏中。</p>
+<p class="success">完成后领取到主线任务：<a href="#重新挑战武罗">重新挑战武罗</a>。</p>
+<p class="tips">注意购买满足学习条件的武技与绝技，也就是相应的资质要足够。</p>
+<p class="tips">注意学习后要装备上才算完成。</p>
+<p><img alt="酒馆.擎天寨" title="酒馆.擎天寨" src="鬼谷八荒.files/酒馆.擎天寨.jpg"></p>
+<p class="tips">该任务完成后可以顺便在酒馆处领取<a href="#前往擎天寨">擎天寨</a>支线。</p>
+<p class="tips">可以左键或右键按住拖动来收集或摧毁多个【悟】和【魔】，不是一定要一个一个点。</p>
+<p class="tips">不小心收集到的【魔】只影响获得的学习经验量，不会有其它影响，不会影响魔道值。</p>
+<p class="tips">注意，学习秘籍会降低<a href="#心情">心情</a>。</p>
+<hr>
+<p>1.学习开始后，会不断有冥思从角色体内向外溢出，这些冥思有可能会变成【悟】或【魔】，并且在一段时间后会自动消失。</p>
+<p>2.按住左键到【悟】或【魔】旁边可收集，按住右键到【悟】或【魔】旁边可摧毁。</p>
+<p>3.角色需要收集【悟】和摧毁【魔】，未摧毁的【魔】在其消失时会侵入体内。</p>
+<p>4.收集的【悟】越多，则学习的效果越好，收集的【魔】则会影响学习的效果。</p>
+<p>5.角色的悟性越高，出现【悟】的概率越高。</p>
+<hr>
+<p>我：（好！重新返回太行山中挑战武罗吧！）</p>
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+<h2 id="重新挑战武罗">重新挑战武罗</h2>
+<p class="association"><a href="#购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</a></p>
+<p class="task">重新回到太行山，挑战武罗。</p>
+<p class="failure">不敌武罗（血条被打空）无法完成任务但也不会被杀只是获得后天气运重伤6月。</p>
+<p class="success">战胜武罗后选择杀了它领取到主线任务：<a href="#突破筑基境">突破筑基境</a>，同时增加50魔道值。</p>
+<p class="success">战胜武罗后选择询问前往外界的方法获得<a href="#武罗遗失的书信">武罗遗失的书信</a>×1，领取到主线任务：<a href="#击杀树妖">击杀树妖</a>。</p>
+<hr>
+<p><img alt="愚公移山.山洞" title="愚公移山.山洞" src="鬼谷八荒.files/愚公移山.山洞.jpg"></p>
+<p>是否要继续挑战武罗？</p>
+<p class="dialog_box">进入战斗</p>
+<hr>
+<p>我：（唔…我败了！必须要想办法逃走。）</p>
+<p><img alt="武罗" title="武罗" src="鬼谷八荒.files/武罗.jpg"></p>
+<p>武罗：…</p>
+<p>我：（它似乎没有追上来的打算，就这样逃走吧！）</p>
+<hr>
+<p><img alt="愚公移山.战胜武罗" title="愚公移山.战胜武罗" src="鬼谷八荒.files/愚公移山.战胜武罗.jpg"></p>
+<p>你最终战胜了武罗！它此时已无力维持妖身，变回了人类的姿态，此时正面无表情的看着你。</p>
+<p>它此时应是无力再对你出手了，该怎么做？</p>
+<hr>
+<p class="dialog_box">1 杀了它</p>
+<p><img alt="愚公移山.武罗死亡" title="愚公移山.武罗死亡" src="鬼谷八荒.files/愚公移山.武罗死亡.jpg"></p>
+<p>武罗的生命力正在迅速流失。</p>
+<p>她看着周围的景象，回想曾经自己便是负伤后在此地被人所救。</p>
+<p>她艰难的抬起头来，朝着一个方向望去，仿佛看见了当年那人又出现在了她的面前…</p>
+<p><img alt="愚公移山.崩塌的大山" title="愚公移山.崩塌的大山" src="鬼谷八荒.files/愚公移山.崩塌的大山.jpg"></p>
+<p>武罗的生命气息完全消失了，此时太行山与王屋山传来了巨大的声音！你急忙朝着二山的方向看去，此时映入你眼帘的景象是崩塌的大山。随着武罗的死去，山中的大阵也自动破除了，与阵法完全融合在一起的两座山也逐渐消失。</p>
+<p>愚村彻底变为了平原上的村落，包围着它的太行、王屋二山已随着阵法的破灭消散在天地间。从此，愚村再无高山所阻拦。</p>
+<p><img alt="愚公移山.村民开心.村民锁紧眉头" title="愚公移山.村民开心.村民锁紧眉头" src="鬼谷八荒.files/愚公移山.村民开心.村民锁紧眉头.jpg"></p>
+<p>有一部分的村民非常的开心，他们认为没有了大山的阻挠后，村中的灵草与灵酒的贸易会更加便捷，要不了多久便会过上美好的生活。而有些村民则锁紧着眉头，他们不知道接下来会发生什么。</p>
+<p>不久后，八荒中谣传着这样一个传说。曾经有一个普通人为了村中的通行便捷选择用人力去移平两座大山，他坚持了无数年却没起到明显的效果，但他始终不放弃。</p>
+<p>后来天帝被他的精神所感动了，便派了大力神将两座大山给夷为平地…</p>
+<hr>
+<p>愚公：终于能去往外界了…</p>
+<p>智叟：老实住在愚村不好吗？为何就非得去外界…</p>
+<hr>
+<p class="dialog_box">2 询问前往外界的方法</p>
+<p><img alt="愚公移山.战胜武罗" title="愚公移山.战胜武罗" src="鬼谷八荒.files/愚公移山.战胜武罗.jpg"></p>
+<p>我：我并不想伤害你…我来到此地，只是为了寻找前往外界的方法。</p>
+<p>武罗：……</p>
+<p>我：你能够操控阵法控制着山中的砂石草木，一定有办法能够让我前往外界吧？</p>
+<p>武罗：……</p>
+<p><img alt="愚公移山.武罗逃离" title="愚公移山.武罗逃离" src="鬼谷八荒.files/愚公移山.武罗逃离.jpg"></p>
+<p>你还想继续询问，但此时武罗转身便逃离了此地。</p>
+<p><img alt="愚公移山.武罗掉落书籍" title="愚公移山.武罗掉落书籍" src="鬼谷八荒.files/愚公移山.武罗掉落书籍.jpg"></p>
+<p>你正打算追上去，却发现有武罗逃跑时掉落了一本书籍。你将其拾起，离开了山中。</p>
+<p>你翻阅了书籍，对愚村中的情况有了一定的了解。</p>
+<p>我：（看来要解决当地的情况，必须要寻到百年树妖，取其魂珠…）</p>
 
+<h2 id="击杀树妖">击杀树妖</h2>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#重新挑战武罗">重新挑战武罗</a></p>
+<p><img alt="击杀树妖" title="击杀树妖" src="鬼谷八荒.files/图标.普通副本.jpg"></p>
+<p class="task">前往击杀树妖消灭树妖，取其魂珠。</p>
+<p class="success">击杀树妖后领取到主线任务：<a href="#提交树妖魂珠">提交树妖魂珠</a>。</p>
 
+<h2 id="提交树妖魂珠">提交树妖魂珠</h2>
+<p class="association"><a href="#击杀树妖">击杀树妖</a></p>
+<p><img alt="太行山" title="太行山" src="鬼谷八荒.files/太行山.jpg"></p>
+<p class="task">寻找树妖魂珠，并将其送到太行山中给武罗。</p>
+<p class="success">完成后领取到主线任务：<a href="#突破筑基境">突破筑基境</a>。</p>
+<p class="roast">上个任务完成后，魂珠就在背包里，别找了。</p>
+<hr>
+<p><img alt="愚公移山.山洞" title="愚公移山.山洞" src="鬼谷八荒.files/愚公移山.山洞.jpg"></p>
+<p>武罗应该还在山洞中，该怎么做？</p>
+<p class="dialog_box">给予材料</p>
+<p>考虑到武罗对你的敌意不小，于是你将树妖魂珠放在山洞不远处，便离开了此地。</p>
+<p><img alt="愚公移山.武罗构筑传送阵" title="愚公移山.武罗构筑传送阵" src="鬼谷八荒.files/愚公移山.武罗构筑传送阵.jpg"></p>
+<p>数日后…武罗来到了村中。在众人的围观下，使用你所给予的材料构筑了一个传送阵！</p>
+<p>村民们惊喜的发现，可以通过传送阵自由的传送至山的外围，再也不用被群山所困了。</p>
+<p>当地的村民十分感谢武罗。他们在明白了是武罗一直在保护着村庄后，对武罗愈发恭敬！将其称为 山神武罗。</p>
+<p><img alt="传送阵" title="传送阵" src="鬼谷八荒.files/传送阵.jpg"></p>
+<p>我：（通过了这个传送阵，便可以去往外界了吧…）</p>
+<hr>
+<p>智叟：我就知道，是她一直在守护着我们！想不到她竟是武罗…</p>
+<p>智叟：不久前，她已经离开此地了，似乎要去寻找什么人…她临走前，还让我替她向你道谢。</p>
+<p>智叟：虽然我不知是何事，但真的很感谢你愿意帮助她…愿你能在八荒中寻得你的道。</p>
+<hr>
+<p>愚公：终于能去往外界了…</p>
+<p>智叟：老实住在愚村不好吗？为何就非得去外界…</p>
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<h2 id="突破筑基境">突破筑基境</h2>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#重新挑战武罗">重新挑战武罗</a>，<a href="#提交树妖魂珠">提交树妖魂珠</a></p>
+<p class="task">将境界提升至<a style='color:#00B050'>筑基境</a>。</p>
+<p class="success">筑基方式有以下三种</p>
+<p><a style='color:green'>●</a>天道筑基：</p>
+<p>需要集齐<a style='color:#FF0000' href="#火灵气">火灵气</a>、<a style='color:#FF0000' href="#水灵气">水灵气</a>、<a style='color:#FF0000' href="#雷灵气">雷灵气</a>、<a style='color:#FF0000' href="#风灵气">风灵气</a>、<a style='color:#FF0000' href="#土灵气">土灵气</a>、<a style='color:#FF0000' href="#木灵气">木灵气</a>，并辅以<a style='color:#00B050'>3</a>种<a style='color:#00B050'>天材地宝</a>，方可进行天道筑基。</p>
+<p><a style='color:green'>●</a>地道筑基：</p>
+<p>集齐<a style='color:#FF0000' href="#火灵气">火灵气</a>、<a style='color:#FF0000' href="#水灵气">水灵气</a>、<a style='color:#FF0000' href="#雷灵气">雷灵气</a>、<a style='color:#FF0000' href="#风灵气">风灵气</a>、<a style='color:#FF0000' href="#土灵气">土灵气</a>、<a style='color:#FF0000' href="#木灵气">木灵气</a>中的任意3个，并辅以<a style='color:#00B050'>2</a>种<a style='color:#00B050'>天材地宝</a>即可进行地道筑基。</p>
+<p><a style='color:green'>●</a>人道筑基：</p>
+<p>使用六品筑基丹或更高品的筑基丹，并辅以<a style='color:#00B050'>1</a>种<a style='color:#00B050'>天材地宝</a>即可进行人道筑基。</p>
+<br>
+<p>突破时辅以<a style='color:#00B050'>天材地宝</a>可<a style='color:yellow;background:#AAA;'>大幅提升</a>突破后的属性，筑基可用的<a style='color:#00B050'>天材地宝</a>如下：</p>
+<p><a style='color:green'>●</a><a style='color:#FF5A1C' href="#葬沙骨">葬沙骨</a></p>
+<p><a style='color:green'>●</a><a style='color:#FF5A1C' href="#朝夕露">朝夕露</a></p>
+<p><a style='color:green'>●</a><a style='color:#FF5A1C' href="#千年钟乳">千年钟乳</a></p>
+<p><a style='color:green'>●</a><a style='color:#A100FF' href="#朱果">朱果</a></p>
+<p><a style='color:green'>●</a><a style='color:#A100FF' href="#玉龙霜">玉龙霜</a></p>
+<p><a style='color:green'>●</a><a style='color:#A100FF' href="#暖玉">暖玉</a></p>
+<br>
+<p>关于突破的更多详情可在【逆天改命】界面中查看。</p>
+<br>
+<p class="tips">灵气纯度只影响突破成功率，只要提前带两组回血药或带个风身法，突破失败后的雷劫也是能轻松度过的，所以不用追求灵气品质。筑基成功后记得第一时间换上<a href="#荒角碧游鲲">荒角碧游鲲</a>。</p>
 
+<h2 id="阻止陌生男子">阻止陌生男子</h2>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p class="task">回到永宁州某处某方的后羿，阻止陌生男子。</p>
+<p class="trigger">进入永宁州后第一次过月月初触发剧情，与圣阳对话后获得奖励：灰色最高资质对应身法、<a href="#圣阳羽毛">圣阳羽毛</a>。</p>
+<p class="success">选择“我岂会让你得逞”之后完成本主线任务。在战斗中败给后羿不会被杀，也没有其它影响。战斗结束后继续对话领取到主线任务：<a href="#寻找三足乌">寻找三足乌</a>。</p>
+<p class="failure">选择“…此事与我无关”之后领取到本主线任务。后羿会留在原地等待玩家触发。</p>
+<hr>
+<p>我：（周围突然变得异常炎热，是何物在作祟…）</p>
+<p>不远处突然涌现一道黑影，此时正朝你快速奔来。</p>
+<p><img alt="圣阳" title="圣阳" src="鬼谷八荒.files/圣阳.jpg"></p>
+<p>圣阳：救…救命啊！！</p>
+<p>我：这是怎么了？</p>
+<p>圣阳：有人想要射杀我和我的兄弟姐妹们！如今我落单，只怕是在劫难逃！</p>
+<p>圣阳：求求你救救我！</p>
+<p>我：那是何人？他为何要杀你们？</p>
+<p>圣阳：我也不知…我们兄弟姐妹在家中实在无聊，便一同前往外面的世界游玩…不料却遭人无故追杀。</p>
+<p class="dialog_box">岂有此理！那人现在何处？</p>
+<p>圣阳：他马上就要过来了！</p>
+<p>我：你且先走，待我会会他！</p>
+<p>圣阳：好，那便有劳阁下…我必须要走了！</p>
+<p>我：先等等…</p>
+<p>我：（她方才走得匆忙，似乎遗落了什么东西…）</p>
+<p class="dialog_box">捡起来看看</p>
+<p>我：（那人敢在光天化日之下公然行凶，绝不是等闲之辈！）</p>
+<p><img alt="后羿" title="后羿" src="鬼谷八荒.files/后羿.jpg"></p>
+<p>后羿：这位道友，可曾有一位身着黑衣的女子途经此处？</p>
+<p>我：你寻她所为何事？</p>
+<p>后羿：今日…我必须杀了它！</p>
+<hr>
+<p class="dialog_box">1 我岂会让你得逞！</p>
+<p>我：我岂会让你得逞！让我来会会你！</p>
+<p class="dialog_box">进入战斗</p>
+<p>后羿：道友，你且听我一言。</p>
+<p>后羿：你所见的黑衣女子，乃是<a style='color:red'>三足乌</a>所变。</p>
+<p>我：<a style='color:red'>三足乌</a>是何物？</p>
+<p>后羿：先停手，且听我细细道来。</p>
+<p>后羿：不久前，八荒世界中突然出现了一群<a style='color:red'>三足乌</a>！这些怪物身上散发着恐怖的热量，它们的出现使得附近的草木枯死、河流干涸。所到之处，皆是生灵涂炭！</p>
+<p>后羿：我立誓要铲除它们！可它们实力强大，联手起来我根本无法应对…</p>
+<p>后羿：前些时日，有其中一只不知何故落了单，我发现后便星夜追杀!却还是被它逃脱了…</p>
+<p>我：这么说来，是被我所耽误了…</p>
+<p>后羿：天意如此，道友不必介怀。</p>
+<p>我：那群<a style='color:red'>三足乌</a>现在何处？让我去教训它们一番！</p>
+<p>后羿：它们就栖息在不远处…<a style='color:red'>三足乌</a>实力强大，以少敌多是不明智的选择。</p>
+<hr>
+<p class="dialog_box">2 …此事与我无关</p>
 
+<h2 id="寻找三足乌">寻找三足乌</h2>
+<p class="association"><a href="#阻止陌生男子">阻止陌生男子</a></p>
+<p class="task">前往永宁州某处某方的三足乌附近，寻找三足乌的踪迹。</p>
+<p class="success">选择“讨伐三足乌”之后完成本主线任务。进入的战斗为剧情杀。战斗结束后触发剧情被传送回后羿处，领取到主线任务：<a href="#与后羿交谈">与后羿交谈</a>。</p>
+<p class="failure">选择“逃跑”之后传送到附近5至15格随机位置。</p>
+<p class="tips">由于进入的战斗为剧情杀，会消耗掉濒死触发的气运，所以建议在练气期或筑基期就完成本任务。</p>
+<hr>
+<p><img alt="三足乌·赤炎" title="三足乌·赤炎" src="鬼谷八荒.files/三足乌·赤炎.jpg"></p>
+<p>三足乌·赤炎：人类，这里是我们的地盘！还不快速速退去！</p>
+<hr>
+<p class="dialog_box">1 讨伐三足乌</p>
+<p>我：我若是不退呢？</p>
+<p>三足乌·赤炎：好大的胆子！我看你是活得不耐烦了！！！</p>
+<p class="dialog_box">进入战斗</p>
+<p>我：（唔…这<a style='color:red'>三足乌</a>果然厉害。）</p>
+<p>三足乌·赤炎：惹怒了我，今日你必将付出代价。</p>
+<p>后羿：别愣着，快到这边来！</p>
+<p>后羿：先离开此地，讨伐<a style='color:red'>三足乌</a>还得从长计议。</p>
+<hr>
+<p class="dialog_box">2 逃跑</p>
 
+<h2 id="与后羿交谈">与后羿交谈</h2>
+<p class="association"><a href="#寻找三足乌">寻找三足乌</a></p>
+<p class="task">前往永宁州某处某方的后羿，与后羿进行交谈。</p>
+<p class="success">完成后领取到主线任务：<a href="#寻找人面鸮之王">寻找人面鸮之王</a>。</p>
+<hr>
+<p>后羿：道友，我们的实力与<a style='color:red'>三足乌</a>差距悬殊，若是正面交战，想要取胜绝非易事。</p>
+<p>我：那依你之见，该如何是好？</p>
+<p>后羿：实不相瞒，我过去云游天下，曾有幸得到一件神器的铸造之法。</p>
+<p>后羿：若能成功锻造，我便有把握能够射杀<a style='color:red'>三足乌</a>！</p>
+<p>后羿：实不相瞒，我过去云游天下，曾有幸得到一件神器的铸造之法。</p>
+<p>我：那你为何不从一开始便锻造神器呢？</p>
+<p>后羿：你有所不知…既是神器，锻造所需的自然不是凡物。</p>
+<p>后羿：多年来，我已成功收集了十之八九，只是尚缺<a style='color:#00B050'>扶桑树枝</a>与<a style='color:red'>人面鸮王</a>的<a style='color:#00B050'>金羽</a>。</p>
+<p>后羿：扶桑树乃是传说中的神树，位于八荒世界的东海附近，想要寻到十分不易。</p>
+<p>后羿：还有一位实力高深莫测的<a style='color:red'>守护者</a>常年保护着神树。我曾经去过<a style='color:#007BFF'>东海</a>，却连神树的模样都没有见到，便被<a style='color:red'>守护者</a>给驱逐了。</p>
+<p>后羿：至于那<a style='color:red'>人面鸮王</a>，更是传说中的存在。我只曾听闻它出没在一处隐蔽的<a style='color:#007BFF'>山谷</a>中，却从未寻到它的踪迹。</p>
+<p>我：我先去寻找<a style='color:red'>人面鸮王</a>，再到<a style='color:#007BFF'>东海</a>去看看，<a style='color:#00B050'>扶桑树枝</a>和<a style='color:#00B050'>金羽</a>便交给我吧。</p>
+<p>后羿：如此甚好！但此去<a style='color:#007BFF'>东海</a>路途凶险，若是没有<a style='color:#A100FF'>结晶境</a>的实力，恐怕会有性命之忧…还请量力而行。在此期间，我会尽量阻挡<a style='color:red'>三足乌</a>危害八荒。期待你的好消息。</p>
 
-<script src="/js/script.js"></script>
+<h2 id="寻找人面鸮之王">寻找人面鸮之王</h2>
+<p class="association"><a href="#与后羿交谈">与后羿交谈</a></p>
+<p class="task">前往永宁州某处某方的后羿，与后羿进行交谈。</p>
+<p class="success">完成后领取到主线任务：<a href="#寻找人面鸮之王">寻找人面鸮之王</a>。</p>
+<p class="tips">需达到筑基境才能进入副本。</p>
+<hr>
+<p>我：（这个<a style='color:#007BFF'>山谷</a>诡异得很…待我拥有了<a style='color:#A100FF'>筑基境</a>的实力再来探索吧。）</p>
+<hr>
+<p>我：（如今我已经有筑基境的实力了，这就出发去寻找人面鸮王吧。）</p>
+<hr>
+<p><img alt="山谷阴风四起危险气息" title="山谷阴风四起危险气息" src="鬼谷八荒.files/山谷阴风四起危险气息.jpg"></p>
+<p>山谷中阴风四起，空气中弥漫着一股危险的气息…</p>
+<p class="dialog_box">进入山谷探索</p>
+<p>我：（这一定就是人面鸮之王了，我必须击败它。）</p>
+<hr>
+<p>我：（不愧是传说中的异兽，真不容易…）</p>
+<p>我：（接下来便只差<a style='color:#00B050'>扶桑树枝</a>了。在去<a style='color:#007BFF'>东海</a>之前，我最好先将修为提升至<a style='color:#A100FF'>结晶境</a>。）</p>
 
+<h1 style='vertical-align:middle'>支线和奇遇</span></h1>
 
+<h2 id="前往擎天寨">前往擎天寨</h2>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</a></p>
+<p><img alt="擎天寨" title="擎天寨" src="鬼谷八荒.files/擎天寨.jpg"></p>
+<p class="task">前往擎天寨，寻找蔡家女子。</p>
+<p class="success">选择“细问其中缘由”→“信他所言，转身离开”结束支线，没有奖励。</p>
+<p class="success">其它选择将进入战斗，击败山贼二当家后获得灵石×300、朱钗×1。之后选择“你若有仙缘，又岂会打家劫舍”结束支线，没有后续奖励。</p>
+<p class="success">其它选择将进入战斗，击败山贼二当家后获得灵石×300、朱钗×1。之后选择“你且说说看”获得灵石×500、<a href="#二当家的书">二当家的书</a>×1、未知的玉符×1。领取到支线任务：<a href="#与二当家的母亲对话">与二当家的母亲对话</a>。</p>
+<p class="tips">选项选择对最终奖励的影响见<a href="#擎天寨事件完毕后第二个月">擎天寨事件完毕后第二个月</a>。</p>
+<hr>
+<p>我：如何赚取灵石？</p>
+<p>酒馆老板：你可以通过击杀妖兽获取材料，坊市会以合适的灵石收购你的材料；加入宗门后，每年宗门都会给你提供一定的灵石助你修炼，你在宗门中的地位越高，得到的灵石就越多；完成城镇悬赏榜上所发布的任务，也可以收获不少报酬。</p>
+<p>酒馆老板：不过，你来得正是时候！蔡府的千金被附近的擎天寨掳了去，你若能将其从山贼手中救回，便可以获得一笔灵石。</p>
+<p>酒馆老板：修仙者对付几个山贼应该不在话下，这可是难得的好机会!</p>
+<p class="dialog_box">接受委托</p>
+<p>酒馆老板：擎天寨便在城镇附近，山贼将人掳走已有一段时间了，你抓紧时间吧！</p>
+<hr>
+<p><img alt="擎天寨.与之交涉" title="擎天寨.与之交涉" src="鬼谷八荒.files/擎天寨.与之交涉.jpg"></p>
+<p>你来到了擎天寨，寨中的人似乎察觉了你的到来，走出营寨欲与你交涉。</p>
+<p class="dialog_box">与之交涉</p>
+<p>为首的那人身着寨服，手持巨刃。</p>
+<p>？？？：你是何人？来到擎天寨有何指教？</p>
+<p>我：若是识相，便赶紧将蔡家女子放走。否则，今日我必将灭了你这擎天寨！</p>
+<p>？？？：她…已经不在了。</p>
+<p>我：（此言何意？…莫非是…刚烈自尽？！）</p>
+<hr>
+<p class="dialog_box">1 屠灭擎天寨</p>
+<p><img alt="擎天寨.击败山贼" title="擎天寨.击败山贼" src="鬼谷八荒.files/擎天寨.击败山贼.jpg"></p>
+<p>你击败了山贼，进入营寨中搜查了一番…</p>
+<p>你在营寨中收刮到了一些灵石与一个看起来价格十分昂贵的珠钗。</p>
+<p><img alt="擎天寨.二当家还没完全断气" title="擎天寨.二当家还没完全断气" src="鬼谷八荒.files/擎天寨.二当家还没完全断气.jpg"></p>
+<p>你走出营寨，正打算离开…此时却发现二当家还没完全断气，他正神情恍惚的盯着你手中的珠钗…</p>
+<p>二当家：…我命数已尽，却还有两桩心愿未了…我愿以仙缘为代价，请求阁下替我完成…</p>
+<hr>
+<p class="dialog_box">11 你且说说看</p>
+<p>二当家：…其一，我家中尚有一老母。每隔数日，我便会托人带些灵石给她…而如今我却再也无法尽孝…</p>
+<p>二当家：囊中的灵石便是我所有积蓄，有劳阁下替我转交。还有…替我对她说一声对不起…儿子再也无法孝敬她了…</p>
+<p>二当家：…其二，将此书连同你手中所持的珠钗一并交予蔡姑娘…此书乃私信，望你能守礼。</p>
+<p>二当家说完，又从怀中取出一道玉符…</p>
+<p>二当家：这便是我所说的仙缘…乃是仙人梦授于我祖父，并留下箴言“造化之初，符光引渡，五德兼备，始得仙缘。”</p>
+<p>二当家：我家中三代人皆不解其意…如今我便将其交予你…</p>
+<p>山贼说完，便断了气…你看着擎天寨中的遍地横尸，你决定…</p>
+<hr>
+<p class="dialog_box">111 安葬死者，入土为安</p>
+<p><img alt="擎天寨.将山贼纷纷安葬" title="擎天寨.将山贼纷纷安葬" src="鬼谷八荒.files/擎天寨.将山贼纷纷安葬.jpg"></p>
+<p>你将擎天寨的山贼纷纷安葬后，离开了此地。</p>
+<hr>
+<p class="dialog_box">112 离开此地</p>
+<p>你离开了擎天寨，留下了遍地的横尸。</p>
+<hr>
+<p class="dialog_box">12 你若有仙缘，又岂会<br>打家劫舍？</p>
+<p>二当家：…此言在理！我为贼为寇乃是不争的事实。既如此，便不劳烦阁下了…</p>
+<p>山贼二当家说完，便断了气…擎天寨中只留下了一片横尸。</p>
+<hr>
+<p class="dialog_box">2 细问其中缘由</p>
+<p>二当家：我是擎天寨的二当家，首领先前听闻蔡姑娘貌美，便聚集一伙人将其掳掠…</p>
+<p>二当家：我曾求过首领放过她，可此时的首领已被色欲熏心…不顾情谊，执意强为！</p>
+<p>二当家：所幸有高人途经此地，听见了蔡姑娘的呼救声…那人看清形势后，便将首领一剑给斩了…</p>
+<p>二当家：我也不知那是何人，只听闻他自称“剑红尘”…此时，想必这位侠士已将蔡姑娘护送回到府中了吧…</p>
+<hr>
+<p class="dialog_box">21 这贼人定是在开脱，<br>灭了擎天寨</p>
+<p>后续与前面的“1 屠灭擎天寨”后续相同</p>
+<hr>
+<p class="dialog_box">22 信他所言，转身离开</p>
+<p>你相信了山贼的话，转身离开了擎天寨。</p>
 
+<h2 id="与二当家的母亲对话">与二当家的母亲对话</h2>
+<p class="association"><a href="#前往擎天寨">前往擎天寨</a></p>
+<p class="task">前往新达镇东北方的愚村，寻找山贼二当家的母亲。</p>
+<p class="tips">选项选择对最终奖励的影响见<a href="#擎天寨事件完毕后第二个月">擎天寨事件完毕后第二个月</a>。</p>
+<hr>
+<p><img alt="擎天寨.寻到其母" title="擎天寨.寻到其母" src="鬼谷八荒.files/擎天寨.寻到其母.jpg"></p>
+<p>你依山贼之言来到村中，寻到其母…</p>
+<hr>
+<p class="dialog_box">1 给予250灵石<br>（需要 灵石×250）</p>
+<p>你留下了一半的灵石，仅将250灵石给予了老人…在老人疑惑的眼神下，你大步离开了此地。</p>
+<hr>
+<p class="dialog_box">2 给予500灵石<br>（需要 灵石×500）</p>
+<p>你遵照与山贼的约定，将500灵石给予了他的母亲…老人从你口中听闻儿子的死讯后，悲痛不已…</p>
+<hr>
+<p class="dialog_box">3 给予800灵石<br>（需要 灵石×800）</p>
+<p>“你儿今日无暇，便托我带了些灵石来探望…”<br>你见其年老无依，便给予了老人800灵石…</p>
+<p>你将老人安顿好后，便离开了此地。</p>
+<hr>
+<p class="dialog_box">4 转身离开</p>
+<p>在老人疑惑的眼神中，你转身离开了此地…</p>
 
+<h2 id="与蔡家女子对话">与蔡家女子对话</h2>
+<p class="association"><a href="#前往擎天寨">与二当家的母亲对话</a></p>
+<p class="task">前往新达镇，寻找蔡家女子。</p>
+<p class="tips">选项选择对最终奖励的影响见<a href="#擎天寨事件完毕后第二个月">擎天寨事件完毕后第二个月</a>。</p>
+<p class=BUG>BUG：选择“暂且离开”将导致本支线直接消失，之后也无法触发任何后续！</p>
+<hr>
+<p><img alt="擎天寨.蔡家女子" title="擎天寨.蔡家女子" src="鬼谷八荒.files/擎天寨.蔡家女子.jpg"></p>
+<p>你依山贼之言来到了城镇中，寻到了蔡家女子…</p>
+<hr>
+<p class="dialog_box2">1 交出珠钗与二当家的书<br>（需要 二当家的书×1、<br>珠钗×1）</p>
+<p>你将珠钗与二当家的书一并交给了她…她看完书中的内容后，面无表情的转身离去。</p>
+<p><img alt="擎天寨.目送蔡家女子离开" title="擎天寨.目送蔡家女子离开" src="鬼谷八荒.files/擎天寨.目送蔡家女子离开.jpg"></p>
+<p>目送着蔡家女子离开后，你也离开了此地。</p>
+<hr>
+<p class="dialog_box">2 只给她二当家的书<br>（需要 二当家的书×1）</p>
+<p>你只将二当家的书交给她，自己留下了珠钗…她看完书中的内容后面无表情的看了你好一会，便转身离去。</p>
+<p>目送着蔡家女子离开后，你也离开了此地。</p>
+<hr>
+<p class="dialog_box">3 暂且离开</p>
+<p>此选项有BUG！勿选！</p>
 
-  </div>
+<h2 id="擎天寨事件完毕后第二个月">擎天寨事件完毕后第二个月</h2>
+<p class="association"><a href="#前往擎天寨">前往擎天寨</a>，<a href="#与二当家的母亲对话">与二当家的母亲对话</a>，<a href="#与蔡家女子对话">与蔡家女子对话</a></p>
+<p class="success">屠灭擎天寨后选择了“安葬死者，入土为安”、与二当家的母亲对话时选择了“给予800灵石”、与蔡家女子对话时选择了“交出珠钗与二当家的书”、并且全程不查看二当家的书，第二个月月初会获得一本【蓝色及以下品质】的随机资质的【密卷或神功或大法】以及一本最高资质对应的橙色品质武技。</p>
+<p class="tips">仁义礼智信五点，都满足才能获得最好的后续奖励。</p>
+<p class="tips">仁义礼信四点，缺一个只给一本【绿色及以下品质】的随机资质的心法。缺一个以上没有后续奖励。</p><!-- 绿诀灰经绿式 -->
+<p class="tips">不仁不义不礼不信四点，有两个则过月月初会扣一半血，有两个以上则过月月初还会获得后天气运重伤6月。如果你过月之前血量不足一半，过月会被炸死，而且不知道是BUG还是刻意的设计，这种死亡会跳过神器的保护。</p>
+<p class="tips">与二当家的母亲对话时选择“给予500灵石”既不算【义】也不算【不义】。</p>
+<hr>
+<p><img alt="擎天寨.玉符发出光芒" title="擎天寨.玉符发出光芒" src="鬼谷八荒.files/擎天寨.玉符发出光芒.jpg"></p>
+<p>先前那山贼给你的玉符突然发出耀眼的光芒。</p>
+<p>你的耳边突然响起一道传音…<br>？？？：收敛尸身是谓仁，多资赡养是谓义，不窥私信是谓礼，勘破箴言是谓智，依愿给物是谓信！五德兼备者，可得吾之传承！</p>
+<p>随后，玉符便化作一个匣子出现在你手中！</p>
+<hr>
+<p>先前那山贼给你的玉符突然发出耀眼的光芒。</p>
+<p>你的耳边突然响起一道传音…<br>？？？：收敛尸身是谓仁，（多资赡养是谓义，）不窥私信是谓礼，勘破箴言是谓智，依愿给物是谓信，可惜尚缺一义（仁礼信）！但…相逢便是缘分，今日便赐予你一场造化！</p>
+<p>随后，玉符便化作一个匣子出现在你手中！</p>
+<hr>
+<p>先前那山贼给你的玉符突然发出耀眼的光芒。</p>
+<p>你的耳边突然响起一道传音…<br>？？？：任其曝尸，私扣钱财（偷窥私信，私藏珠钗），是为不仁不义（不礼不信），不*之人不配拥有吾之传承！</p>
+<p><img alt="擎天寨.玉符冲击爆开" title="擎天寨.玉符冲击爆开" src="鬼谷八荒.files/擎天寨.玉符冲击爆开.jpg"></p>
+<p>随后，玉符中灵力翻涌！片刻后，一道强大的冲击从玉符中爆开！你因此而受伤！</p>
+<hr>
+<p>先前那山贼给你的玉符突然发出耀眼的光芒。</p>
+<p>你的耳边突然响起一道传音…<br>？？？：道德败坏之人不配拥有吾之传承！</p>
+<p>随后，玉符中灵力翻涌！片刻后，一道冲击从玉符中爆开！你身受重伤！</p>
+
+<h2 id="造化丹和筑基坐骑">造化丹和筑基坐骑</h2>
+<p class="association"><a href="#前往城镇">前往城镇</a></p>
+<p class="trigger">白源区大地图移动一格、只会触发一次。</p>
+<p class="success">奇遇奖励：<a href="#造化丹">造化丹</a>×5</span>、<a href="#荒角碧游鲲">荒角碧游鲲</a>×1</span>。</p>
+<p class="tips">造化丹全档只此5</span>个。坐骑是筑基期最好的，别忘了刚筑基立马装备上。</p>
+<hr>
+<p><img alt="乌云密布漩涡浮现" title="乌云密布漩涡浮现" src="鬼谷八荒.files/乌云密布漩涡浮现.jpg"></p>
+<p>你走在路上，乌云突然密布，一个巨大的漩涡缓缓浮现……</p>
+<p><img alt="宝箱" title="宝箱" src="鬼谷八荒.files/宝箱.jpg"></p>
+<p>随着一声清脆的“咚”响，一个闪耀着金色光芒的宝箱落到你的面前……</p>
+<p>我：（竟有如此好运！难道我就是传说中的天命之子？！）</p>
+<p class="dialog_box">打开看看</p>
+<p><img alt="强光" title="强光" src="鬼谷八荒.files/强光.jpg"></p>
+<p>宝箱突发强光，随之炸裂消失，你的手中出现了一些物品……</p>
+
+<h2 id="李四的聚气丸">李四的聚气丸</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">修为达到练气初期和中期之间的瓶颈后在大地图移动一格、只会触发一次。</p>
+<p class="success">奇遇内容：李四推销<a href="#聚气丸">聚气丸</a>×1。拒绝购买或花费400灵石购买。</p>
+<p class="tips">游戏难度越高物价越高，而李四价格固定为400灵石。所以地狱和洪荒难度下选择在李四处购买，其它难度下在新达镇坊市购买。</p>
+<hr>
+<p><img alt="神秘人李四" title="神秘人李四" src="鬼谷八荒.files/神秘人李四.jpg"></p>
+<p>神秘人李四：小家伙，修炼遇到瓶颈了吧？别着急，我有一枚仙丹，定能助你一举突破至炼气中期！</p>
+<p>神秘人李四：嘿嘿嘿~我这<a style='color:#00B050'>聚气丸</a>，在寻常的坊市中，能卖到800灵石的天价！关键是有价无市，即便你身缠万贯，还不一定能买得到呢！</p>
+<p>神秘人李四：但是，我见你天生骨骼惊奇，是万中无一的修道奇才！既然你我有缘，我又有心想要助你一臂之力…这原价800灵石的<a style='color:#00B050'>聚气丸</a>，现在只需要400灵石我便转让给你。你意如何？</p>
+<hr>
+<p class="dialog_box">1 我买了（需要<br>灵石×400）</p>
+<p>神秘人李四：嘿嘿嘿~果然够爽快，这枚<a style='color:#00B050'>聚气丸</a>是你的了！</p>
+<hr>
+<p class="dialog_box">2 算了</p>
+<p>神秘人李四：啧…不识好歹，不买就拉倒！我还不想卖呢！</p>
+
+<h2 id="神秘洞窟参悟心得">神秘洞窟参悟心得</h2>
+<p><img alt="神秘洞窟" title="神秘洞窟" src="鬼谷八荒.files/神秘洞窟.jpg"></p>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">在大地图移动一格有概率在附近5至10格刷出神秘洞窟、获得秘籍后才会刷下一个，一共3个。</p>
+<p class="success">3个洞窟获得的奖励分别为：紫色最高资质对应身法×1、紫色式×1+紫色诀×1、紫色最高资质对应神通×1，分别与下面的三段文本对应。</p>
+<p class="tips">刚进入永宁州很快就会刷出该奇遇，可以双击大地图上远处某点进行移动，刷出神秘洞窟时会打断移动，此时存档并照亮附近5至10格区域就能找到。未找到就读档继续前进。</p>
+<hr>
+<p><img alt="神秘洞窟参悟心得" title="神秘洞窟参悟心得" src="鬼谷八荒.files/神秘洞窟参悟心得.jpg"></p>
+<p>你进入一处神秘洞窟，只见石壁上篆刻大量古奥文字，你细细研读发现那竟是前人留下的参悟心得。</p>
+<p>你发现了一处年代久远的神秘洞窟，石壁上以利器篆刻文字，但部分字迹已经脱落，导致文理脱漏。不过经你细心推敲，你仍然从中获益良多。</p>
+<p>你踏入一处洞窟，只见石洞之上布满密密麻麻的文字，乍一看却是一些功法的心得。不过年久日深，文字已大量脱漏，你只能从中参悟一些心得。</p>
+<p><img alt="石壁酥化字迹损毁" title="石壁酥化字迹损毁" src="鬼谷八荒.files/石壁酥化字迹损毁.jpg"></p>
+<p>你想将所有文字全部记录下来，好日后细细参研，但石壁突然酥化损坏，所有字迹霎时间一并损毁。</p>
+
+<h2 id="圣山之森">圣山之森</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">在永宁州大地图移动概率触发、只会触发一次。</p>
+<p class="success">“深入探索一番”→“挑逗玩耍”获得随机六道灵气之一</p>
+<p class="tips">在和灵鹿玩耍之后，选择“跟灵鹿走”或“先寻宝”都能获得奖励，由此可见，自行寻宝找到宝物并非“误打误撞”。</p>
+<hr>
+<p><img alt="圣山之森.奇异力量" title="圣山之森.奇异力量" src="鬼谷八荒.files/圣山之森.奇异力量.jpg"></p>
+<p>你途径一处森林，你感受到了其中深处似乎有一种奇异的力量。</p>
+<hr>
+<p class="dialog_box">1 这股力量如梦似幻，<br>深入探索一番</p>
+<p><img alt="圣山之森.灵鹿毫无防备" title="圣山之森.灵鹿毫无防备" src="鬼谷八荒.files/圣山之森.灵鹿毫无防备.jpg"></p>
+<p>你进入了森林深处…突然，有一只可爱的灵鹿靠近了你，并且对你毫无防备。</p>
+<hr>
+<p class="dialog_box">11 此鹿乃上等灵物，<br>先捉住再说</p>
+<p><img alt="圣山之森.危机离开" title="圣山之森.危机离开" src="鬼谷八荒.files/圣山之森.危机离开.jpg"></p>
+<p>你正想将其生擒，整个人便失去了意识…在你清醒过来时，发现自己又回到了先前的森林中。</p>
+<hr>
+<p class="dialog_box">12 挑逗灵鹿，与其一起玩耍</p>
+<p><img alt="圣山之森.灵鹿好感玩耍" title="圣山之森.灵鹿好感玩耍" src="鬼谷八荒.files/圣山之森.灵鹿好感玩耍.jpg"></p>
+<p>灵鹿似乎对你颇有好感，与你玩耍了好一阵…</p>
+<p><img alt="圣山之森.回头看了看你" title="圣山之森.回头看了看你" src="鬼谷八荒.files/圣山之森.回头看了看你.jpg"></p>
+<p>在它打算离开时，回头看了看你，似乎在示意你跟着它一起走。</p>
+<hr>
+<p class="dialog_box">121 跟灵鹿走</p>
+<p><img alt="圣山之森.灵鹿带你来到山洞" title="圣山之森.灵鹿带你来到山洞" src="鬼谷八荒.files/圣山之森.灵鹿带你来到山洞.jpg"></p>
+<p>灵鹿带着你穿越森林，来到一个山洞面前后，便化作灵气向四周消散而去…</p>
+ <p><img alt="圣山之森.寻到六道灵气之一" title="圣山之森.寻到六道灵气之一" src="鬼谷八荒.files/圣山之森.寻到六道灵气之一.jpg"/></p>
+<p>你进入了山洞中，寻到了六道灵气之一。</p>
+<hr>
+<p class="dialog_box">122 此地的宝物还未<br>进行寻搜，先寻宝</p>
+<p><img alt="圣山之森.误打误撞发现宝物" title="圣山之森.误打误撞发现宝物" src="鬼谷八荒.files/圣山之森.误打误撞发现宝物.jpg"></p>
+<p>在你四处寻找出路时，误打误撞的发现了一个宝物。</p>
+<hr>
+<p class="dialog_box">2 这股力量如梦似幻，<br>还是趁早远离</p>
+<p><img alt="圣山之森.危机离开" title="圣山之森.危机离开" src="鬼谷八荒.files/圣山之森.危机离开.jpg"></p>
+<p>你敏锐的察觉到了其中蕴含的危机，快步的离开了此地…</p>
+
+<h2 id="路过一座大山">路过一座大山</h2>
+<p class="trigger">在大地图移动概率触发。</p>
+<p class="failure">“在灵泉边修炼”后选择“摧毁”会增加20魔道值。</p>
+<p class="success">“走近茅屋”后选择“破门而入”会获得后天气运小伤3月。</p>
+<hr/>
+<p><img alt="路过一座大山" title="路过一座大山" src="鬼谷八荒.files/路过一座大山.jpg"/></p>
+<p>你路过一座大山，突然感受到大山方向传来一股细微的精纯灵气。你小心地来到山脚下，发现此山的形状奇致怪样，半山腰以上还被浓雾山岚遮盖，以路人眼光着实无法窥见一斑。因此你决定：</p>
+<hr/>
+<p class="dialog_box">1 就地修炼</p>
+<hr/>
+<p class="dialog_box">2 换个方向看看</p>
+<hr/>
+<p class="dialog_box">3 就此离开</p>
+<p>你从灵气中察觉到了一丝异样和危险，仿佛它属于奇高无比的境界你无法理解。慎重起见，你赶紧离开了大山。</p>
+
+<h2 id="异兽行云布雨">异兽行云布雨</h2>
+<p class="trigger">在大地图移动概率触发。</p>
+<p class="success">XXX</p>
+<p class="success">XXX</p>
+<hr/>
+<p><img alt="异兽行云布雨" title="异兽行云布雨" src="鬼谷八荒.files/异兽行云布雨.jpg"/></p>
+<p>远处似有异兽在行云布雨。</p>
+<p>不久天地间普降甘霖！</p>
+
+<h2 id="山谷传来震天咆哮">山谷传来震天咆哮</h2>
+<p class="trigger">在大地图移动概率触发。</p>
+<p class="success">增加修为317±。</p>
+<hr/>
+<p>前方山谷传来震天咆哮。</p>
+<p><img alt="猿猴与巨蟒" title="猿猴与巨蟒" src="鬼谷八荒.files/猿猴与巨蟒.jpg"/></p>
+<p>你凝神望去，只见一只白首赤足的猿猴正与一只通体漆黑头上冒着青光的巨蟒扭打在一起，嘶吼中大地震颤。</p>
+<p>看见如此惊心动魄的战斗，你心有明悟，忽有所感，修为提升。</p>
+
+<h2 id="长着紫色翅膀的奇怪老鼠">长着紫色翅膀的奇怪老鼠</h2>
+<p class="trigger">在大地图移动概率触发。</p>
+<p class="success">获得三品化瘀丹×19±。</p>
+<hr/>
+<p>前方草丛中传来悉悉索索的声音，你仔细看去，只见一只长着紫色翅膀的奇怪的老鼠正在翻找一处小地洞。</p>
+<p><img alt="老鼠飞走" title="老鼠飞走" src="鬼谷八荒.files/老鼠飞走.jpg"/></p>
+<p>你怀着好奇往前走了一步，老鼠一惊用双翼掩住脑袋，双眼从羽翼间看到你后转瞬飞走。</p>
+<p>你轰开地洞露出了藏在里面的东西。</p>
+
+<h2 id="绿色鹦鹉飞过">绿色鹦鹉飞过</h2>
+<p class="trigger">在大地图移动概率触发。</p>
+<p class="success">“自命翼儿”增加20魔道值，获得三品培元丹×17。</p>
+<p class="success">“收起贪念”XXX</p>
+<hr/>
+<p><img alt="绿色鹦鹉飞过" title="绿色鹦鹉飞过" src="鬼谷八荒.files/绿色鹦鹉飞过.jpg"/></p>
+<p>天空中一只绿色的鹦鹉从你身边飞过，嘴里边飞边重复着“南边桥下挂着我留给你的东西，翼儿，你切记不可说与他人知晓。”</p>
+<hr>
+<p class="dialog_box">1 你在心里给自己起个<br>小名叫翼儿</p>
+<p>你顺着河流找到了那座桥，果然在桥下挂着一个袋子，你收起袋子在别人发现之前快步离去。</p>
+<hr>
+<p class="dialog_box">2 收起贪念告诉自己<br>这是他人之物</p>
+<p>XXX</p>
+
+<h2 id="狐狸猛追黄鼠狼">狐狸猛追黄鼠狼</h2>
+<p class="trigger">在大地图移动概率触发。</p>
+<p class="success">“帮黄鼠狼”击败狐狸后获得五品灵果×1。</p>
+<p class="failure">“不理会”结束奇遇。</p>
+<hr/>
+<p><img alt="黄鼠狼叼珠子狐狸猛追" title="黄鼠狼叼珠子狐狸猛追" src="鬼谷八荒.files/黄鼠狼叼珠子狐狸猛追.jpg"/></p>
+<p>一只黄鼠狼叼着一颗珠子从你身边跑过，后面一只狐狸正在猛追。</p>
+<hr>
+<p class="dialog_box">1 帮黄鼠狼（战斗）</p>
+<p>你赶走了狐狸，黄鼠狼叼着珠子跑开，一会儿又出现时嘴里咬着一个盒子，放到你脚下后就跑走了。</p>
+<p>你收起盒子内的东西离开了这里。</p>
+<hr>
+<p class="dialog_box">2 帮狐狸（战斗）</p>
+<p>XXX</p>
+<hr>
+<p class="dialog_box">3 不理会</p>
+<p>野兽之间的事情就让它们自己解决吧，你继续赶路。</p>
+
+<h2 id="枣叶黄花桃果">枣叶黄花桃果</h2>
+<p class="trigger">在大地图移动概率触发。</p>
+<p class="success">“吃掉果实”后回复心情。</p>
+<hr/>
+<p><img alt="枣树叶子黄色花朵桃子果实" title="枣树叶子黄色花朵桃子果实" src="鬼谷八荒.files/枣树叶子黄色花朵桃子果实.jpg"/></p>
+<p>你路过一山，正觉得饥渴时看见山上有一棵树，长着枣树的叶子开着黄色的花朵，结有像桃子一样的果实。</p>
+<hr>
+<p class="dialog_box">1 吃掉果实</p>
+<p>吃下果实后你心中阴霾一扫而空，心情大好。</p>
+<hr>
+<p class="dialog_box">2 强忍饥饿赶路</p>
+<p>XXX</p>
+
+<h2 id="灵泉树木刀痕茅屋">灵泉树木刀痕茅屋</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">大地图上的？图标触发。</p>
+<p class="failure">“在灵泉边修炼”后选择“摧毁”会增加20魔道值。</p>
+<p class="success">“走近茅屋”后选择“查看石桌”有概率获得一本蓝色筑基刀绝技和刀法资质+2。</p>
+<p class="failure">“走近茅屋”后选择“破门而入”会获得后天气运小伤3月。</p>
+<hr>
+<p><img alt="灵泉树木刀痕茅屋" title="灵泉树木刀痕茅屋" src="鬼谷八荒.files/灵泉树木刀痕茅屋.jpg"></p>
+<p>你在赶路之时，经过一处灵泉，你发现灵泉周遭的树木竟全是刀痕，不远处似乎还有一处茅屋。</p>
+<hr>
+<p class="dialog_box">1 在灵泉边修炼</p>
+<p>你在灵泉边修炼了一番，你的修为提升了！</p>
+<p>看着仍然向四周散发出灵力的灵泉你决定</p>
+<hr>
+<p class="dialog_box">11 离去</p>
+<p>修仙路漫漫，你收拾好行囊继续修仙之途。</p>
+<hr>
+<p class="dialog_box">12 摧毁</p>
+<p>此处不可留与他人!你深邃的眼眸中露出点点寒芒。</p>
+<p>术法之下灵泉溃散化作点点灵气飘散与天地之间…</p>
+<p>你带着一丝得意离开了此地。</p>
+<hr>
+<p class="dialog_box">2 走近茅屋</p>
+<p>你来到茅屋前，只见茅屋紧闭，而屋前有一石桌，石桌上仿佛刻着什么字。</p>
+<p class="dialog_box">21 查看石桌</p>
+<p>细看之下你发现这首词仿佛留有大道运转的痕迹，与周遭的刀痕隐隐吻合，你惊觉之下，连忙坐下参悟。</p>
+<hr>
+<p>你捕捉到了一丝刀法道痕，心念电转在机缘巧合之下竟悟出了一套刀法的雏形！你迅速记下后匆匆离开了此地。</p>
+<hr>
+<p>你参悟许久，却始终有如雾里看花难入其境…半晌以后你只好放弃并离开了此地…</p>
+<p class="dialog_box">22 破门而入</p>
+<p>你直径走向茅屋，正准备破门而入时突然茅屋金光大作，一股大力传出，你被震出此地晕了过去……</p>
+<p>等你醒来时发现自己身上负伤…你不敢造次悄悄离开了此地。</p>
+<hr>
+<p class="dialog_box">3 不理会</p>
+<p>你无心理会这些，快步离开了此地。</p>
+
+<h2 id="果实几朵花">果实几朵花</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">大地图上的？图标触发。</p>
+<p class="success">“采摘”后有概率吃到果实，体力上限+10。</p>
+<p class="tips">加的是体力上限，不是体力。</p>
+<hr>
+<p><img alt="果实几朵花" title="果实几朵花" src="鬼谷八荒.files/果实几朵花.jpg"></p>
+<p>你走过一片树林，只见一棵树上挂着一个甜瓜大小的果实，树上还开着几朵花，红色的花萼带着黑色纹路。</p>
+<hr>
+<p class="dialog_box">1 采摘</p>
+<p>你非常幸运，果实突然从树上掉下来，正好掉在你的背包里。</p>
+<p>你吃下果实，体力增加了少许。</p>
+<hr/>
+<p>果实突然从树上掉下来摔坏了…</p>
+<hr/>
+<p class="dialog_box">2 路过</p>
+<p>这片树林很快消失在你的身后…</p>
+
+<h2 id="废弃的遗迹">废弃的遗迹</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">大地图上的？图标触发。</p>
+<p class="success">“寻找宝物”获得十几个三品化瘀丹或三品培元丹。</p>
+<p class="success">“修炼”获得六七天的修炼修为，或者获得一本蓝色或紫色当前区域最高境界的随机资质武技或绝技。</p>
+<hr>
+<p><img alt="废弃的遗迹" title="废弃的遗迹" src="鬼谷八荒.files/废弃的遗迹.jpg"></p>
+<p>你发现远方有一处灵力浓郁之处，走过去后发现是一处废弃的遗迹。</p>
+<hr>
+<p class="dialog_box">寻找宝物</p>
+<p>你发现这里已经被人翻找过，你没有发现什么特别的物品，只有之前翻找之人留下的一些随身用品。</p>
+<hr>
+<p class="dialog_box">修炼</p>
+<hr>
+<p>你吸收了附近的灵力，修为提升了。</p>
+<p>当灵力吸收完后这片遗迹开始崩溃，一会儿就只剩下一片灰土的废墟。</p>
+<hr>
+<p>你坐下来修炼，却不知不觉睡着了做了一个梦…梦境中你看见一团光亮，你顺着光亮走去，发现光亮来自于一尊雕像后的一堵墙内。</p>
+<p>白光消散你随之醒来，起身顺着梦境中的路发现了一尊人身龙首的雕像，你用手触摸雕像身后的墙壁，瞬间一块墙壁土崩瓦解露出了藏在里面的宝物。</p>
+
+<h2 id="奇怪猕猴">奇怪猕猴</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">大地图上的？图标触发。</p>
+<p class="success">回复精力。</p>
+<hr>
+<p><img alt="手臂上带有花纹的奇怪猕猴" title="手臂上带有花纹的奇怪猕猴" src="鬼谷八荒.files/手臂上带有花纹的奇怪猕猴.jpg"></p>
+<p>一群手臂上带有花纹的奇怪猕猴追了你几个时辰，情急之下你跳入河中。</p>
+<p>在对岸你发现了一颗果树，圆圆的叶片下正开着花，白色花萼下红色的花朵带有黑色花纹，花朵下还结有几个像桔子的果实，你摘了几个扔进嘴里充饥后离开了这里。</p>
+
+<h2 id="坊市偶遇小老头">坊市偶遇小老头</h2>
+<p class="trigger">坊市中点击购买概率触发，只能触发一次。</p>
+<p class="success">获得灵石3300±。</p><!--3320 3006-->
+<p class="tips">可以在坊市重复点击购买按钮来触发此奇遇。</p>
+<hr>
+<p><img alt="小老头" title="小老头" src="鬼谷八荒.files/小老头.jpg"></p>
+<p>你发现一个矮小的老头儿正刨挖一堆杂物，他刹那间警觉过来并凝视你。</p>
+<p><img alt="玄令地仙" title="玄令地仙" src="鬼谷八荒.files/玄令地仙.jpg"></p>
+<p>糟糕，被发现了！这远古之际，八荒所有东西都不是这样收起来了，后来人心变坏，这才导致……唉，这些你都不懂，反正你看见的这些东西不准向任何人说！！</p>
+<p><img alt="小老头宝物匆匆" title="小老头宝物匆匆" src="鬼谷八荒.files/小老头宝物匆匆.jpg"></p>
+<p>这个矮小老头将一些宝物塞到你手上，然后匆匆取走刨挖物中的一件东西，左右张望一下便匆匆离开了。</p>
+
+<h2 id="宝物堆成小山">宝物堆成小山</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p><img alt="宝物堆成小山" title="宝物堆成小山" src="鬼谷八荒.files/宝物堆成小山.jpg"/></p>
+<p class="tips">位置：永宁州雷泽边（经：70± 纬：21±）。</p>
+<p class="success">获得灵石2200±。</p><!--2031 2396 2473-->
+<hr>
+<p><img alt="小老头" title="小老头" src="鬼谷八荒.files/小老头.jpg"></p>
+<p>你发现前方有宝物若干堆成一座小山，正要上前一探，未料一个小老头探头出来盯着你。</p>
+<p><img alt="玄令地仙" title="玄令地仙" src="鬼谷八荒.files/玄令地仙.jpg"></p>
+<p>你竟然能看见我？这是我从天幻仙祠偷半块砖化成的材料。我分你一点，给我保密哈！就这么定了！兄弟们给我交代的任务一定要完成的！</p>
+<p><img alt="小老头宝物匆匆" title="小老头宝物匆匆" src="鬼谷八荒.files/小老头宝物匆匆.jpg"></p>
+<p>这个古怪的小老头儿将宝物交给你，匆匆忙忙的走了……</p>
+
+<h2 id="冰原白发少女">冰原白发少女</h2>
+<p><img alt="冰原白发少女" title="冰原白发少女" src="鬼谷八荒.files/冰原白发少女.jpg"/></p>
+<p class="trigger">在永宁州大地图移动触发，附近会刷出该图标，刷出时视角会移动到该图标。</p>
+<p class="success">选择“喝点米酒化解心中寒气”后领取到任务<a href="#给少女买米酒">给少女买米酒</a>。</p>
+<p class="success">选择“水火互克修炼火属性的功法”后领取到任务<a href="#送给少女秘籍">送给少女秘籍</a>。</p>
+<p class="success">选择“小丫头，你直接回极北严寒之地不就行了”后进入倒计时20秒的战斗（冰原少女无法被击败），结束后获得：水灵根+3、雷灵根+3、风灵根+3。</p>
+<hr/>
+<p><img alt="冰原动物白发少女" title="冰原动物白发少女" src="鬼谷八荒.files/冰原动物白发少女.jpg"/></p>
+<p>你看到一片冰原，随着走近感觉到周围温度瞬间降低了数个等级，只是这样的温度对现在的你来说也算不上什么。</p>
+<p>你对这个明显不同于周围环境的的冰原感到好奇，走了进去。一路上看到许多动物的尸体，其中不乏小有实力的妖兽。</p>
+<p>你上前查看发现，这些生物都是被寒冰笼罩全身血脉冻僵而亡。</p>
+<p>你继续往前走，直到看到一个容颜绝美的白发少女正倚靠在一颗树旁掩面抽泣，少女脚边还躺着一些冻死的鸟兽。</p>
+<p><img alt="少女抽泣嘤嘤嘤" title="少女抽泣嘤嘤嘤" src="鬼谷八荒.files/少女抽泣嘤嘤嘤.jpg"/></p>
+<p>你上前相问。少女抽泣着说：“自从出生开始，我所到之处尽皆冰封，那些可爱的小动物都冻死了…嘤嘤嘤…”</p>
+<p>你不忍看着少女这般伤心，便提出要帮助她解决烦恼。白发少女瞪大眼睛说：“你真的能帮助我？”你向她建议。</p>
+<hr/>
+<p class="dialog_box">1 喝点米酒化解心中寒气</p>
+<p>少女一脸狐疑地打量着你，随即就要起身飞向周围的凡人城镇，你大惊，慌忙阻拦，告诉她你会为她带米酒来。少女听了你的话回到冰原中心，你也离开了冰原。</p>
+<p>我：（听说附近小镇的酒馆有卖米酒，只是买的人多，数量有限价格昂贵，只怕至少要1000灵石才能买到…）</p>
+<hr/>
+<p>你听到少女自言自语的声音“好想早点和小动物们一起玩。。”</p>
+<hr/>
+<p class="dialog_box">2 水火互克<br>修炼火属性的功法</p>
+<p>少女觉得你说得有些道理，便让你带几本火属性功法秘籍给她。</p>
+<hr/>
+<p>少女远远看到你，赶紧跑了过来。“你带来火属性心功法秘籍了吗？</p>
+<p class="dialog_box">还在收集 请再等几日</p>
+<p>少女有点失望，但还是点点头，回到了冰原中心，避免伤害到附近的生灵。你离开这里，继续收集火属性功法秘籍。</p>
+<hr/>
+<p class="dialog_box">3 小丫头，你直接回<br>极北严寒之地不就行了</p>
+<p><img alt="少女杏眼圆睁" title="少女杏眼圆睁" src="鬼谷八荒.files/少女杏眼圆睁.jpg"/></p>
+<p>少女杏眼圆睁，怒气冲冲地看着你，说道：“你知道我费了多大劲才溜出来的吗？”说罢抬手卷起一阵寒冰向你飞来。</p>
+<p><img alt="天空阴沉大雨滂沱卷云巨手把少女拖了进去" title="天空阴沉大雨滂沱卷云巨手把少女拖了进去" src="鬼谷八荒.files/天空阴沉大雨滂沱卷云巨手把少女拖了进去.jpg"/></p>
+<p>天空突然阴沉，转瞬间大雨滂沱，卷云中伸出一只巨手，把少女拖了进去。</p>
+<p>你正待去救人，只听卷云中传来少女声音“爹，家里闷死了让我出去玩会儿。。爹。。！”</p>
+<p>原来少女是偷跑出来玩的，跟你战斗时使用灵力过猛，暴露了自己的踪迹，被其族长发现。</p>
+<p>你正不知所措，卷云翻滚间好似发生了什么，随后一道闪电直直朝你劈了过来，像是在对少女的暴虐行径做出补偿。</p>
+<p><img alt="少女被带走你也离开冰原" title="少女被带走你也离开冰原" src="鬼谷八荒.files/少女被带走你也离开冰原.jpg"/></p>
+<p>少女被带走，你也离开了这片冰原。</p>
+
+<h2 id="给少女买米酒">给少女买米酒</h2>
+<p class="association"><a href="#冰原白发少女">冰原白发少女</a></p>
+<p class="task">给少女带一坛米酒化解心中寒气。</p>
+<p class="success">进入城镇酒馆，花费1000灵石购买米酒。将米酒带给少女获得：水灵根+5、雷灵根+5、风灵根+5。</p>
+<p class="failure">选择“我再考虑考虑”后选择“下次再来”，下个月才能触发购买，无其它影响。</p>
+<hr/>
+<p>老板，给我来一坛上好米酒。</p>
+<p>上好米酒，一坛1000灵石。</p>
+<hr/>
+<p class="dialog_box">1 我买了<br>（需要 灵石×1000）</p>
+<hr/>
+<p><img alt="将米酒交给少女" title="将米酒交给少女" src="鬼谷八荒.files/将米酒交给少女.jpg"/></p>
+<p>你回到冰原，将米酒交给少女。</p>
+<p><img alt="少女痛饮小脸变得红扑扑的" title="少女痛饮小脸变得红扑扑的" src="鬼谷八荒.files/少女痛饮小脸变得红扑扑的.jpg"/></p>
+<p>少女接过痛饮，几口下肚以后，小脸变得红扑扑的。</p>
+<p><img alt="天空阴沉大雨滂沱卷云巨手把少女拖了进去" title="天空阴沉大雨滂沱卷云巨手把少女拖了进去" src="鬼谷八荒.files/天空阴沉大雨滂沱卷云巨手把少女拖了进去.jpg"/></p>
+<p>天空突然阴沉，转瞬间大雨滂沱，卷云中伸出一只巨手，把少女拖了进去。</p>
+<p>你正待去救人，只听卷云中传来少女声音“爹，家里闷死了让我出去玩会儿。。爹。。！”</p>
+<p>原来少女是偷跑出来玩的，喝醉之后没法用灵力掩蔽自己的行踪，被其族长发现。</p>
+<p>你正不知所措，卷云翻滚间好似发生了什么，随后一道闪电直直朝你劈了过来，像在感谢你对少女的照顾。</p>
+<p><img alt="少女被带走你也离开冰原" title="少女被带走你也离开冰原" src="鬼谷八荒.files/少女被带走你也离开冰原.jpg"/></p>
+<p>少女被带走，你也离开了这片冰原。</p>
+<hr/>
+<p class="dialog_box">2 我再考虑考虑</p>
+<p>哎哟，这位客官，这是本店最后一坛米酒了，只要1000灵石，您要是不要的话，我可卖给别人了。您要买的话得等到下个月了。</p>
+<hr/>
+<p class="dialog_box">21 好吧，这坛我买了<br>（需要 灵石×1000）</p>
+<p>后续同“1 我买了”</p>
+<hr/>
+<p class="dialog_box">22 下次再来</p>
+<p>说完你离开了酒馆。</p>
+
+<h2 id="送给少女秘籍">送给少女秘籍</h2>
+<p class="association"><a href="#冰原白发少女">冰原白发少女</a></p>
+<p class="task">送给少女三本火属性功法秘籍。</p>
+<p class="success">完成后获得一本橙色筑基随机资质绝技。</p>
+<hr/>
+<p><img alt="将米酒交给少女" title="将米酒交给少女" src="鬼谷八荒.files/将米酒交给少女.jpg"/></p>
+<p>少女远远看到你，赶紧跑了过来。“你带来火属性心功法秘籍了吗？</p>
+<hr/>
+<p class="dialog_box">1 带来了 你看</p>
+<p><img alt="少女全身冒出蒸汽" title="少女全身冒出蒸汽" src="鬼谷八荒.files/少女全身冒出蒸汽.jpg"/></p>
+<p>少女发出欢快的声音，接过秘籍开始修炼起来，一时间少女全身冒出大量的蒸汽，仿佛在锅炉中蒸煮一般。</p>
+<p><img alt="少女睁开双眼" title="少女睁开双眼" src="鬼谷八荒.files/少女睁开双眼.jpg"/></p>
+<p>片刻后，少女睁开双眼，遗憾的是修炼火属性功法并没有起到多大作用，不过为了表示感谢，她把一本筑基境秘籍送给了你，随后离开了这里。</p>
+<p><img alt="少女被带走你也离开冰原" title="少女被带走你也离开冰原" src="鬼谷八荒.files/少女被带走你也离开冰原.jpg"/></p>
+<p>眼看少女飞走，你也只好收起秘籍离开了这里。</p>
+<hr/>
+<p class="dialog_box">2 还在收集 请再等几日</p>
+<p><img alt="冰原动物白发少女" title="冰原动物白发少女" src="鬼谷八荒.files/冰原动物白发少女.jpg"/></p>
+<p>少女有点失望，但还是点点头，回到了冰原中心，避免伤害到附近的生灵。你离开这里，继续收集火属性功法秘籍。</p>
+
+<h2 id="酒馆一对男女争吵">酒馆一对男女争吵</h2>
+<p class="trigger">在永宁州进入酒馆概率触发，只会触发一次。</p>
+<p class="success">选择“欣然同意”获得后天气运力大无穷3月。</p>
+<p class="failure">选择“委婉拒绝”结束奇遇。</p>
+<hr/>
+<p><img alt="酒馆一对男女争吵" title="酒馆一对男女争吵" src="鬼谷八荒.files/酒馆一对男女争吵.jpg"/></p>
+<p>你刚在酒馆坐下，便听到隔壁桌有一对男女正在争吵。</p>
+<p>男：夫人，我不过就是晚来了一会，何必生这么大气？</p>
+<p>女：今天什么日子你不知道，让我在等你这么久！</p>
+<p>男：我怎会不知，可一刻钟并非很久，上次我可是在烈日下，足足等了你三个时辰。</p>
+<p>女：那都是多久前的事了，你居然还记着，你怎如此小心眼。</p>
+<p>男：什么叫我小心眼？我要小心眼，当时就会跟你现在一样闹脾气了，我只是觉得，既然我都等过你那么久了，你等等我又没什么……</p>
+<p>女：你意思就是我小心眼，我不该在这里跟你斤斤计较是不是？</p>
+<p>男：不是……我意思是这件事我们可不可以让它过去了，好好给你过这个生日。</p>
+<p>女：【男名】，原来我在你心里竟然是这样的，你太让我失望了。</p>
+<p>男：不是啊！我只想问你，到底要怎样你才能不生气？！</p>
+<p>女：怎么了，现在就对我不耐烦了？是不是巴不得跟我解除夫妻关系，然后再去找一个？</p>
+<p>男：【女名】，你这说的都是些什么胡话，我怎么会是这样的人！</p>
+<p>女：你，你居然敢凶我，这日子没法过了！</p>
+<p><img alt="女子跑出酒馆留下男子一人" title="女子跑出酒馆留下男子一人" src="鬼谷八荒.files/女子跑出酒馆留下男子一人.jpg"/></p>
+<p>女子话音刚落，便跑出了酒馆，留下男子一人。</p>
+<p>男子提起酒壶，向你走了过来。</p>
+<p>男：道友，可否邀你喝一杯？</p>
+<hr>
+<p class="dialog_box">1 欣然同意</p>
+<p>我：萍水相逢即是缘，道友请坐。</p>
+<p>男：唉，还是我等男人之间好沟通，女人的心我从来就不曾看明白过。</p>
+<p>我：明不明白，其实在于你用不用心。</p>
+<p>男：道友这话，似有深意。</p>
+<p>我：方才二位争吵，在下不慎听到，大概也明白其中曲折，敢问道友，往日你是否也迟到过？</p>
+<p>男：一些时候有过。</p>
+<p>我：那时候的尊夫人是否如今日这般生气呢？</p>
+<p>男：那倒没有，最多只是让我下次别迟到。</p>
+<p>我：那你觉得这次为何如此生气？</p>
+<p>男：道友是指因为生日？但没必要这般生气吧，又没迟到多久，我觉得没有什么影响啊。</p>
+<p>我：这便是道友的误区所在了，尊夫人在乎的，并不是你迟到这件事，而是这件事背后的问题。</p>
+<p>男：道友可否说明白些……</p>
+<p>我：敢问道友，你和尊夫人初相识的时候，相约可会迟到？</p>
+<p>男：那可不敢，我要是迟到了，要给她留下不好印象的。</p>
+<p>我：那为何现在敢迟到了？</p>
+<p>男：我……</p>
+<p>我：道友想必已经明白了，其实尊夫人说那么多，归根到底，是因为她觉得你对她没那么用心了。</p>
+<p>男：道友说得是，回想起来，以前我们还未结为夫妻时，她生日我都是早早就做了准备，更是不可能迟到……</p>
+<p>我：不错，我有四个字送给道友，希望道友时不时用来提醒自己。</p>
+<p>男：敢问道友是哪四个字？</p>
+<p>我：不忘初心。</p>
+<p>你的话音刚落，【男名】便猛然站了起来。</p>
+<p>男：今日道友一言，让我茅塞顿开，我这便去将夫人追回来，这酒便请道友喝了。</p>
+<hr/>
+<p class="dialog_box">2 委婉拒绝</p>
+<p>我：在下不太习惯与别人同桌饮酒，抱歉。</p>
+<p>男：是在下唐突了。</p>
+<p>男子说完话，便晃晃悠悠地带着酒壶往外走去。</p>
+
+<h1>提示</h1>
+
+<h2 id="路标">路标</h2>
+<p><img alt="路标" title="路标" src="鬼谷八荒.files/路标.jpg"></p>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">第一次从白源区进入永宁州后在大地图移动一格、只会触发一次。</p>
+<p class="success">提示内容：获取到永宁州内最近的一个路标位置。</p>
+<hr>
+<p>我：不远处似乎有一个路标…</p>
+<p>过去看看附近有哪些城镇和宗门吧。</p>
+
+<h1 id="物品">物品</h1>
+
+<h3 id="丹符">丹符</h3>
+
+<h4 id="六品化瘀丹"><img alt="六品化瘀丹" title="六品化瘀丹" src="鬼谷八荒.files/六品化瘀丹.jpg"></h4>
+<p style="padding-top:1em">名称：六品化瘀丹、境界：炼气境、品质：灰、分类：丹符（丹药）</p>
+<p class="association"><a href="#进入山洞">进入山洞</a></p>
+<p>介绍文本：最为常见的疗伤丹药，使用后能够恢复少量的体力值。</p>
+<p>丹药效果：体力+12</p>
+<p>战斗中消耗：8念力</p>
+<p>战斗中冷却：20秒</p>
+
+<h4 id="六品聚气丹"><img alt="六品聚气丹" title="六品聚气丹" src="鬼谷八荒.files/六品聚气丹.jpg"></h4>
+<p style="padding-top:1em">名称：六品聚气丹、境界：炼气境、品质：灰、分类：丹符（丹药）</p>
+<p class="association"><a href="#进入山洞">进入山洞</a></p>
+<p>介绍文本：最为常见的能够恢复灵力的丹药，使用后能够恢复少量的灵力值。</p>
+<p>丹药效果：灵力+15</p>
+<p>战斗中消耗：3念力</p>
+<p>战斗中冷却：20秒</p>
+
+<h4 id="聚气丸"><img alt="聚气丸" title="聚气丸" src="鬼谷八荒.files/聚气丸.jpg"></h4>
+<p style="padding-top:1em">名称：聚气丸、境界：炼气境、品质：蓝、分类：丹符（丹药）</p>
+<p class="association"><a href="#李四的聚气丸">李四的聚气丸</a></p>
+<p>介绍文本：可以使炼气前期的修仙者突破修为停滞的瓶颈，步入炼气中期。</p>
+
+<h3>书籍</h3>
+
+<h3>装备</h3>
+
+<h4 id="荒角碧游鲲"><img alt="荒角碧游鲲" title="荒角碧游鲲" src="鬼谷八荒.files/荒角碧游鲲.jpg"></h4>
+<p style="padding-top:1em">名称：荒角碧游鲲、境界：筑基境、品质：红、分类：装备（坐骑）</p>
+<p class="association"><a href="#造化丹和筑基坐骑">造化丹和筑基坐骑</a>，<a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：荒角碧游鲲，游弋天地，以荒角吞噬邪恶，守护安宁，其身影成为山海间最神秘的传说。</p>
+<p>装备效果：脚力+800、精力上限+20。</p>
+<p class="tips">筑基期最好的坐骑，别忘了刚筑基立马装备上。<p>
+
+<h4 id="圣阳羽毛"><img alt="圣阳羽毛" title="圣阳羽毛" src="鬼谷八荒.files/圣阳羽毛.jpg"></h4>
+<p style="padding-top:1em">名称：圣阳羽毛、境界：炼气境、品质：橙、分类：装备（坐骑）</p>
+<p class="association"><a href="#阻止陌生男子">阻止陌生男子</a></p>
+<p>介绍文本：圣阳羽毛蕴含着狂暴的力量，却因天地法则的束缚，导致其虽能翱翔，却难以触及苍穹之巅，实在可惜。</p>
+<p>装备效果：脚力+400。</p>
+<p class="tips">练气期最好的坐骑，别忘了拿到立马装备上。<p>
+
+<h4 id="石沉戒"><img alt="石沉戒" title="石沉戒" src="鬼谷八荒.files/石沉戒.jpg"></h4>
+<p style="padding-top:1em">名称：石沉戒、境界：炼气境、品质：紫、分类：装备（戒指）</p>
+<p class="association"><a href="#进入山洞">进入山洞</a></p>
+<p>介绍文本：最低级的储物戒指，由注灵的石髓千锤百炼而成。</p>
+<p>装备效果：背包上限+12、封印强度25。</p>
+
+<h3>材料</h3>
+
+<h4 id="火灵气"><img alt="火灵气" title="火灵气" src="鬼谷八荒.files/火灵气.jpg"></h4>
+<p style="padding-top:1em">名称：火灵气、品质：纯度越高品质越好、分类：材料（气息）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：蕴含着火属性的灵气，六道灵气之一，能够在修真者冲击筑基境时提供帮助。纯度越高，在突破时能够给修真者提供的帮助就越大。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>炙炎之域</a>中的<a style='color:#FF0000'>六尾狐妖</a>获得。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>炙炎之域</a>中的怪物获得<a style='color:#00B050'>火灵气碎片</a>，并在城镇内的工坊中进行合成获得。</p>
+
+<h4 id="水灵气"><img alt="水灵气" title="水灵气" src="鬼谷八荒.files/水灵气.jpg"></h4>
+<p style="padding-top:1em">名称：水灵气、品质：纯度越高品质越好、分类：材料（气息）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：蕴含着水属性的灵气，六道灵气之一，能够在修真者冲击筑基境时提供帮助。纯度越高，在突破时能够给修真者提供的帮助就越大。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>极寒之地</a>中的<a style='color:#FF0000'>大蟹</a>获得。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>极寒之地</a>中的怪物获得<a style='color:#00B050'>水灵气碎片</a>，并在城镇内的工坊中进行合成获得。</p>
+
+<h4 id="雷灵气"><img alt="雷灵气" title="雷灵气" src="鬼谷八荒.files/雷灵气.jpg"></h4>
+<p style="padding-top:1em">名称：雷灵气、品质：纯度越高品质越好、分类：材料（气息）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：蕴含着雷属性的灵气，六道灵气之一，能够在修真者冲击筑基境时提供帮助。纯度越高，在突破时能够给修真者提供的帮助就越大。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>雷罚之地</a>中的<a style='color:#FF0000'>鸣蛇</a>获得。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>雷罚之地</a>中的怪物获得<a style='color:#00B050'>雷灵气碎片</a>，并在城镇内的工坊中进行合成获得。</p>
+
+<h4 id="风灵气"><img alt="风灵气" title="风灵气" src="鬼谷八荒.files/风灵气.jpg"></h4>
+<p style="padding-top:1em">名称：风灵气、品质：纯度越高品质越好、分类：材料（气息）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：蕴含着风属性的灵气，六道灵气之一，能够在修真者冲击筑基境时提供帮助。纯度越高，在突破时能够给修真者提供的帮助就越大。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>暴风山谷</a>中的<a style='color:#FF0000'>人面鸮</a>获得。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>暴风山谷</a>中的怪物获得<a style='color:#00B050'>风灵气碎片</a>，并在城镇内的工坊中进行合成获得。</p>
+
+<h4 id="土灵气"><img alt="土灵气" title="土灵气" src="鬼谷八荒.files/土灵气.jpg"></h4>
+<p style="padding-top:1em">名称：土灵气、品质：纯度越高品质越好、分类：材料（气息）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：蕴含着土属性的灵气，六道灵气之一，能够在修真者冲击筑基境时提供帮助。纯度越高，在突破时能够给修真者提供的帮助就越大。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>流沙之域</a>中的<a style='color:#FF0000'>山挥</a>获得。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>流沙之域</a>中的怪物获得<a style='color:#00B050'>土灵气碎片</a>，并在城镇内的工坊中进行合成获得。</p>
+
+<h4 id="木灵气"><img alt="木灵气" title="木灵气" src="鬼谷八荒.files/木灵气.jpg"></h4>
+<p style="padding-top:1em">名称：木灵气、品质：纯度越高品质越好、分类：材料（气息）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：蕴含着木属性的灵气，六道灵气之一，能够在修真者冲击筑基境时提供帮助。纯度越高，在突破时能够给修真者提供的帮助就越大。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>醉花林境</a>中的<a style='color:#FF0000'>树妖</a>获得。</p>
+<p><a style='color:#21E713'>●</a>可通过击杀<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>醉花林境</a>中的怪物获得<a style='color:#00B050'>木灵气碎片</a>，并在城镇内的工坊中进行合成获得。</p>
+
+<h4 id="葬沙骨"><img alt="葬沙骨" title="葬沙骨" src="鬼谷八荒.files/葬沙骨.jpg"></h4>
+<p style="padding-top:1em">名称：葬沙骨、品质：橙、分类：材料（天材地宝）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：本是普通的妖兽骨，埋沙土之下吸收地气精华，经百年岁月后骨生质变，坚硬如铁，上结石尖，石尖越长则品质越好。</p>
+<p>炼气境的修仙者在突破至筑基境时，辅以此天材地宝，可以大幅提升修仙者的属性。</p>
+<p><a style='color:#21E713'>●</a>可在<a style='color:#00B050'>永宁州</a>区域中某处某方的<a style='color:#FF0000'>通灵秘境</a>内，击杀秘境中的<a style='color:#FF0000'>当康</a>获得。</p>
+<hr>
+<p>用作突破时提供的属性：</p>
+<p>&nbsp;攻击：+4</p>
+<p>&nbsp;防御：+3</p>
+<p>&nbsp;体力上限：+79</p>
+<p>&nbsp;会心：+11</p>
+<p>&nbsp;移速：+10</p>
+
+<h4 id="朝夕露"><img alt="朝夕露" title="朝夕露" src="鬼谷八荒.files/朝夕露.jpg"></h4>
+<p style="padding-top:1em">名称：朝夕露、品质：橙、分类：材料（天材地宝）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：采取八荒珍品夕颜花黎明闭合前最后一滴露水与入夜时第一滴露水，揉合而成，吸食有清心宁神之效。</p>
+<p>炼气境的修仙者在突破至筑基境时，辅以此天材地宝，可以大幅提升修仙者的属性。</p>
+<p><a style='color:#21E713'>●</a>可在<a style='color:#00B050'>永宁州</a>区域中某处某方的<a style='color:#FF0000'>通灵秘境</a>内，击杀秘境中的<a style='color:#FF0000'>大蟹</a>获得。</p>
+<hr>
+<p>用作突破时提供的属性：</p>
+<p>&nbsp;攻击：+3</p>
+<p>&nbsp;防御：+3</p>
+<p>&nbsp;体力上限：+53</p>
+<p>&nbsp;灵力上限：+11</p>
+<p>&nbsp;暴击倍数：+30</p>
+
+<h4 id="千年钟乳"><img alt="千年钟乳" title="千年钟乳" src="鬼谷八荒.files/千年钟乳.jpg"></h4>
+<p style="padding-top:1em">名称：千年钟乳、品质：橙、分类：材料（天材地宝）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：经千年岁月后，比一般钟乳更具灵气。</p>
+<p>炼气境的修仙者在突破至筑基境时，辅以此天材地宝，可以大幅提升修仙者的属性。</p>
+<p><a style='color:#21E713'>●</a>可在<a style='color:#00B050'>永宁州</a>区域中某处某方的<a style='color:#FF0000'>通灵秘境</a>内，击杀秘境中的<a style='color:#FF0000'>鸣蛇</a>获得。</p>
+<hr>
+<p>用作突破时提供的属性：</p>
+<p>&nbsp;攻击：+2</p>
+<p>&nbsp;体力上限：+63</p>
+<p>&nbsp;护心：+8</p>
+<p>&nbsp;暴击倍数：+30</p>
+
+<h4 id="朱果"><img alt="朱果" title="朱果" src="鬼谷八荒.files/朱果.jpg"></h4>
+<p style="padding-top:1em">名称：朱果、品质：紫、分类：材料（天材地宝）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：百年开花，百年结果，或如球形或如扁桃，形状不一，色泽圆润通红，灵气盎然。</p>
+<p>炼气境的修仙者在突破至筑基境时，辅以此天材地宝，可以大幅提升修仙者的属性。</p>
+<p><a style='color:#21E713'>●</a>可在<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>炙炎之域</a>、<a style='color:#FF0000'>极寒之地</a>、<a style='color:#FF0000'>雷罚之地</a>、<a style='color:#FF0000'>暴风山谷</a>、<a style='color:#FF0000'>流沙之域</a>、<a style='color:#FF0000'>醉花林境</a>内，击杀其中出现的<a style='color:#FF0000'>大妖兽</a>有概率获得。</p>
+<hr>
+<p>用作突破时提供的属性：</p>
+<p>&nbsp;攻击：+3</p>
+<p>&nbsp;灵力上限：+42</p>
+<p>&nbsp;护心：+8</p>
+<p>&nbsp;抗暴倍数：+30</p>
+
+<h4 id="玉龙霜"><img alt="玉龙霜" title="玉龙霜" src="鬼谷八荒.files/玉龙霜.jpg"></h4>
+<p style="padding-top:1em">名称：玉龙霜、品质：紫、分类：材料（天材地宝）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：玉龙为雪飘落而下，其中少许久久未融，经年累月凝结成霜花。晶莹剔透，寒气彻骨。</p>
+<p>炼气境的修仙者在突破至筑基境时，辅以此天材地宝，可以大幅提升修仙者的属性。</p>
+<p><a style='color:#21E713'>●</a>可在<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>炙炎之域</a>、<a style='color:#FF0000'>极寒之地</a>、<a style='color:#FF0000'>雷罚之地</a>、<a style='color:#FF0000'>暴风山谷</a>、<a style='color:#FF0000'>流沙之域</a>、<a style='color:#FF0000'>醉花林境</a>内，击杀其中出现的<a style='color:#FF0000'>大妖兽</a>有概率获得。</p>
+<hr>
+<p>用作突破时提供的属性：</p>
+<p>&nbsp;攻击：+4</p>
+<p>&nbsp;会心：+11</p>
+
+<h4 id="暖玉"><img alt="暖玉" title="暖玉" src="鬼谷八荒.files/暖玉.jpg"></h4>
+<p style="padding-top:1em">名称：暖玉、品质：紫、分类：材料（天材地宝）</p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p>介绍文本：蕴含少许火灵真力，佩戴可不惧严寒。</p>
+<p>炼气境的修仙者在突破至筑基境时，辅以此天材地宝，可以大幅提升修仙者的属性。</p>
+<p><a style='color:#21E713'>●</a>可在<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#FF0000'>炙炎之域</a>、<a style='color:#FF0000'>极寒之地</a>、<a style='color:#FF0000'>雷罚之地</a>、<a style='color:#FF0000'>暴风山谷</a>、<a style='color:#FF0000'>流沙之域</a>、<a style='color:#FF0000'>醉花林境</a>内，击杀其中出现的<a style='color:#FF0000'>大妖兽</a>有概率获得。</p>
+<hr>
+<p>用作突破时提供的属性：</p>
+<p>&nbsp;体力上限：+79</p>
+<p>&nbsp;灵力上限：+11</p>
+<p>&nbsp;暴击倍数：+30</p>
+
+<h3>道具</h3>
+
+<h3>特殊</h3>
+
+<h4 id="造化丹"><img alt="造化丹" title="造化丹" src="鬼谷八荒.files/造化丹.jpg"></h4>
+<p style="padding-top:1em">名称：造化丹、品质：红、分类：特殊（灵物）</p>
+<p class="association"><a href="#造化丹和筑基坐骑">造化丹和筑基坐骑</a></p>
+<p>介绍文本：造化丹，逆天改命之灵丹，修士服用后可重塑命格，扭转乾坤，改写既定命运，踏上无上修行之路。选择逆天改命时可使用此丹进行刷新。</p>
+<p class="tips">全档只此5个。</p>
+
+<h4 id="武罗遗失的书信"><img alt="武罗遗失的书信" title="武罗遗失的书信" src="鬼谷八荒.files/书籍.jpg"></h4>
+<p style="padding-top:1em">名称：武罗遗失的书信、品质：蓝、分类：特殊（书籍）</p>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#重新挑战武罗">重新挑战武罗</a></p>
+<p>介绍文本：武罗一直随身携带的书籍。</p>
+<p>书中内容：</p>
+<p class="indent_2em">我太小看他们想去外界的决心了…村民竟想凭借人力挖开太行山！我实在不想阻挠他们，但若放任他们继续破坏的草木，山中的灵力定然会迅速流失，阵法早晚会失效。可是我又不能伤了他们，该怎么办呢…</p>
+<p class="indent_2em">村民们在生活无忧后，近日竟有了想去外界的想法。他们根本不知道外界修仙者之间的竞争有多激烈，为了获取修炼资源会不惜一切代价的掠夺！他们这些寻常人如何能够抵抗呢…</p>
+<p class="indent_2em">为了结合太行王屋二山布置天然阵法，我付出了巨大的代价才收集到一部分材料，却还是缺少了树妖魂珠与万古藤，但构筑出的阵法抵御外敌绰绰有余。虽阵眼处几乎没有防备，此时却也别无他法…</p>
+<p class="indent_2em">既然你的愿望是保护村庄的人不再遭受外界欺压，那么我便会尽全力去将它实现…多年前我偶然习得紫气真君阵，若能结合太行王屋二山布下此阵，应可抵御外界的侵袭。虽我一次也未曾用过，但这是当下唯一的办法。</p>
+<p class="indent_2em">不知过了多少年，你还是没有回来…我会一直替你守护着村庄，直到你回来。</p>
+
+<h4 id="二当家的书"><img alt="二当家的书" title="二当家的书" src="鬼谷八荒.files/书籍.jpg"></h4>
+<p style="padding-top:1em">名称：二当家的书、品质：蓝、分类：特殊（书籍）</p>
+<p class="association"><a href="#前往擎天寨">前往擎天寨</a></p>
+<p>介绍文本：二当家以书作信，怕是营寨中条件有限。</p>
+<p>书中内容：</p>
+<p class="indent_2em">你或许不认识我……但我与你初见，却在那日桃花盛开处，你轻嗅桃花，我偶然一望，只觉得此生若能与你厮守，便是三生有幸。我痴痴望着……你离开时，我虽是万般心事，能与谁人说呢？只得如那坠下残花，静静望着赏花人离去。</p>
+<p class="indent_2em">我虽身是山贼，一生却未曾染红。自那日见你，我便觉得人生或许尚有一道曙光……然而，我又该如何将你握住？听闻你离开便觉得人生最悲哀莫过于……思念……却又爱不得。</p>
+<p class="indent_2em">那日我于街市之上偶见一桃花钗，便觉你当时模样盈上心间，自此此钗日夜不离我身，我满腔相思对其说了。</p>
+<p class="indent_2em">此钗品质极佳，留用或是典当皆可，我此生遗憾已作云烟，只叹息未能与你，当面倾吐情意。</p>
+<p class="indent_2em">如若上天怜我，只期来世，能于桃花树再见到你，将一心情意，缓缓道来……</p>
+<p class="indent_2em">粗野山人读书甚少，言辞鄙陋之处还望多多包涵……</p>
+
+<br><br><br>
+<p>鬼谷八荒百科by晚安安</p>
+<p>QQ：1986366033</p>
+<p>Steam：<a href="https://steamcommunity.com/id/lanple/">https://steamcommunity.com/id/lanple/</a></p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+
+<script>
+	const headings = document.querySelectorAll('.content h1, .content h2, .content h3, .content h4');
+	const toc = document.getElementById('toc');
+
+	headings.forEach(heading => {
+		if (!heading.id) {
+			heading.id = heading.textContent;
+		}
+
+		const li = document.createElement('li');
+		const a = document.createElement('a');
+		a.href = `#${heading.id}`;
+		a.textContent = heading.textContent || heading.id;
+
+		if (heading.tagName === 'H1') {
+			a.setAttribute('data-level', 'h1');
+		} else if (heading.tagName === 'H2') {
+			a.setAttribute('data-level', 'h2');
+		} else if (heading.tagName === 'H3') {
+			a.setAttribute('data-level', 'h3');
+		} else if (heading.tagName === 'H4') {
+			a.setAttribute('data-level', 'h4');
+		}
+
+		li.appendChild(a);
+		toc.appendChild(li);
+	});
+
+	const links = document.querySelectorAll('#toc a');
+	const sidebar = document.querySelector('.sidebar');
+
+	window.addEventListener('scroll', () => {
+		let currentHeading = null;
+
+		headings.forEach(heading => {
+			const rect = heading.getBoundingClientRect();
+			if (rect.top <= 50) {
+				currentHeading = heading;
+			}
+		});
+
+		links.forEach(link => {
+			link.classList.remove('active');
+			if (currentHeading && link.getAttribute('href') === `#${currentHeading.id}`) {
+				link.classList.add('active');
+				const linkRect = link.getBoundingClientRect();
+				const sidebarRect = sidebar.getBoundingClientRect();
+				const offset = linkRect.left - sidebarRect.left - (sidebarRect.width / 2) + (linkRect.width / 2);
+				sidebar.scrollTo({
+					left: sidebar.scrollLeft + offset
+				});
+			}
+		});
+	});
+</script>
+
 </body>
+
 </html>
