@@ -78,17 +78,17 @@
 	.content h1 {
 		margin: 0;
 		margin-top: 1em;
-		font-size:2.75em;
+		font-size:2em;
 	}
 	.content h2 {
 		margin: 0;
 		margin-top: 1em;
-		font-size:2.3em;
+		font-size:1.75em;
 	}
 	.content h3 {
 		margin: 0;
 		margin-top: 1em;
-		font-size:1.75em;
+		font-size:1.5em;
 	}
 	.content h4 {
 		float:left;
@@ -127,27 +127,33 @@
 		text-indent: 2em;
 	}
 	.content p.task {
-		font-size: 1.5em;
+		font-size: 1.25em;
 		line-height: 1.2;
 	}
 	.content p.trigger,
 	.content p.success,
 	.content p.failure {
-		font-size: 1.3em;
+		font-size: 1.125em;
 		line-height: 1.2;
 	}
 	.content p.tips {
-		font-size: 1.3em;
+		font-size: 1.125em;
 		line-height: 1.2;
 	}
 	.content p.roast,
 	.content p.BUG {
-		font-size: 1.3em;
+		font-size: 1.125em;
 		line-height: 1.2;
 		color:gray;
 	}
 	.content p.association {
 		line-height: 1.2;
+	}
+	.content h1::before {
+		content: "✿ ";
+	}
+	.content h2::before {
+		content: "❀ ";
 	}
 	.content p.task::before {
 		content: "📜";
@@ -166,7 +172,7 @@
 		content: "🔔";
 	}
 	.content p.roast::before {
-		content: "✂";
+		content: "✂️";
 	}
 	.content p.BUG::before {
 		content: "🪲";
@@ -342,7 +348,7 @@
 <p class="association"><a href="#向村民打听消息">向村民打听消息</a></p>
 <p><img alt="太行山" title="太行山" src="鬼谷八荒.files/太行山.jpg"></p>
 <p class="task">前往太行山中，调查村民口中的妖怪。</p>
-<p class="success">不敌武罗（自身血量低于一半）领取到主线任务：<a href="#回城镇休整">回城镇休整</a>，同时获得后天气运重伤6月。</p>
+<p class="success">不敌武罗（自身血量低于一半）领取到主线任务：<a href="#回城镇休整">回城镇休整</a>，同时获得<a href="#重伤">重伤</a>6月。</p>
 <p class="success">战胜武罗后选择杀了它领取到主线任务：<a href="#突破筑基境">突破筑基境</a>，同时增加50魔道值。</p>
 <p class="success">战胜武罗后选择询问前往外界的方法获得<a href="#武罗遗失的书信">武罗遗失的书信</a>×1，领取到主线任务：<a href="#击杀树妖">击杀树妖</a>。</p>
 <p class="tips">初见就战胜武罗可以直接获得最高资质对应的灰色武技和绝技各一本，也就是原本不敌武罗需要的在后续<a href="#前往琅琊阁">前往琅琊阁</a>和<a href="#购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</a>任务中购买的秘籍。</p>
@@ -371,7 +377,7 @@
 <p class="association"><a href="#前往太行山">前往太行山</a></p>
 <p><img alt="客栈" title="客栈" src="鬼谷八荒.files/客栈.jpg"></p>
 <p class="task">回到新达镇中，前往客栈恢复自身状态。</p>
-<p class="success">在客栈投宿后解除重伤,领取到主线任务：<a href="#提升修为">提升修为</a>。</p>
+<p class="success">在客栈投宿后解除<a href="#重伤">重伤</a>，领取到主线任务：<a href="#提升修为">提升修为</a>。</p>
 <hr>
 <p>我：（在回去挑战敌人之前，我得先寻一处灵气充沛的修炼之地，提升自己的修为。）</p>
 
@@ -422,7 +428,7 @@
 <h2 id="重新挑战武罗">重新挑战武罗</h2>
 <p class="association"><a href="#购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</a></p>
 <p class="task">重新回到太行山，挑战武罗。</p>
-<p class="failure">不敌武罗（血条被打空）无法完成任务但也不会被杀只是获得后天气运重伤6月。</p>
+<p class="failure">不敌武罗（血条被打空）无法完成任务但也不会被杀只是获得<a href="#重伤">重伤</a>6月。</p>
 <p class="success">战胜武罗后选择杀了它领取到主线任务：<a href="#突破筑基境">突破筑基境</a>，同时增加50魔道值。</p>
 <p class="success">战胜武罗后选择询问前往外界的方法获得<a href="#武罗遗失的书信">武罗遗失的书信</a>×1，领取到主线任务：<a href="#击杀树妖">击杀树妖</a>。</p>
 <hr>
@@ -765,7 +771,7 @@
 <p class="success">屠灭擎天寨后选择了“安葬死者，入土为安”、与二当家的母亲对话时选择了“给予800灵石”、与蔡家女子对话时选择了“交出珠钗与二当家的书”、并且全程不查看二当家的书，第二个月月初会获得一本【蓝色及以下品质】的随机资质的【密卷或神功或大法】以及一本最高资质对应的橙色品质武技。</p>
 <p class="tips">仁义礼智信五点，都满足才能获得最好的后续奖励。</p>
 <p class="tips">仁义礼信四点，缺一个只给一本【绿色及以下品质】的随机资质的心法。缺一个以上没有后续奖励。</p><!-- 绿诀灰经绿式 -->
-<p class="tips">不仁不义不礼不信四点，有两个则过月月初会扣一半血，有两个以上则过月月初还会获得后天气运重伤6月。如果你过月之前血量不足一半，过月会被炸死，而且不知道是BUG还是刻意的设计，这种死亡会跳过神器的保护。</p>
+<p class="tips">不仁不义不礼不信四点，有两个则过月月初会扣一半血，有两个以上则过月月初还会获得<a href="#重伤">重伤</a>6月。如果过月之前血量不足一半，过月会被炸死，而且不知道是BUG还是刻意的设计，这种死亡会跳过神器的保护。</p>
 <p class="tips">与二当家的母亲对话时选择“给予500灵石”既不算【义】也不算【不义】。</p>
 <hr>
 <p><img alt="擎天寨.玉符发出光芒" title="擎天寨.玉符发出光芒" src="鬼谷八荒.files/擎天寨.玉符发出光芒.jpg"></p>
@@ -1586,11 +1592,78 @@
 
 <h2 id="宗门逆天">宗门逆天</h2>
 
+<p class="task">宗门灵阁可出现的逆天改命有：</p>
+
+<p><a style='color:red;text-decoration:none' href="#虎魄龙魂">虎魄龙魂</a>、<a style='color:orange;text-decoration:none' href="#天瞳之刃">天瞳之刃</a>、<a style='color:orange;text-decoration:none' href="#天外有天">天外有天</a>、<a style='color:orange;text-decoration:none' href="#天人合一">天人合一</a>、<a style='color:orange;text-decoration:none' href="#天罡步法">天罡步法</a>、<a style='color:orange;text-decoration:none' href="#震天怒啸">震天怒啸</a>、<a style='color:red;text-decoration:none' href="#凝元寂灭">凝元寂灭</a>、<a style='color:orange;text-decoration:none' href="#摄神寒光">摄神寒光</a>、<a style='color:orange;text-decoration:none' href="#载物无疆">载物无疆</a>、<a style='color:orange;text-decoration:none' href="#踏雪无痕">踏雪无痕</a>、<a style='color:orange;text-decoration:none' href="#聚雷尖戟">聚雷尖戟</a>、<a style='color:orange;text-decoration:none' href="#宿命之引">宿命之引</a>、<a style='color:red;text-decoration:none' href="#杀心骤起">杀心骤起</a>、<a style='color:orange;text-decoration:none' href="#排山倒海">排山倒海</a>、<a style='color:orange;text-decoration:none' href="#穿云电闪">穿云电闪</a>、<a style='color:red;text-decoration:none' href="#天地同寿">天地同寿</a>、<a style='color:orange;text-decoration:none' href="#烈火燎原">烈火燎原</a>、<a style='color:orange;text-decoration:none' href="#炉火纯青">炉火纯青</a>、</p> 
+
+<h3 id="虎魄龙魂">虎魄龙魂</h3>
+<p class="association"><a href="#宗门逆天">宗门逆天</a></p>
+<p class="success">绝技每次命中敌人时，会有40%概率附加。龙吟，造成自身武法资质总和250%的伤害。虎啸，造成自身全灵根总和250%的伤害。每2秒内最多触发一次。</p>
+<hr>
+<p><img alt="逆天改命.虎魄龙魂" title="逆天改命.虎魄龙魂" src="鬼谷八荒.files/逆天改命.虎魄龙魂.jpg"></p>
+<p>正当你突破之际，宗门灵台上突生万道霞光，一龙一虎两条虚影从霞光中腾飞而出，在你周身盘旋，随即化作点点星光融入了你的身体。你全身经脉不由一阵紧缩，武法与灵根在脑中彼此交汇，似有圆融之势。你参悟良久，终于明白了万法归宗之理。</p>
+
+<h3 id="天瞳之刃">天瞳之刃</h3>
+<p class="association"><a href="#宗门逆天">宗门逆天</a></p>
+<p class="success">攻击造成的最低伤害变更为665。此伤害随境界提升。</p>
+<hr>
+<p><img alt="逆天改命.天瞳之刃" title="逆天改命.天瞳之刃" src="鬼谷八荒.files/逆天改命.天瞳之刃.jpg"></p>
+<p>正当你突破之际，一道锐利的目光从天而降，竟直射在你眉心处。你全身剧震，仿若被一柄刀刃插入脑海。许久后，你从疼痛之中苏醒过来，发现除了眉心处仍隐隐作痛外，自己举手投足间竟自带一丝锋利的气劲。</p>
+
+<h3 id="逆天改命名">逆天改命名</h3>
+<p class="association"><a href="#筑基逆天">筑基逆天</a></p>
+<p class="success">效果说明</p>
+<hr>
+<p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
+<p>突破文本</p>
+
+<h3 id="逆天改命名">逆天改命名</h3>
+<p class="association"><a href="#筑基逆天">筑基逆天</a></p>
+<p class="success">效果说明</p>
+<hr>
+<p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
+<p>突破文本</p>
+
+<h3 id="逆天改命名">逆天改命名</h3>
+<p class="association"><a href="#筑基逆天">筑基逆天</a></p>
+<p class="success">效果说明</p>
+<hr>
+<p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
+<p>突破文本</p>
+
+<h3 id="逆天改命名">逆天改命名</h3>
+<p class="association"><a href="#筑基逆天">筑基逆天</a></p>
+<p class="success">效果说明</p>
+<hr>
+<p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
+<p>突破文本</p>
+
+<h3 id="逆天改命名">逆天改命名</h3>
+<p class="association"><a href="#筑基逆天">筑基逆天</a></p>
+<p class="success">效果说明</p>
+<hr>
+<p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
+<p>突破文本</p>
+
+<h3 id="逆天改命名">逆天改命名</h3>
+<p class="association"><a href="#筑基逆天">筑基逆天</a></p>
+<p class="success">效果说明</p>
+<hr>
+<p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
+<p>突破文本</p>
+
+<h3 id="逆天改命名">逆天改命名</h3>
+<p class="association"><a href="#筑基逆天">筑基逆天</a></p>
+<p class="success">效果说明</p>
+<hr>
+<p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
+<p>突破文本</p>
+
 <h2 id="筑基逆天">筑基逆天</h2>
 
 <p class="task">突破筑基可出现的逆天改命有：</p>
 
-<p><a style='color:#A100FF;text-decoration:none' href="#火力四射">火力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#水力四射">水力四射</a>、<a style='color:orange;text-decoration:none' href="#媚骨">媚骨</a>、<a style='color:orange;text-decoration:none' href="#跑得很帅">跑得很帅</a>、<a style='color:orange;text-decoration:none' href="#黄巾天师">黄巾天师</a>、<a style='color:#A100FF;text-decoration:none' href="#肉搏之交">肉搏之交</a>、<a style='color:#A100FF;text-decoration:none' href="#煞气">煞气</a>、<a style='color:#A100FF;text-decoration:none' href="#双修大法">双修大法</a>、<a style='color:#A100FF;text-decoration:none' href="#妒火中烧">妒火中烧</a>、<a style='color:#A100FF;text-decoration:none' href="#灵果馈赠">灵果馈赠</a>、<a style='color:orange;text-decoration:none' href="#老而弥坚">老而弥坚</a>、<a style='color:#A100FF;text-decoration:none' href="#物尽其用">物尽其用</a>、<a style='color:#FF0000;text-decoration:none' href="#疾速代谢">疾速代谢</a>、<a style='color:orange;text-decoration:none' href="#天地精华">天地精华</a>、<a style='color:#A100FF;text-decoration:none' href="#速读秘法">速读秘法</a>、<a style='color:#A100FF;text-decoration:none' href="#钻研秘术">钻研秘术</a>、<a style='color:#A100FF;text-decoration:none' href="#苦中寻乐">苦中寻乐</a>、<a style='color:#A100FF;text-decoration:none' href="#灵光一闪">灵光一闪</a>、<a style='color:orange;text-decoration:none' href="#若有道缘">若有道缘</a>、<a style='color:#A100FF;text-decoration:none' href="#开心果">开心果</a>、<a style='color:#A100FF;text-decoration:none' href="#生龙活虎">生龙活虎</a>、<a style='color:#A100FF;text-decoration:none' href="#机灵鬼">机灵鬼</a>、<a style='color:#A100FF;text-decoration:none' href="#灵力之种">灵力之种</a>、<a style='color:#A100FF;text-decoration:none' href="#体力之种">体力之种</a>、<a style='color:#A100FF;text-decoration:none' href="#雷力四射">雷力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#风力四射">风力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#木力四射">木力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#妖术入门">妖术入门</a>、<a style='color:#A100FF;text-decoration:none' href="#菊花烫">菊花烫</a>、<a style='color:#A100FF;text-decoration:none' href="#小跟屁虫">小跟屁虫</a>、<a style='color:#A100FF;text-decoration:none' href="#小宝的盾">小宝的盾</a>、<a style='color:#A100FF;text-decoration:none' href="#小李飞剑">小李飞剑</a>、<a style='color:#A100FF;text-decoration:none' href="#血魔大法">血魔大法</a>、<a style='color:#A100FF;text-decoration:none' href="#盾灵入门">盾灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#潜能入门">潜能入门</a>、<a style='color:#A100FF;text-decoration:none' href="#金蝉无影">金蝉无影</a>、<a style='color:#A100FF;text-decoration:none' href="#灵能之雨">灵能之雨</a>、<a style='color:#A100FF;text-decoration:none' href="#血灵入门">血灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#剑灵入门">剑灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#血祭入门">血祭入门</a>、<a style='color:orange;text-decoration:none' href="#视灵">视灵</a>、<a style='color:orange;text-decoration:none' href="#视精">视精</a>、<a style='color:#A100FF;text-decoration:none' href="#灵法入门">灵法入门</a>、<a style='color:#A100FF;text-decoration:none' href="#武法入门">武法入门</a>、<a style='color:#A100FF;text-decoration:none' href="#幻灵锅">幻灵锅</a>、<a style='color:#A100FF;text-decoration:none' href="#炼器学徒">炼器学徒</a></p>
+<p><a style='color:#A100FF;text-decoration:none' href="#火力四射">火力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#水力四射">水力四射</a>、<a style='color:orange;text-decoration:none' href="#媚骨">媚骨</a>、<a style='color:orange;text-decoration:none' href="#跑得很帅">跑得很帅</a>、<a style='color:orange;text-decoration:none' href="#黄巾天师">黄巾天师</a>、<a style='color:#A100FF;text-decoration:none' href="#肉搏之交">肉搏之交</a>、<a style='color:#A100FF;text-decoration:none' href="#煞气">煞气</a>、<a style='color:#A100FF;text-decoration:none' href="#双修大法">双修大法</a>、<a style='color:#A100FF;text-decoration:none' href="#妒火中烧">妒火中烧</a>、<a style='color:#A100FF;text-decoration:none' href="#灵果馈赠">灵果馈赠</a>、<a style='color:orange;text-decoration:none' href="#老而弥坚">老而弥坚</a>、<a style='color:#A100FF;text-decoration:none' href="#物尽其用">物尽其用</a>、<a style='color:red;text-decoration:none' href="#疾速代谢">疾速代谢</a>、<a style='color:orange;text-decoration:none' href="#天地精华">天地精华</a>、<a style='color:#A100FF;text-decoration:none' href="#速读秘法">速读秘法</a>、<a style='color:#A100FF;text-decoration:none' href="#钻研秘术">钻研秘术</a>、<a style='color:#A100FF;text-decoration:none' href="#苦中寻乐">苦中寻乐</a>、<a style='color:#A100FF;text-decoration:none' href="#灵光一闪">灵光一闪</a>、<a style='color:orange;text-decoration:none' href="#若有道缘">若有道缘</a>、<a style='color:#A100FF;text-decoration:none' href="#开心果">开心果</a>、<a style='color:#A100FF;text-decoration:none' href="#生龙活虎">生龙活虎</a>、<a style='color:#A100FF;text-decoration:none' href="#机灵鬼">机灵鬼</a>、<a style='color:#A100FF;text-decoration:none' href="#灵力之种">灵力之种</a>、<a style='color:#A100FF;text-decoration:none' href="#体力之种">体力之种</a>、<a style='color:#A100FF;text-decoration:none' href="#雷力四射">雷力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#风力四射">风力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#木力四射">木力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#妖术入门">妖术入门</a>、<a style='color:#A100FF;text-decoration:none' href="#菊花烫">菊花烫</a>、<a style='color:#A100FF;text-decoration:none' href="#小跟屁虫">小跟屁虫</a>、<a style='color:#A100FF;text-decoration:none' href="#小宝的盾">小宝的盾</a>、<a style='color:#A100FF;text-decoration:none' href="#小李飞剑">小李飞剑</a>、<a style='color:#A100FF;text-decoration:none' href="#血魔大法">血魔大法</a>、<a style='color:#A100FF;text-decoration:none' href="#盾灵入门">盾灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#潜能入门">潜能入门</a>、<a style='color:#A100FF;text-decoration:none' href="#金蝉无影">金蝉无影</a>、<a style='color:#A100FF;text-decoration:none' href="#灵能之雨">灵能之雨</a>、<a style='color:#A100FF;text-decoration:none' href="#血灵入门">血灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#剑灵入门">剑灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#血祭入门">血祭入门</a>、<a style='color:orange;text-decoration:none' href="#视灵">视灵</a>、<a style='color:orange;text-decoration:none' href="#视精">视精</a>、<a style='color:#A100FF;text-decoration:none' href="#灵法入门">灵法入门</a>、<a style='color:#A100FF;text-decoration:none' href="#武法入门">武法入门</a>、<a style='color:#A100FF;text-decoration:none' href="#幻灵锅">幻灵锅</a>、<a style='color:#A100FF;text-decoration:none' href="#炼器学徒">炼器学徒</a></p>
 
 <h3 id="火力四射">火力四射</h3>
 <p class="association"><a href="#筑基逆天">筑基逆天</a></p>
@@ -1638,7 +1711,7 @@
 
 <p class="task">突破结晶增加的可出现的逆天改命有：</p>
 
-<p><a style='color:orange;text-decoration:none' href="#咸猪手">咸猪手</a>、<a style='color:orange;text-decoration:none' href="#先受后攻">先受后攻</a>、<a style='color:orange;text-decoration:none' href="#徒手专精">徒手专精</a>、<a style='color:orange;text-decoration:none' href="#兵刃专精">兵刃专精</a>、<a style='color:#A100FF;text-decoration:none' href="#风雷擎天">风雷擎天</a>、<a style='color:#A100FF;text-decoration:none' href="#地火明夷">地火明夷</a>、<a style='color:#A100FF;text-decoration:none' href="#水木长生">水木长生</a>、<a style='color:orange;text-decoration:none' href="#似有道缘">似有道缘</a>、<a style='color:orange;text-decoration:none' href="#灵力之芽">灵力之芽</a>、<a style='color:orange;text-decoration:none' href="#体力之芽">体力之芽</a>、<a style='color:#FF0000;text-decoration:none' href="#李四来也！">李四来也！</a>、<a style='color:#FF0000;text-decoration:none' href="#鸡中霸王">鸡中霸王</a>、<a style='color:#FF0000;text-decoration:none' href="#化物">化物</a>、<a style='color:#A100FF;text-decoration:none' href="#鬼修入门">鬼修入门</a>、<a style='color:orange;text-decoration:none' href="#红尘剑匣">红尘剑匣</a>、<a style='color:orange;text-decoration:none' href="#归一决">归一决</a>、<a style='color:orange;text-decoration:none' href="#星耀尘寰">星耀尘寰</a>、<a style='color:orange;text-decoration:none' href="#双灵共生">双灵共生</a></p>
+<p><a style='color:orange;text-decoration:none' href="#咸猪手">咸猪手</a>、<a style='color:orange;text-decoration:none' href="#先受后攻">先受后攻</a>、<a style='color:orange;text-decoration:none' href="#徒手专精">徒手专精</a>、<a style='color:orange;text-decoration:none' href="#兵刃专精">兵刃专精</a>、<a style='color:#A100FF;text-decoration:none' href="#风雷擎天">风雷擎天</a>、<a style='color:#A100FF;text-decoration:none' href="#地火明夷">地火明夷</a>、<a style='color:#A100FF;text-decoration:none' href="#水木长生">水木长生</a>、<a style='color:orange;text-decoration:none' href="#似有道缘">似有道缘</a>、<a style='color:orange;text-decoration:none' href="#灵力之芽">灵力之芽</a>、<a style='color:orange;text-decoration:none' href="#体力之芽">体力之芽</a>、<a style='color:red;text-decoration:none' href="#李四来也！">李四来也！</a>、<a style='color:red;text-decoration:none' href="#鸡中霸王">鸡中霸王</a>、<a style='color:red;text-decoration:none' href="#化物">化物</a>、<a style='color:#A100FF;text-decoration:none' href="#鬼修入门">鬼修入门</a>、<a style='color:orange;text-decoration:none' href="#红尘剑匣">红尘剑匣</a>、<a style='color:orange;text-decoration:none' href="#归一决">归一决</a>、<a style='color:orange;text-decoration:none' href="#星耀尘寰">星耀尘寰</a>、<a style='color:orange;text-decoration:none' href="#双灵共生">双灵共生</a></p>
 
 <h2 id="金丹逆天">金丹逆天</h2>
 
@@ -1653,6 +1726,43 @@
 <h2 id="羽化逆天">羽化逆天</h2>
 
 <h2 id="登仙逆天">登仙逆天</h2>
+
+<h1 id="先天气运">先天气运</h1>
+
+<h2 id="天级先天（金）">天级先天（金）</h2>
+
+<h2 id="神级先天（红）">神级先天（红）</h2>
+
+<h2 id="仙级先天（橙）">仙级先天（橙）</h2>
+
+<h2 id="圣级先天（紫）">圣级先天（紫）</h2>
+
+<h2 id="蓝色先天">蓝色先天</h2>
+
+<h2 id="绿色先天">绿色先天</h2>
+
+<h2 id="灰色先天">灰色先天</h2>
+
+<h1 id="后天气运">后天气运</h1>
+
+<h2 id="神级后天（红）">神级后天（红）</h2>
+
+<h2 id="仙级后天（橙）">仙级后天（橙）</h2>
+
+<h2 id="圣级后天（紫）">圣级后天（紫）</h2>
+
+<h2 id="蓝色后天">蓝色后天</h2>
+
+<h2 id="绿色后天">绿色后天</h2>
+
+<h2 id="灰色后天">灰色后天</h2>
+
+<h2 id="黑色后天">黑色后天</h2>
+
+<h3 id="重伤">重伤</h3>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#回城镇休整">回城镇休整</a>，<a href="#重新挑战武罗">重新挑战武罗</a>，<a href="#擎天寨事件完毕后第二个月">擎天寨事件完毕后第二个月</a></p>
+<p class="failure">体力上限暂时减少30%。</p>
+<p class="tips">消耗5天，在城镇客栈投宿或在宗门疗伤院疗伤修养解除。</p>
 
 <br><br><br>
 <p>鬼谷八荒百科by晚安安</p>
