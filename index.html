@@ -14,7 +14,8 @@
 	/* 目录样式 */
 	.sidebar {
 		width: 100%;
-		height: 9.5em;
+		height: 16em;
+		max-height: 35%; /* 最大不超过35% */
 		background-color: #EEEEEEF0;
 		position: fixed; /* 固定位置 */
 		bottom: 0; /* 放在页面底部 */
@@ -41,7 +42,6 @@
 		color: #555;
 		transition: color 0.3s ease;
 		writing-mode: vertical-rl; /* 竖着排版 */
-		text-orientation: upright; /* 标点符号直立显示 */
 	}
 	.sidebar ul li a:hover {
 		color: #000;
@@ -51,11 +51,12 @@
 		font-weight: bold;
 	}
 	.sidebar2 {
-		width: 35%;
-		height: 5.5em;
+		width: 260px; /* 固定宽度 */
+		max-width: 35%; /* 最大不超过35% */
+		height: 6.25em;
 		background-color: #DDDDDDE0;
 		position: fixed; /* 固定位置 */
-		bottom: 9.5em; /* 放在页面底部 */
+		bottom: 0; /* 放在页面底部 */
 		right: 0; /* 放在页面右侧 */
 		overflow-x: auto; /* 允许水平滚动 */
 		overflow-y: hidden; /* 竖直方向滚动隐藏 */
@@ -75,7 +76,6 @@
 		color: #555;
 		transition: color 0.3s ease;
 		writing-mode: vertical-rl; /* 竖着排版 */
-		text-orientation: upright; /* 标点符号直立显示 */
 	}
 	.sidebar2 ul li a:hover {
 		color: #000;
@@ -221,6 +221,9 @@
 	.content p.association::before {
 		content: "🔍";
 	}
+    .reward-container select, .reward-container span {
+        font-size: inherit;
+    }
 </style>
 
 </head>
@@ -551,7 +554,7 @@
 <p>智叟：老实住在愚村不好吗？为何就非得去外界…</p>
 
 <h2 id="突破筑基境">突破筑基境</h2>
-<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#重新挑战武罗">重新挑战武罗</a>，<a href="#提交树妖魂珠">提交树妖魂珠</a></p>
+<p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#重新挑战武罗">重新挑战武罗</a>，<a href="#提交树妖魂珠">提交树妖魂珠</a>，<a href="#祖师云房">祖师云房</a></p>
 <p class="task">将境界提升至<a style='color:#00B050'>筑基境</a>。</p>
 <p class="success">筑基方式有以下三种</p>
 <p><a style='color:green'>●</a>天道筑基：</p>
@@ -664,8 +667,7 @@
 
 <h2 id="寻找人面鸮之王">寻找人面鸮之王</h2>
 <p class="association"><a href="#与后羿交谈">与后羿交谈</a></p>
-<p class="task">前往永宁州某处某方的后羿，与后羿进行交谈。</p>
-<p class="success">完成后领取到主线任务：<a href="#寻找人面鸮之王">寻找人面鸮之王</a>。</p>
+<p class="task">前往永宁州某处某方的山谷，寻找人面鸮之王。</p>
 <p class="tips">需达到筑基境才能进入副本。</p>
 <hr>
 <p>我：（这个<a style='color:#007BFF'>山谷</a>诡异得很…待我拥有了<a style='color:#A100FF'>筑基境</a>的实力再来探索吧。）</p>
@@ -681,9 +683,11 @@
 <p>我：（接下来便只差<a style='color:#00B050'>扶桑树枝</a>了。在去<a style='color:#007BFF'>东海</a>之前，我最好先将修为提升至<a style='color:#A100FF'>结晶境</a>。）</p>
 
 <h2 id="突破结晶境">突破结晶境</h2>
-<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
+<p class="association"><a href="#突破筑基境">突破筑基境</a>，<a href="#仙祠">仙祠</a></p>
 <p class="tips"><a style='color:orange' href="#绮罗幽香">绮罗幽香</a>和<a style='color:orange' href="#鬼哭藤">鬼哭藤</a>出自<a style='color:#00B050'>永宁州</a>区域内的<a style='color:#00B050'>玄灵秘境</a>。</p>
 <p class="tips"><a style='color:orange' href="#北冥摄魂">北冥摄魂</a>出自<a style='color:#00B050'>雷泽</a>区域内的<a style='color:#00B050'>玄灵秘境</a>。</p>
+<hr>
+<p class="tips">突破结晶境后地图上会立刻刷出<a href="#仙祠">仙祠</a>。</p>
 <hr>
 <p><a style='color:green'>●</a>结晶：</p>
 <p>使用六品化晶丹或更高品的化晶丹，并辅以<a style='color:#00B050'>4</a>种<a style='color:#00B050'>天材地宝</a>方可进行结晶。</p>
@@ -699,11 +703,13 @@
 <p><a style='color:green'>●</a><a style='color:#A100FF' href="#碧痕">碧痕</a></p>
 <br>
 <p>关于突破的更多详情可在【逆天改命】界面中查看。</p>
+<br>
+<p class="tips">结晶成功后领取到主线任务：<a href="#扶桑">扶桑？？</a>。</p>
 <hr>
 <p>我：（如今我已经有<a style='color:#A100FF'>结晶境</a>的实力了，这就出发去<a style='color:#007BFF'>东海</a>寻找扶桑吧。）</p>
 
 <h1 id="支线">支线</h1><!-- 不可重复 -->
-<p class="tips">不可重复触发的事件归类到“支线”。</p>
+<p class="tips">不可重复触发的非必过事件归类到“支线”。</p>
 
 <h2 id="前往擎天寨">前往擎天寨</h2>
 <p class="association"><a href="#前往太行山">前往太行山</a>，<a href="#购买琅琊阁中的功法并进行修炼">购买琅琊阁中的功法并进行修炼</a></p>
@@ -1118,8 +1124,8 @@
 <p>男子说完话，便晃晃悠悠地带着酒壶往外走去。</p>
 
 <h2 id="小迷妹·路遇">小迷妹·路遇</h2>
-<p class="trigger">筑基及以上修为在大地图移动。</p>
-<p class="success">出手相助后获得小迷妹×1。</p>
+<p class="trigger">筑基及以上修为在大地图移动概率触发。</p>
+<p class="success">出手相救后获得小迷妹×1。</p>
 <p class="tips">小迷妹境界固定比玩家低一个境界，且固定为境界初期阶段。</p>
 <p class="roast">高境界触发时因小迷妹境界较高，年龄也会较高，可能会显得违和。</p>
 <hr>
@@ -1142,6 +1148,63 @@
 <p class="dialog_box">2 不救</p>
 <p>你想了想，直接离开了。</p>
 <p>男修：算你识相。</p>
+
+<h2 id="小迷妹·坊市">小迷妹·坊市</h2>
+<p class="trigger">筑基及以上修为进入城镇坊市点击购买概率触发。</p>
+<p class="success">出手相助后获得小迷妹×1。</p>
+<p class="roast">有时候触发后想刷小迷妹回档了，再反复点击购买也不会触发了。</p>
+<hr>
+<p><img alt="一男一女追逐跑来" title="一男一女追逐跑来" src="鬼谷八荒.files/一男一女追逐跑来.jpg"></p>
+<p>你刚进入坊市，就听到有女子大喊“抓贼”，循声望去，你看到一男一女正在前后追逐向你跑来。</p>
+<p>女子：道友，快帮我拦住前面那小贼。</p>
+<p>男修：滚开，敢拦我让你没好果子吃。</p>
+<hr>
+<p class="dialog_box">1 出手拦住</p>
+<p>我：光天化日之下行此等偷窃之事，我岂能熟视无睹。</p>
+<p>男修：既然你这么爱管闲事，那就去死吧。</p>
+<p class="dialog_box">进入战斗</p>
+<p>女子：多……多谢道友抓住此贼。</p>
+<p>我：下次你可要注意了。</p>
+<p>女子：多谢道友提醒，小女子名为【女修名】，乃一介散修，这小贼偷走的储物戒中便是我的全部财物，若不是道友最后拦住这贼子，我……我真不知该如何是好。</p>
+<p>我：如此……</p>
+<p>女子：道友之恩，他日必报，容小女子先行告退。</p>
+<hr>
+<p class="dialog_box">2 不拦</p>
+<p>你想了想，让开了位置。</p>
+<p>男修：算你识相。</p>
+
+<h2 id="小迷妹·兽巢">小迷妹·兽巢</h2>
+<p class="trigger">击败大妖兽概率触发。</p>
+<p class="success">出手相助后获得小迷妹×1。</p>
+<p class="tips">必须是地图上有大妖兽图标的大妖兽，比如炼狱当康、九霄雷神等。</p>
+<hr>
+<p><img alt="凝聚灵力破开禁制" title="凝聚灵力破开禁制" src="鬼谷八荒.files/凝聚灵力破开禁制.jpg"></p>
+<p>你击败异兽后，在其洞府中发现有一女子被困在此处，你凝聚灵力破开禁制，将她救了出来。</p>
+<p>女子：你……你竟然打败了它！</p>
+<p>我：你是何人，为何在此地，莫不是……</p>
+<p>女子：道友别误会，小女……小女子名为【女修名】，乃一介散修，受伤后误入了此等龙潭虎穴，若不是道友大发神威，击杀这异兽，只怕我早晚都要葬身于此。</p>
+<p>我：如此说来……</p>
+<p>女子：道友救命之恩，来日必报，容小女子先行告退。</p>
+<hr>
+<p class="dialog_box">1 有缘再见</p>
+<p>女子：嗯……</p>
+<hr>
+<p class="dialog_box">2 不必报恩，我无意与你有过多关联</p>
+<p>女子：好，好吧……</p>
+
+<h2 id="君愿知">君愿知</h2>
+<p class="trigger">筑基及以上修为在永宁州移动。</p><!--结晶初期永宁-->
+<p class="success">出手相助后获得小迷妹×1。</p>
+<p class="success">逃走结束支线。</p>
+<hr>
+<p><img alt="湖畔少女" title="湖畔少女" src="鬼谷八荒.files/湖畔少女.jpg"></p>
+<p>你来到一片湖畔，发现不远处立有一名少女。少女站在青草间，在轻风吹拂下，裙摆微微摇动。她正注视着湖面上自身倒影的涟出神，似乎并未注意到你。</p>
+<p>正当你好奇少女在此处作何，一只巨蟹从湖中冲出，向少女袭来。</p>
+<hr>
+<p class="dialog_box">1 出手相救</p>
+<hr>
+<p class="dialog_box">2 逃走</p>
+<p>你修为有限，自忖难敌巨蟹，在被巨蟹发现之前，你快速逃离了此地。</p>
 
 <h2 id="大能传功">大能传功</h2>
 <p class="trigger">玩家境界在筑基境且时间在5年以后，在永宁州或雷泽区域移动触发。</p>
@@ -1229,7 +1292,6 @@
 <p class="dialog_box">1 接受传功</p>
 <p>我：在下愿意接过这一份因果。</p>
 <p>败者：我没看错你，时间不多了，现在便开始接受我的本源灵力吧。</p>
-
 <p><img alt="接受传功" title="接受传功" src="鬼谷八荒.files/接受传功.jpg"></p>
 <hr>
 <p>败者：咳咳，很好，一切都很顺利。</p>
@@ -1300,13 +1362,12 @@
 <p>败者：道友，你看这雨，由天而生，至地而死，每一滴雨看到的风景都不相同，这中间的过程，又何尝不是人生。</p>
 
 <h2 id="祖师云房">祖师云房</h2>
-<p class="association"><a href="#突破筑基境">突破筑基境</a></p>
 <p><img alt="祖师云房" title="祖师云房" src="鬼谷八荒.files/祖师云房.jpg"></p>
-<p class="trigger">突破筑基境后在永宁州大地图移动概率触发。</p>
+<p class="trigger"><a href="#突破筑基境">突破筑基境</a>后在永宁州大地图移动概率触发。</p>
 <p class="task">前去探索途中两名炼丹师提及的祖师云房。</p>
-<p class="success">静坐后获得后天气运丹心极意2月。</p>
+<p class="success">静坐后获得后天气运<a href="#丹心极意">丹心极意</a>2月。</p>
 <p class="success">完成后在大地图移动触发<a href="#前方风波">前方风波</a>。</p>
-<p class="tips">当身上拥有<a style='color:red'>丹心极意</a>气运效果之时，进行突破可获得丹师特殊<a style='color:red'>逆天改命效果</a>。丹髓气运消失后，可在祖师云房处静坐重新获得。同时，若有<a style='color:red'>可升级或可学习的丹方时</a>亦可回到云房中参悟学习。</p>
+<p class="tips">当身上拥有<a style='color:red'>丹心极意</a>气运效果之时，进行突破可获得丹师特殊<a style='color:red'>逆天改命效果</a>。丹髓气运消失后，可在祖师云房处静坐<b>重新获得</b>。同时，若有<a style='color:red'>可升级或可学习的丹方时</a>亦可回到云房中参悟学习。</p>
 <hr>
 <p>炼丹师男：听闻那个地方乃昔日祖师炼丹静修之地。</p>
 <p>炼丹师女：药长老曾说祖师爷的云房就在永宁州中。祖师昔日在此繁荣之地静修，这可叫人有点始料不及。</p>
@@ -1324,7 +1385,6 @@
 <p>当身上拥有<a style='color:red'>丹心极意</a>气运效果之时，进行突破可获得丹师特殊<a style='color:red'>逆天改命效果</a>。丹髓气运消失后，可在祖师云房处静坐重新获得。同时，若有<a style='color:red'>可升级或可学习的丹方时</a>亦可回到云房中参悟学习。</p>
 
 <h2 id="前方风波">前方风波</h2>
-<p class="association"><a href="#祖师云房">祖师云房</a></p>
 <p><img alt="前方风波" title="前方风波" src="鬼谷八荒.files/前方风波.jpg"></p>
 <p class="trigger">完成<a href="#祖师云房">祖师云房</a>后在大地图移动概率触发。</p>
 <p class="task">前去查看前方恶战情势。</p>
@@ -1365,6 +1425,50 @@
 <p class="success">完成后学习到元阳丹、千毒香、	天罡丸丹方。</p>
 <hr>
 <p>六宗联盟已发现我等行踪，不日将有恶战，必须将此信带回华封州主府。为保最近钻研所得，兹将丹方录下。未来我观新丹大会，务需将之上交。</p>
+
+<h2 id="初遇青马">初遇青马</h2>
+<p><img alt="青马图标" title="青马图标" src="鬼谷八荒.files/青马图标.jpg"></p>
+<p class="success">选择“忽略此事”，地图上也会出现青马图标，可以触发后续。且查看青马后选择“暂时离开”，青马图标也不会消失，可以重新查看。</p>
+<p class="success">选择“放脱青马”，无奖励，有后续。</p>
+<p class="failure">选择“击杀妖物”与青马战斗，无奖励，无后续。</p>
+<p class="tips">与青马战斗可看到青马名为“䑏疏”，为《山海经》西山经中记载的一种野兽：又北三百里，曰带山，其上多玉，其下多青碧。有兽焉，其状如马，一角有错，其名䑏（huān）疏，可以辟火。</p>
+<p class="roast">修仙者甲的境界比乙高很多，但是他们的对话中根本体现不出来，光看对话还以为是同阶修士。</p>
+<hr>
+<p><img alt="一道青影急速掠过" title="一道青影急速掠过" src="鬼谷八荒.files/一道青影急速掠过.jpg"></p>
+<p>你感觉地面微微震动，碎石细砾更是无故虚浮。此时破风声起，一道青影急速掠过。之后地面复归静止，碎石亦重落地上。你正疑惑究竟发生什么事，两名修仙者已同时御剑来到。</p>
+<p>修仙者甲：明明就在这附近，怎么不见了呢？话说，凭你本事竟将古时暮仙州大能多次围剿未果的妖兽伤了？</p>
+<p>修仙者乙：哼，你这话什么意思？我老实跟你说吧。当时我看见这妖物角上缠着一截断开的缚仙索，便用法器隐藏了自身声息，偷偷摸过去解开了那段绢子然后用那玩意捆住了妖兽。</p>
+<p>修仙者甲：听说那是极为罕有的法宝，听闻古时懂得制作此绢的大能仅织就两条缚仙索便心力耗尽而死。竟然有一截挂在那妖物身上么？这可真是一番机缘啊。</p>
+<p>修仙者乙：嘿嘿，就是。那妖物被束缚后，实力大减，被我几番追击，一路逃遁至此。我们分头寻觅那妖物，赶紧将他拿下吧。</p>
+<p>修仙者甲：你说得极是，这眼前的好处不能放过。</p>
+<p>我：……</p>
+<hr>
+<p class="dialog_box">1 前往一探</p>
+<hr>
+<p class="dialog_box">2 忽略此事</p>
+<hr>
+<p><img alt="妖伏白索交缠" title="妖伏白索交缠" src="鬼谷八荒.files/妖伏白索交缠.jpg"></p>
+<p>前方树丛之间一妖伏倒地上。一截白索交缠着妖兽身体以及前足，使其不能移动。此外妖兽后足有一道剑伤，创口已可见骨。</p>
+<p>妖兽察觉有人接近，立即生出警觉。它回头看了看你，眼中透出森寒敌意，不过敌意眨眼间化去，转为无奈之色。最后只发出两声嗷嗷的哀声，便又闭目转过头去。</p>
+<hr>
+<p class="dialog_box">11 放脱青马</p>
+<p><img alt="青兽离奇情景" title="青兽离奇情景" src="鬼谷八荒.files/青兽离奇情景.jpg"></p>
+<p>你刚为青兽解开其身上交缠着的白索。眼前便出现一番离奇的情景。</p>
+<p><img alt="妖伏白索交缠男子走进" title="妖伏白索交缠男子走进" src="鬼谷八荒.files/妖伏白索交缠男子走进.jpg"></p>
+<p>丛林之中躺着一只额上生角的青马。当时它被一截白索缠着，蜷缩地上，正舔舐着前足伤口。此时一名男子慢慢走近，那只青色的妖兽见状发出嗷嗷怪叫。</p>
+<p><img alt="青马男子" title="青马男子" src="鬼谷八荒.files/青马男子.jpg"></p>
+<p>男子：额生一角，可通灵韵。嗯，是一只䑏疏。缠在你身上的是……缚仙索，你的前腿受了伤，又被缚仙索困住。</p>
+<p>男子：我知道了。䑏疏是八荒中极为罕有的妖兽。传说你的角又是十分难得的仙材。你被其他修仙者发现并设法捕捉，后遭仙索束缚以致受伤，对吧？</p>
+<p><img alt="青马妖兽离开" title="青马妖兽离开" src="鬼谷八荒.files/青马妖兽离开.jpg"></p>
+<p>这名修仙者微微一笑，伸手解开缚仙索，再用手扶起青马。妖兽察觉修仙者的动作变得十分暴躁，但发现他并无恶意便后慢慢宁定，一拐一拐的离开了。</p>
+<p>男子：去吧去吧，缚仙索可是你的克星，千万不要再被这东西困住了。</p>
+<p><img alt="青马妖兽离开2" title="青马妖兽离开2" src="鬼谷八荒.files/青马妖兽离开2.jpg"></p>
+<p>你清醒过来，那妖兽已经从白索的缠缚中挣脱开来。妖兽看了你一眼后这才摆动受伤的后足飞奔而去。</p>
+<p>我：……</p>
+<hr>
+<p class="dialog_box">12 击杀妖物</p>
+<hr>
+<p class="dialog_box">13 暂时离去</p>
 
 <h2 id="生成噬魂剑NPC">生成噬魂剑NPC</h2>
 <p class="association"><a href="#关联A">关联A</a>，<a href="#关联B">关联B</a>，<a href="#关联C">关联C</a></p>
@@ -1657,7 +1761,7 @@
 
 <h1 id="移动奇遇">移动奇遇</h1><!-- 可重复 -->
 <p class="trigger">在大地图移动触发。</p>
-<p class="tips">可重复触发的事件归类到“奇遇”。</p>
+<p class="tips">可重复触发的非必过事件归类到“奇遇”。</p>
 
 <h2 id="灵体恢复">灵体恢复</h2>
 <p class="trigger">体力较低时在大地图移动概率触发，每?月最多触发一次。</p>
@@ -1708,9 +1812,10 @@
 <p>你怀着好奇往前走了一步，老鼠一惊用双翼掩住脑袋，双眼从羽翼间看到你后转瞬飞走。</p>
 <p>你轰开地洞露出了藏在里面的东西。</p>
 
-<h2 id="绿色鹦鹉飞过">绿色鹦鹉飞过</h2>
-<p class="success">“自命翼儿”增加20魔道值，获得三品培元丹×17。</p>
+<h2 id="南桥遗物">南桥遗物</h2>
+<p class="success">“自命翼儿”增加20魔道值，同时获得三品培元丹×17或三品玄元丹×13或灵石×397。</p>
 <p class="success">“收起贪念”增加20正道值。</p>
+<p class="tips">获得的丹药为当前境界的。</p>
 <hr/>
 <p><img alt="绿色鹦鹉飞过" title="绿色鹦鹉飞过" src="鬼谷八荒.files/绿色鹦鹉飞过.jpg"/></p>
 <p>天空中一只绿色的鹦鹉从你身边飞过，嘴里边飞边重复着“南边桥下挂着我留给你的东西，翼儿，你切记不可说与他人知晓。”</p>
@@ -1797,9 +1902,22 @@
 <p>此时一狮头鹿角，虎眼麋身身披龙鳞的异兽腾云而至，将你托起并带回了山上，而后踏云而去。</p>
 <p>你心中感叹时发现一丝灵气留在了体内。</p>
 
+<h2 id="悬崖灵果">悬崖灵果</h2>
+<p class="success">“前去采摘”XXX。</p>
+<p class="failure">心有疑虑直接离开无奖励。</p>
+<hr/>
+<p><img alt="悬崖灵果" title="悬崖灵果" src="鬼谷八荒.files/悬崖灵果.jpg"/></p>
+<p>前方悬崖上一颗灵果发出阵阵诱人的香味。</p>
+<hr>
+<p class="dialog_box">1 前去采摘</p>
+<p>XXX</p>
+<hr>
+<p class="dialog_box">2 位置如此显眼却无人采摘只怕有异</p>
+<p>你心有疑虑，看了灵果一眼离开了此地。</p>
+
 <h1 id="问号奇遇">问号奇遇</h1><!-- 可重复 -->
 <p class="trigger">大地图上的【?】图标触发。</p>
-<p class="tips">可重复触发的事件归类到“奇遇”。</p>
+<p class="tips">可重复触发的非必过事件归类到“奇遇”。</p>
 
 <h2 id="灵泉刀痕茅屋">灵泉刀痕茅屋</h2>
 <p class="association"><a href="#提升修为">提升修为</a></p>
@@ -1930,6 +2048,30 @@
 <p>正要离开时，一个老人不知从哪里出现“道友不贪图灵气坏我阵法，品德高尚，此物送予道友，愿道友永记初心。”</p>
 <p>说完老人就消失了。你心中感慨收好物品离开了此地。</p>
 
+<h2 id="松动的法阵">松动的法阵</h2>
+<p class="success">“尝试破解”XXX。</p>
+<p class="failure">心有疑虑直接离开无奖励。</p>
+<hr>
+<p><img alt="松动的法阵" title="松动的法阵" src="鬼谷八荒.files/松动的法阵.jpg"></p>
+<p>你行走间发现前方地段有些异象，走近后发现是一处松动的法阵。</p>
+<hr>
+<p class="dialog_box">1 尝试破解阵法</p>
+<hr>
+<p class="dialog_box">2 破解不成只怕招来反噬</p>
+<p>你察觉到了其中的危险，远远离开了此地。</p>
+
+<h2 id="山崖树果">山崖树果</h2>
+<p class="success">“上去采摘”XXX。</p>
+<p class="failure">“离去”无奖励。</p>
+<hr>
+<p><img alt="山崖树上结着果实" title="山崖树上结着果实" src="鬼谷八荒.files/山崖树上结着果实.jpg"></p>
+<p>你看到山崖上有一颗树上结着果实，看起来有点像是枣子。</p>
+<hr>
+<p class="dialog_box">1 上去采摘</p>
+<hr>
+<p class="dialog_box">2 离去</p>
+<p>果树在你身后渐渐远去…</p>
+
 <h1 id="提示">提示</h1>
 
 <h2 id="路标">路标</h2>
@@ -1965,10 +2107,11 @@
 
 <h2 id="路过仙祠">路过仙祠</h2>
 <p class="association"><a href="#仙祠">仙祠</a></p>
-<p class="trigger">路过仙祠触发、只会触发一次。触发后视角会移动到该仙祠。</p>
+<p class="trigger">路过仙祠触发、只会触发一次。“跟随探查”后视角会移动到该仙祠。</p>
 <hr>
 <p><img alt="一人走向仙祠" title="一人走向仙祠" src="鬼谷八荒.files/一人走向仙祠.jpg"></p>
 <p>你看到前方有一人行色匆匆，走向一个充满仙力的建筑。</p>
+<p class="dialog_box">跟随探查</p>
 <p><img alt="储物戒一道光闪过" title="储物戒一道光闪过" src="鬼谷八荒.files/储物戒一道光闪过.jpg"></p>
 <p>此人从储物戒拿出什么东西，虔诚地供奉，而后有一道光闪过。</p>
 <p>我：敢问道友，这是在做甚？此建筑是何物？</p>
@@ -2305,7 +2448,7 @@
 
 <p class="task">游戏中有如下的特殊逆天改命：</p>
 
-<p><a style='color:red;text-decoration:none' href="#XXX">XXX</a>、<a style='color:#007BFF;text-decoration:none' href="#逍遥游">逍遥游</a>、</p> 
+<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:red' href="#XXX">XXX</a>、<a style='color:#007BFF' href="#逍遥游">逍遥游</a>、</p> 
 
 <h3 id="逍遥游">逍遥游</h3>
 <p class="association"><a href="#特殊逆天改命">特殊逆天改命</a>，<a href="#大能传功">大能传功</a></p>
@@ -2318,7 +2461,7 @@
 
 <p class="task">宗门灵阁可出现的逆天改命有：</p>
 
-<p><a style='color:red;text-decoration:none' href="#虎魄龙魂">虎魄龙魂</a>、<a style='color:orange;text-decoration:none' href="#天瞳之刃">天瞳之刃</a>、<a style='color:orange;text-decoration:none' href="#天外有天">天外有天</a>、<a style='color:orange;text-decoration:none' href="#天人合一">天人合一</a>、<a style='color:orange;text-decoration:none' href="#天罡步法">天罡步法</a>、<a style='color:orange;text-decoration:none' href="#震天怒啸">震天怒啸</a>、<a style='color:red;text-decoration:none' href="#凝元寂灭">凝元寂灭</a>、<a style='color:orange;text-decoration:none' href="#摄神寒光">摄神寒光</a>、<a style='color:orange;text-decoration:none' href="#载物无疆">载物无疆</a>、<a style='color:orange;text-decoration:none' href="#踏雪无痕">踏雪无痕</a>、<a style='color:orange;text-decoration:none' href="#聚雷尖戟">聚雷尖戟</a>、<a style='color:orange;text-decoration:none' href="#宿命之引">宿命之引</a>、<a style='color:red;text-decoration:none' href="#杀心骤起">杀心骤起</a>、<a style='color:orange;text-decoration:none' href="#排山倒海">排山倒海</a>、<a style='color:orange;text-decoration:none' href="#穿云电闪">穿云电闪</a>、<a style='color:red;text-decoration:none' href="#天地同寿">天地同寿</a>、<a style='color:orange;text-decoration:none' href="#烈火燎原">烈火燎原</a>、<a style='color:orange;text-decoration:none' href="#炉火纯青">炉火纯青</a>、</p> 
+<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:red' href="#虎魄龙魂">虎魄龙魂</a>、<a style='color:#FF630D' href="#天瞳之刃">天瞳之刃</a>、<a style='color:#FF630D' href="#天外有天">天外有天</a>、<a style='color:#FF630D' href="#天人合一">天人合一</a>、<a style='color:#FF630D' href="#天罡步法">天罡步法</a>、<a style='color:#FF630D' href="#震天怒啸">震天怒啸</a>、<a style='color:red' href="#凝元寂灭">凝元寂灭</a>、<a style='color:#FF630D' href="#摄神寒光">摄神寒光</a>、<a style='color:#FF630D' href="#载物无疆">载物无疆</a>、<a style='color:#FF630D' href="#踏雪无痕">踏雪无痕</a>、<a style='color:#FF630D' href="#聚雷尖戟">聚雷尖戟</a>、<a style='color:#FF630D' href="#宿命之引">宿命之引</a>、<a style='color:red' href="#杀心骤起">杀心骤起</a>、<a style='color:#FF630D' href="#排山倒海">排山倒海</a>、<a style='color:#FF630D' href="#穿云电闪">穿云电闪</a>、<a style='color:red' href="#天地同寿">天地同寿</a>、<a style='color:#FF630D' href="#烈火燎原">烈火燎原</a>、<a style='color:#FF630D' href="#炉火纯青">炉火纯青</a>、</p> 
 
 <h3 id="虎魄龙魂">虎魄龙魂</h3>
 <p class="association"><a href="#宗门逆天改命">宗门逆天改命</a></p>
@@ -2341,11 +2484,25 @@
 <p><img alt="逆天改命.逆天改命名" title="逆天改命.逆天改命名" src="鬼谷八荒.files/逆天改命.逆天改命名.jpg"></p>
 <p>突破文本</p>
 
+<h2 id="二级逆天改命">二级逆天改命</h2>
+<p class="tips">某些逆天改命可以升级，选择了这些逆天改命之后，突破境界必出其升级版。</p>
+<p class="tips">升级版逆天改命的效果是对原逆天改命效果的替换而不是叠加。</p>
+<p class="task">这些升级版逆天改命有：</p>
+
+<p><a style='color:#FF630D;text-decoration:none' href="#武法进阶">武法进阶</a></p>
+
+<h3 id="武法进阶">武法进阶</h3>
+<p class="association"><a href="#二级逆天改命">二级逆天改命</a>，<a href="#武法入门">武法入门</a></p>
+<p class="success">武技的冷却时间-25%。（选择后替换武法入门，可升级为武法精通）</p>
+<hr>
+<p><img alt="逆天改命.武法进阶" title="逆天改命.武法进阶" src="鬼谷八荒.files/逆天改命.武法进阶.jpg"></p>
+<p>在突破的过程中，你再次进入那片雾境，雾中之人在施展另一种你熟悉的武技，但是速度却比以前更快了。你正打算仔细观察一番时雾气再次消散。你回想看到的一切，有所感悟。</p>
+
 <h2 id="筑基逆天改命">筑基逆天改命</h2>
 
 <p class="task">突破筑基可出现的逆天改命有：</p>
 
-<p><a style='color:#A100FF;text-decoration:none' href="#火力四射">火力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#水力四射">水力四射</a>、<a style='color:orange;text-decoration:none' href="#媚骨">媚骨</a>、<a style='color:orange;text-decoration:none' href="#跑得很帅">跑得很帅</a>、<a style='color:orange;text-decoration:none' href="#黄巾天师">黄巾天师</a>、<a style='color:#A100FF;text-decoration:none' href="#肉搏之交">肉搏之交</a>、<a style='color:#A100FF;text-decoration:none' href="#煞气">煞气</a>、<a style='color:#A100FF;text-decoration:none' href="#双修大法">双修大法</a>、<a style='color:#A100FF;text-decoration:none' href="#妒火中烧">妒火中烧</a>、<a style='color:#A100FF;text-decoration:none' href="#灵果馈赠">灵果馈赠</a>、<a style='color:orange;text-decoration:none' href="#老而弥坚">老而弥坚</a>、<a style='color:#A100FF;text-decoration:none' href="#物尽其用">物尽其用</a>、<a style='color:red;text-decoration:none' href="#疾速代谢">疾速代谢</a>、<a style='color:orange;text-decoration:none' href="#天地精华">天地精华</a>、<a style='color:#A100FF;text-decoration:none' href="#速读秘法">速读秘法</a>、<a style='color:#A100FF;text-decoration:none' href="#钻研秘术">钻研秘术</a>、<a style='color:#A100FF;text-decoration:none' href="#苦中寻乐">苦中寻乐</a>、<a style='color:#A100FF;text-decoration:none' href="#灵光一闪">灵光一闪</a>、<a style='color:orange;text-decoration:none' href="#若有道缘">若有道缘</a>、<a style='color:#A100FF;text-decoration:none' href="#开心果">开心果</a>、<a style='color:#A100FF;text-decoration:none' href="#生龙活虎">生龙活虎</a>、<a style='color:#A100FF;text-decoration:none' href="#机灵鬼">机灵鬼</a>、<a style='color:#A100FF;text-decoration:none' href="#灵力之种">灵力之种</a>、<a style='color:#A100FF;text-decoration:none' href="#体力之种">体力之种</a>、<a style='color:#A100FF;text-decoration:none' href="#雷力四射">雷力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#风力四射">风力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#木力四射">木力四射</a>、<a style='color:#A100FF;text-decoration:none' href="#妖术入门">妖术入门</a>、<a style='color:#A100FF;text-decoration:none' href="#菊花烫">菊花烫</a>、<a style='color:#A100FF;text-decoration:none' href="#小跟屁虫">小跟屁虫</a>、<a style='color:#A100FF;text-decoration:none' href="#小宝的盾">小宝的盾</a>、<a style='color:#A100FF;text-decoration:none' href="#小李飞剑">小李飞剑</a>、<a style='color:#A100FF;text-decoration:none' href="#血魔大法">血魔大法</a>、<a style='color:#A100FF;text-decoration:none' href="#盾灵入门">盾灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#潜能入门">潜能入门</a>、<a style='color:#A100FF;text-decoration:none' href="#金蝉无影">金蝉无影</a>、<a style='color:#A100FF;text-decoration:none' href="#灵能之雨">灵能之雨</a>、<a style='color:#A100FF;text-decoration:none' href="#血灵入门">血灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#剑灵入门">剑灵入门</a>、<a style='color:#A100FF;text-decoration:none' href="#血祭入门">血祭入门</a>、<a style='color:orange;text-decoration:none' href="#视灵">视灵</a>、<a style='color:orange;text-decoration:none' href="#视精">视精</a>、<a style='color:#A100FF;text-decoration:none' href="#灵法入门">灵法入门</a>、<a style='color:#A100FF;text-decoration:none' href="#武法入门">武法入门</a>、<a style='color:#A100FF;text-decoration:none' href="#幻灵锅">幻灵锅</a>、<a style='color:#A100FF;text-decoration:none' href="#炼器学徒">炼器学徒</a></p>
+<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:#A100FF' href="#火力四射">火力四射</a>、<a style='color:#A100FF' href="#水力四射">水力四射</a>、<a style='color:#FF630D' href="#媚骨">媚骨</a>、<a style='color:#FF630D' href="#跑得很帅">跑得很帅</a>、<a style='color:#FF630D' href="#黄巾天师">黄巾天师</a>、<a style='color:#A100FF' href="#肉搏之交">肉搏之交</a>、<a style='color:#A100FF' href="#煞气">煞气</a>、<a style='color:#A100FF' href="#双修大法">双修大法</a>、<a style='color:#A100FF' href="#妒火中烧">妒火中烧</a>、<a style='color:#A100FF' href="#灵果馈赠">灵果馈赠</a>、<a style='color:#FF630D' href="#老而弥坚">老而弥坚</a>、<a style='color:#A100FF' href="#物尽其用">物尽其用</a>、<a style='color:red' href="#疾速代谢">疾速代谢</a>、<a style='color:#FF630D' href="#天地精华">天地精华</a>、<a style='color:#A100FF' href="#速读秘法">速读秘法</a>、<a style='color:#A100FF' href="#钻研秘术">钻研秘术</a>、<a style='color:#A100FF' href="#苦中寻乐">苦中寻乐</a>、<a style='color:#A100FF' href="#灵光一闪">灵光一闪</a>、<a style='color:#FF630D' href="#若有道缘">若有道缘</a>、<a style='color:#A100FF' href="#开心果">开心果</a>、<a style='color:#A100FF' href="#生龙活虎">生龙活虎</a>、<a style='color:#A100FF' href="#机灵鬼">机灵鬼</a>、<a style='color:#A100FF' href="#灵力之种">灵力之种</a>、<a style='color:#A100FF' href="#体力之种">体力之种</a>、<a style='color:#A100FF' href="#雷力四射">雷力四射</a>、<a style='color:#A100FF' href="#风力四射">风力四射</a>、<a style='color:#A100FF' href="#木力四射">木力四射</a>、<a style='color:#A100FF' href="#妖术入门">妖术入门</a>、<a style='color:#A100FF' href="#菊花烫">菊花烫</a>、<a style='color:#A100FF' href="#小跟屁虫">小跟屁虫</a>、<a style='color:#A100FF' href="#小宝的盾">小宝的盾</a>、<a style='color:#A100FF' href="#小李飞剑">小李飞剑</a>、<a style='color:#A100FF' href="#血魔大法">血魔大法</a>、<a style='color:#A100FF' href="#盾灵入门">盾灵入门</a>、<a style='color:#A100FF' href="#潜能入门">潜能入门</a>、<a style='color:#A100FF' href="#金蝉无影">金蝉无影</a>、<a style='color:#A100FF' href="#灵能之雨">灵能之雨</a>、<a style='color:#A100FF' href="#血灵入门">血灵入门</a>、<a style='color:#A100FF' href="#剑灵入门">剑灵入门</a>、<a style='color:#A100FF' href="#血祭入门">血祭入门</a>、<a style='color:#FF630D' href="#视灵">视灵</a>、<a style='color:#FF630D' href="#视精">视精</a>、<a style='color:#A100FF' href="#灵法入门">灵法入门</a>、<a style='color:#A100FF' href="#武法入门">武法入门</a>、<a style='color:#A100FF' href="#幻灵锅">幻灵锅</a>、<a style='color:#A100FF' href="#炼器学徒">炼器学徒</a></p>
 
 <h3 id="火力四射">火力四射</h3>
 <p class="association"><a href="#筑基逆天改命">筑基逆天改命</a></p>
@@ -2393,7 +2550,7 @@
 
 <p class="task">突破结晶增加的可出现的逆天改命有：</p>
 
-<p><a style='color:orange;text-decoration:none' href="#咸猪手">咸猪手</a>、<a style='color:orange;text-decoration:none' href="#先受后攻">先受后攻</a>、<a style='color:orange;text-decoration:none' href="#徒手专精">徒手专精</a>、<a style='color:orange;text-decoration:none' href="#兵刃专精">兵刃专精</a>、<a style='color:#A100FF;text-decoration:none' href="#风雷擎天">风雷擎天</a>、<a style='color:#A100FF;text-decoration:none' href="#地火明夷">地火明夷</a>、<a style='color:#A100FF;text-decoration:none' href="#水木长生">水木长生</a>、<a style='color:orange;text-decoration:none' href="#似有道缘">似有道缘</a>、<a style='color:orange;text-decoration:none' href="#灵力之芽">灵力之芽</a>、<a style='color:orange;text-decoration:none' href="#体力之芽">体力之芽</a>、<a style='color:red;text-decoration:none' href="#李四来也！">李四来也！</a>、<a style='color:red;text-decoration:none' href="#鸡中霸王">鸡中霸王</a>、<a style='color:red;text-decoration:none' href="#化物">化物</a>、<a style='color:#A100FF;text-decoration:none' href="#鬼修入门">鬼修入门</a>、<a style='color:orange;text-decoration:none' href="#红尘剑匣">红尘剑匣</a>、<a style='color:orange;text-decoration:none' href="#归一决">归一决</a>、<a style='color:orange;text-decoration:none' href="#星耀尘寰">星耀尘寰</a>、<a style='color:orange;text-decoration:none' href="#双灵共生">双灵共生</a></p>
+<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:#FF630D' href="#咸猪手">咸猪手</a>、<a style='color:#FF630D' href="#先受后攻">先受后攻</a>、<a style='color:#FF630D' href="#徒手专精">徒手专精</a>、<a style='color:#FF630D' href="#兵刃专精">兵刃专精</a>、<a style='color:#A100FF' href="#风雷擎天">风雷擎天</a>、<a style='color:#A100FF' href="#地火明夷">地火明夷</a>、<a style='color:#A100FF' href="#水木长生">水木长生</a>、<a style='color:#FF630D' href="#似有道缘">似有道缘</a>、<a style='color:#FF630D' href="#灵力之芽">灵力之芽</a>、<a style='color:#FF630D' href="#体力之芽">体力之芽</a>、<a style='color:red' href="#李四来也！">李四来也！</a>、<a style='color:red' href="#鸡中霸王">鸡中霸王</a>、<a style='color:red' href="#化物">化物</a>、<a style='color:#A100FF' href="#鬼修入门">鬼修入门</a>、<a style='color:#FF630D' href="#红尘剑匣">红尘剑匣</a>、<a style='color:#FF630D' href="#归一决">归一决</a>、<a style='color:#FF630D' href="#星耀尘寰">星耀尘寰</a>、<a style='color:#FF630D' href="#双灵共生">双灵共生</a></p>
 
 <h2 id="金丹逆天改命">金丹逆天改命</h2>
 
@@ -2431,6 +2588,10 @@
 
 <h2 id="仙级后天（橙）">仙级后天（橙）</h2>
 
+<h3 id="丹心极意">丹心极意</h3>
+<p class="association"><a href="#祖师云房">祖师云房</a></p>
+<p class="success">体力上限+2%；怀有该气运时进行突破能获得炼丹师<a href="#玉液琼浆">特殊逆天改命</a>。</p>
+
 <h2 id="圣级后天（紫）">圣级后天（紫）</h2>
 
 <h2 id="蓝色后天">蓝色后天</h2>
@@ -2454,16 +2615,29 @@
 <p class="failure">体力上限暂时减少30%。</p>
 <p class="tips">消耗5天，在城镇客栈投宿或在宗门疗伤院疗伤修养解除。</p>
 
+<h1 id="仙祠">仙祠</h1>
+<p class="association"><a href="#突破结晶境">突破结晶境</a>，<a href="#路过仙祠">路过仙祠</a></p>
+<p class="tips">仙祠是游戏内重要的供奉与奖励系统，分布在各州，玩家每月可前往供奉一次以获得珍稀资源。不同仙祠提供独特奖励，如赤幽州的斗魂仙祠可获取防御丹增强生存能力，烽岚仙祠提供炼器材料；暮仙州的悬壶仙祠能获得回血丹并解锁隐藏剧情；永宁州的琼芳仙祠奖励道心果，助力境界突破；而云陌州的月兰仙祠则赠送坐骑，提升移动速度。仙祠玩法不仅强化角色属性，还结合任务与挑战，如昆吾仙祠需完成剑修任务获取功法，天幻仙祠则涉及器灵天赋优化。合理规划仙祠供奉可大幅提升修仙效率，是玩家成长的关键途径之一。</p>
+<p class="tips">仙祠会在玩家<a href="#突破结晶境">突破结晶境</a>后立刻刷出，如果仙祠刚好在某石阵视野内则可以直接在地图上看见。</p>
+
+<h2 id="琼芳仙祠">琼芳仙祠</h2>
+<p><img alt="琼芳仙祠" title="琼芳仙祠" src="鬼谷八荒.files/琼芳仙祠.jpg"></p>
+<p class="success">供奉奖励：<span class="reward-container">
+	<select id="琼芳仙祠-select" onchange="QiongFangchangeText()">
+		<option value="结晶" gift="六品道心果×11">结晶</option>
+		<option value="金丹" gift="aaa">金丹</option>
+		<option value="具灵" gift="bbb">具灵</option>
+	</select><span id="QiongFangdisplay-text">六品道心果×11</span>。</span></p>
+<hr>
+<p><img alt="琼芳仙祠仙人" title="琼芳仙祠仙人" src="鬼谷八荒.files/琼芳仙祠仙人.jpg"></p>
+<p>？？？：嗯……</p>
+<p>？？？：本仙子念在你如此虔诚的份上，就赐你六品道心果*11吧。</p>
+
 <br><br><br>
 <p>鬼谷八荒百科by晚安安</p>
 
 <br><br><br>
 <p class="tips">临时文本↓</p>
-
-<hr>
-<p><img alt="一道青影急速掠过" title="一道青影急速掠过" src="鬼谷八荒.files/一道青影急速掠过.jpg"></p>
-<p>你感觉地面微微震动，碎石细砾更是无故虚浮。此时破风声起，一道青影急速掠过。之后地面复归静止，碎石亦重落地上。你正疑惑究竟发生什么事，两名修仙者已同时御剑来到。</p>
-<p>修仙者甲：明明就在这附近，怎么不见了呢？话说，凭你本事竟将古时暮仙州大能多次围剿未果的妖兽伤了？</p>
 
 <br><br><br>
 <p class="tips">格式如下↓</p>
@@ -2488,7 +2662,7 @@
 </div>
 
 <script>
-    // 处理第一个目录
+	// 处理第一个目录
 	const headings = document.querySelectorAll('.content h1, .content h2');
 	const toc = document.getElementById('toc');
 
@@ -2514,7 +2688,7 @@
 		toc.appendChild(li);
 	});
 
-    // 处理第二个目录
+	// 处理第二个目录
 	const headings2 = document.querySelectorAll('.content h1');
 	const toc2 = document.getElementById('toc2');
 
@@ -2541,38 +2715,44 @@
 	const links2 = document.querySelectorAll('#toc2 a');
 	const sidebar2 = document.querySelector('.sidebar2');
 
-    // 滚动监听
-    window.addEventListener('scroll', () => {
-        // 处理第一个目录的高亮和滚动
-        let currentHeading = null;
-        headings.forEach(heading => {
-            const rect = heading.getBoundingClientRect();
-            if (rect.top <= 50) currentHeading = heading;
-        });
-        links.forEach(link => {
-            link.classList.remove('active');
-            if (currentHeading && link.getAttribute('href') === `#${currentHeading.id}`) {
-                link.classList.add('active');
-                const offset = link.offsetLeft - sidebar.offsetWidth / 2 + link.offsetWidth / 2;
-                sidebar.scrollTo({ left: offset, behavior: 'smooth' });
-            }
-        });
+	// 滚动监听
+	window.addEventListener('scroll', () => {
+		// 处理第一个目录的高亮和滚动
+		let currentHeading = null;
+		headings.forEach(heading => {
+			const rect = heading.getBoundingClientRect();
+			if (rect.top <= 50) currentHeading = heading;
+		});
+		links.forEach(link => {
+			link.classList.remove('active');
+			if (currentHeading && link.getAttribute('href') === `#${currentHeading.id}`) {
+				link.classList.add('active');
+				const offset = link.offsetLeft - sidebar.offsetWidth / 2 + link.offsetWidth / 2;
+				sidebar.scrollTo({ left: offset, behavior: 'smooth' });
+			}
+		});
 
-        // 处理第二个目录的高亮和滚动
-        let currentH1 = null;
-        headings2.forEach(heading => {
-            const rect = heading.getBoundingClientRect();
-            if (rect.top <= 50) currentH1 = heading;
-        });
-        links2.forEach(link => {
-            link.classList.remove('active');
-            if (currentH1 && link.getAttribute('href') === `#${currentH1.id}`) {
-                link.classList.add('active');
-                const offset = link.offsetLeft - sidebar2.offsetWidth / 2 + link.offsetWidth / 2;
-                sidebar2.scrollTo({ left: offset, behavior: 'smooth' });
-            }
-        });
-    });
+		// 处理第二个目录的高亮和滚动
+		let currentH1 = null;
+		headings2.forEach(heading => {
+			const rect = heading.getBoundingClientRect();
+			if (rect.top <= 50) currentH1 = heading;
+		});
+		links2.forEach(link => {
+			link.classList.remove('active');
+			if (currentH1 && link.getAttribute('href') === `#${currentH1.id}`) {
+				link.classList.add('active');
+				const offset = link.offsetLeft - sidebar2.offsetWidth / 2 + link.offsetWidth / 2;
+				sidebar2.scrollTo({ left: offset, behavior: 'smooth' });
+			}
+		});
+	});
+	function QiongFangchangeText() {
+		const select = document.getElementById("琼芳仙祠-select");
+		const selectedOption = select.options[select.selectedIndex];
+		const displayText = document.getElementById("QiongFangdisplay-text");
+		displayText.textContent = selectedOption.getAttribute("gift");
+	}
 </script>
 
 </body>
