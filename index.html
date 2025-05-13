@@ -14,7 +14,7 @@
 	/* 目录样式 */
 	.sidebar {
 		width: 100%;
-		height: 16em;
+		height: 9em;
 		max-height: 35%; /* 最大不超过35% */
 		background-color: #EEEEEEF0;
 		position: fixed; /* 固定位置 */
@@ -24,18 +24,13 @@
 		white-space: nowrap; /* 防止换行 */
 		display: flex; /* 横着排版 */
 	}
-	.sidebar h2 {
-		margin-top: 0.4em;
-		font-size: 1.5em;
-		color: #333;
-	}
 	.sidebar ul {
 		list-style-type: none;
 		padding: 0;
 		display: flex; /* 横着排版 */
 	}
 	.sidebar ul li {
-		margin-top: 0;
+		margin: 0;
 	}
 	.sidebar ul li a {
 		text-decoration: none;
@@ -51,31 +46,34 @@
 		font-weight: bold;
 	}
 	.sidebar2 {
-		width: 260px; /* 固定宽度 */
-		max-width: 35%; /* 最大不超过35% */
-		height: 6.25em;
-		background-color: #DDDDDDE0;
+		padding-left: 0.5em;
+		width: 16em; /* 固定宽度 */
+		max-width: 80%; /* 最大不超过35% */
+		max-height: 35%; /* 最大不超过35% */
+		height: 6em;
+		background-color: #EEEEEEF0;
 		position: fixed; /* 固定位置 */
-		bottom: 0; /* 放在页面底部 */
+		top: -0.8em; /* 放在页面底部 */
 		right: 0; /* 放在页面右侧 */
 		overflow-x: auto; /* 允许水平滚动 */
 		overflow-y: hidden; /* 竖直方向滚动隐藏 */
 		white-space: nowrap; /* 防止换行 */
 		display: flex; /* 横着排版 */
+		border-radius: 0 0 0 4em;
 	}
 	.sidebar2 ul {
 		list-style-type: none;
-		padding-left: 0.5em;
+		padding: 0;
 		display: flex; /* 横着排版 */
 	}
 	.sidebar2 ul li {
-		margin-top: 0;
+		line-height: 1.25;
+		writing-mode: vertical-rl; /* 竖着排版 */
 	}
 	.sidebar2 ul li a {
 		text-decoration: none;
 		color: #555;
 		transition: color 0.3s ease;
-		writing-mode: vertical-rl; /* 竖着排版 */
 	}
 	.sidebar2 ul li a:hover {
 		color: #000;
@@ -88,13 +86,14 @@
 		font-size: 1em;
 		padding-top: 0;
 		padding-left: 0;
-		line-height: 1.2;
+		line-height: 1;
 	}
 	#toc li a[data-level="h1"] {
 		font-size: 1.125em;
 		padding-top: 0.75em;
 		padding-left: 0.375em;
 		line-height: 1.25;
+		font-weight: bold;
 	}
 	#toc li a[data-level="h2"] {
 		font-size: 1em;
@@ -138,6 +137,7 @@
 		margin-right:10pt;
 	}
 	.content img {
+		zoom: 0.7;
 		max-width: 100%;
 	}
 	.content p {
@@ -145,6 +145,9 @@
 		margin-bottom: 0.5em;
 		text-align: justify;
 		line-height: 1;
+	}
+	.content p c{
+		text-decoration:none;
 	}
 	.content p.dialog_box {
 		text-align:center;
@@ -231,7 +234,6 @@
 <body>
 
 <div class="sidebar">
-	<h2>目<br>录</h2>
 	<ul id="toc"></ul>
 </div>
 
@@ -2448,7 +2450,7 @@
 
 <p class="task">游戏中有如下的特殊逆天改命：</p>
 
-<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:red' href="#XXX">XXX</a>、<a style='color:#007BFF' href="#逍遥游">逍遥游</a>、</p> 
+<p style="padding:1em;color:white;background-color:black"><c style='color:red' href="#XXX">XXX</c>、<c style='color:#007BFF' href="#逍遥游">逍遥游</c>、</p> 
 
 <h3 id="逍遥游">逍遥游</h3>
 <p class="association"><a href="#特殊逆天改命">特殊逆天改命</a>，<a href="#大能传功">大能传功</a></p>
@@ -2461,7 +2463,7 @@
 
 <p class="task">宗门灵阁可出现的逆天改命有：</p>
 
-<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:red' href="#虎魄龙魂">虎魄龙魂</a>、<a style='color:#FF630D' href="#天瞳之刃">天瞳之刃</a>、<a style='color:#FF630D' href="#天外有天">天外有天</a>、<a style='color:#FF630D' href="#天人合一">天人合一</a>、<a style='color:#FF630D' href="#天罡步法">天罡步法</a>、<a style='color:#FF630D' href="#震天怒啸">震天怒啸</a>、<a style='color:red' href="#凝元寂灭">凝元寂灭</a>、<a style='color:#FF630D' href="#摄神寒光">摄神寒光</a>、<a style='color:#FF630D' href="#载物无疆">载物无疆</a>、<a style='color:#FF630D' href="#踏雪无痕">踏雪无痕</a>、<a style='color:#FF630D' href="#聚雷尖戟">聚雷尖戟</a>、<a style='color:#FF630D' href="#宿命之引">宿命之引</a>、<a style='color:red' href="#杀心骤起">杀心骤起</a>、<a style='color:#FF630D' href="#排山倒海">排山倒海</a>、<a style='color:#FF630D' href="#穿云电闪">穿云电闪</a>、<a style='color:red' href="#天地同寿">天地同寿</a>、<a style='color:#FF630D' href="#烈火燎原">烈火燎原</a>、<a style='color:#FF630D' href="#炉火纯青">炉火纯青</a>、</p> 
+<p style="padding:1em;color:white;background-color:black"></style><c style='color:red' href="#虎魄龙魂">虎魄龙魂</c>、<c style='color:#FF630D' href="#天瞳之刃">天瞳之刃</c>、<c style='color:#FF630D' href="#天外有天">天外有天</c>、<c style='color:#FF630D' href="#天人合一">天人合一</c>、<c style='color:#FF630D' href="#天罡步法">天罡步法</c>、<c style='color:#FF630D' href="#震天怒啸">震天怒啸</c>、<c style='color:red' href="#凝元寂灭">凝元寂灭</c>、<c style='color:#FF630D' href="#摄神寒光">摄神寒光</c>、<c style='color:#FF630D' href="#载物无疆">载物无疆</c>、<c style='color:#FF630D' href="#踏雪无痕">踏雪无痕</c>、<c style='color:#FF630D' href="#聚雷尖戟">聚雷尖戟</c>、<c style='color:#FF630D' href="#宿命之引">宿命之引</c>、<c style='color:red' href="#杀心骤起">杀心骤起</c>、<c style='color:#FF630D' href="#排山倒海">排山倒海</c>、<c style='color:#FF630D' href="#穿云电闪">穿云电闪</c>、<c style='color:red' href="#天地同寿">天地同寿</c>、<c style='color:#FF630D' href="#烈火燎原">烈火燎原</c>、<c style='color:#FF630D' href="#炉火纯青">炉火纯青</c>、</p> 
 
 <h3 id="虎魄龙魂">虎魄龙魂</h3>
 <p class="association"><a href="#宗门逆天改命">宗门逆天改命</a></p>
@@ -2489,7 +2491,7 @@
 <p class="tips">升级版逆天改命的效果是对原逆天改命效果的替换而不是叠加。</p>
 <p class="task">这些升级版逆天改命有：</p>
 
-<p><a style='color:#FF630D;text-decoration:none' href="#武法进阶">武法进阶</a></p>
+<p style="padding:1em;color:white;background-color:black"><c style='color:#FF630D' href="#武法进阶">武法进阶</c></p>
 
 <h3 id="武法进阶">武法进阶</h3>
 <p class="association"><a href="#二级逆天改命">二级逆天改命</a>，<a href="#武法入门">武法入门</a></p>
@@ -2502,7 +2504,7 @@
 
 <p class="task">突破筑基可出现的逆天改命有：</p>
 
-<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:#A100FF' href="#火力四射">火力四射</a>、<a style='color:#A100FF' href="#水力四射">水力四射</a>、<a style='color:#FF630D' href="#媚骨">媚骨</a>、<a style='color:#FF630D' href="#跑得很帅">跑得很帅</a>、<a style='color:#FF630D' href="#黄巾天师">黄巾天师</a>、<a style='color:#A100FF' href="#肉搏之交">肉搏之交</a>、<a style='color:#A100FF' href="#煞气">煞气</a>、<a style='color:#A100FF' href="#双修大法">双修大法</a>、<a style='color:#A100FF' href="#妒火中烧">妒火中烧</a>、<a style='color:#A100FF' href="#灵果馈赠">灵果馈赠</a>、<a style='color:#FF630D' href="#老而弥坚">老而弥坚</a>、<a style='color:#A100FF' href="#物尽其用">物尽其用</a>、<a style='color:red' href="#疾速代谢">疾速代谢</a>、<a style='color:#FF630D' href="#天地精华">天地精华</a>、<a style='color:#A100FF' href="#速读秘法">速读秘法</a>、<a style='color:#A100FF' href="#钻研秘术">钻研秘术</a>、<a style='color:#A100FF' href="#苦中寻乐">苦中寻乐</a>、<a style='color:#A100FF' href="#灵光一闪">灵光一闪</a>、<a style='color:#FF630D' href="#若有道缘">若有道缘</a>、<a style='color:#A100FF' href="#开心果">开心果</a>、<a style='color:#A100FF' href="#生龙活虎">生龙活虎</a>、<a style='color:#A100FF' href="#机灵鬼">机灵鬼</a>、<a style='color:#A100FF' href="#灵力之种">灵力之种</a>、<a style='color:#A100FF' href="#体力之种">体力之种</a>、<a style='color:#A100FF' href="#雷力四射">雷力四射</a>、<a style='color:#A100FF' href="#风力四射">风力四射</a>、<a style='color:#A100FF' href="#木力四射">木力四射</a>、<a style='color:#A100FF' href="#妖术入门">妖术入门</a>、<a style='color:#A100FF' href="#菊花烫">菊花烫</a>、<a style='color:#A100FF' href="#小跟屁虫">小跟屁虫</a>、<a style='color:#A100FF' href="#小宝的盾">小宝的盾</a>、<a style='color:#A100FF' href="#小李飞剑">小李飞剑</a>、<a style='color:#A100FF' href="#血魔大法">血魔大法</a>、<a style='color:#A100FF' href="#盾灵入门">盾灵入门</a>、<a style='color:#A100FF' href="#潜能入门">潜能入门</a>、<a style='color:#A100FF' href="#金蝉无影">金蝉无影</a>、<a style='color:#A100FF' href="#灵能之雨">灵能之雨</a>、<a style='color:#A100FF' href="#血灵入门">血灵入门</a>、<a style='color:#A100FF' href="#剑灵入门">剑灵入门</a>、<a style='color:#A100FF' href="#血祭入门">血祭入门</a>、<a style='color:#FF630D' href="#视灵">视灵</a>、<a style='color:#FF630D' href="#视精">视精</a>、<a style='color:#A100FF' href="#灵法入门">灵法入门</a>、<a style='color:#A100FF' href="#武法入门">武法入门</a>、<a style='color:#A100FF' href="#幻灵锅">幻灵锅</a>、<a style='color:#A100FF' href="#炼器学徒">炼器学徒</a></p>
+<p style="padding:1em;color:white;background-color:black"><c style='color:#A100FF' href="#火力四射">火力四射</c>、<c style='color:#A100FF' href="#水力四射">水力四射</c>、<c style='color:#FF630D' href="#媚骨">媚骨</c>、<c style='color:#FF630D' href="#跑得很帅">跑得很帅</c>、<c style='color:#FF630D' href="#黄巾天师">黄巾天师</c>、<c style='color:#A100FF' href="#肉搏之交">肉搏之交</c>、<c style='color:#A100FF' href="#煞气">煞气</c>、<c style='color:#A100FF' href="#双修大法">双修大法</c>、<c style='color:#A100FF' href="#妒火中烧">妒火中烧</c>、<c style='color:#A100FF' href="#灵果馈赠">灵果馈赠</c>、<c style='color:#FF630D' href="#老而弥坚">老而弥坚</c>、<c style='color:#A100FF' href="#物尽其用">物尽其用</c>、<c style='color:red' href="#疾速代谢">疾速代谢</c>、<c style='color:#FF630D' href="#天地精华">天地精华</c>、<c style='color:#A100FF' href="#速读秘法">速读秘法</c>、<c style='color:#A100FF' href="#钻研秘术">钻研秘术</c>、<c style='color:#A100FF' href="#苦中寻乐">苦中寻乐</c>、<c style='color:#A100FF' href="#灵光一闪">灵光一闪</c>、<c style='color:#FF630D' href="#若有道缘">若有道缘</c>、<c style='color:#A100FF' href="#开心果">开心果</c>、<c style='color:#A100FF' href="#生龙活虎">生龙活虎</c>、<c style='color:#A100FF' href="#机灵鬼">机灵鬼</c>、<c style='color:#A100FF' href="#灵力之种">灵力之种</c>、<c style='color:#A100FF' href="#体力之种">体力之种</c>、<c style='color:#A100FF' href="#雷力四射">雷力四射</c>、<c style='color:#A100FF' href="#风力四射">风力四射</c>、<c style='color:#A100FF' href="#木力四射">木力四射</c>、<c style='color:#A100FF' href="#妖术入门">妖术入门</c>、<c style='color:#A100FF' href="#菊花烫">菊花烫</c>、<c style='color:#A100FF' href="#小跟屁虫">小跟屁虫</c>、<c style='color:#A100FF' href="#小宝的盾">小宝的盾</c>、<c style='color:#A100FF' href="#小李飞剑">小李飞剑</c>、<c style='color:#A100FF' href="#血魔大法">血魔大法</c>、<c style='color:#A100FF' href="#盾灵入门">盾灵入门</c>、<c style='color:#A100FF' href="#潜能入门">潜能入门</c>、<c style='color:#A100FF' href="#金蝉无影">金蝉无影</c>、<c style='color:#A100FF' href="#灵能之雨">灵能之雨</c>、<c style='color:#A100FF' href="#血灵入门">血灵入门</c>、<c style='color:#A100FF' href="#剑灵入门">剑灵入门</c>、<c style='color:#A100FF' href="#血祭入门">血祭入门</c>、<c style='color:#FF630D' href="#视灵">视灵</c>、<c style='color:#FF630D' href="#视精">视精</c>、<c style='color:#A100FF' href="#灵法入门">灵法入门</c>、<c style='color:#A100FF' href="#武法入门">武法入门</c>、<c style='color:#A100FF' href="#幻灵锅">幻灵锅</c>、<c style='color:#A100FF' href="#炼器学徒">炼器学徒</c></p>
 
 <h3 id="火力四射">火力四射</h3>
 <p class="association"><a href="#筑基逆天改命">筑基逆天改命</a></p>
@@ -2550,7 +2552,7 @@
 
 <p class="task">突破结晶增加的可出现的逆天改命有：</p>
 
-<p style="padding:1em;color:white;background-color:black"><style>p a{text-decoration:none}</style><a style='color:#FF630D' href="#咸猪手">咸猪手</a>、<a style='color:#FF630D' href="#先受后攻">先受后攻</a>、<a style='color:#FF630D' href="#徒手专精">徒手专精</a>、<a style='color:#FF630D' href="#兵刃专精">兵刃专精</a>、<a style='color:#A100FF' href="#风雷擎天">风雷擎天</a>、<a style='color:#A100FF' href="#地火明夷">地火明夷</a>、<a style='color:#A100FF' href="#水木长生">水木长生</a>、<a style='color:#FF630D' href="#似有道缘">似有道缘</a>、<a style='color:#FF630D' href="#灵力之芽">灵力之芽</a>、<a style='color:#FF630D' href="#体力之芽">体力之芽</a>、<a style='color:red' href="#李四来也！">李四来也！</a>、<a style='color:red' href="#鸡中霸王">鸡中霸王</a>、<a style='color:red' href="#化物">化物</a>、<a style='color:#A100FF' href="#鬼修入门">鬼修入门</a>、<a style='color:#FF630D' href="#红尘剑匣">红尘剑匣</a>、<a style='color:#FF630D' href="#归一决">归一决</a>、<a style='color:#FF630D' href="#星耀尘寰">星耀尘寰</a>、<a style='color:#FF630D' href="#双灵共生">双灵共生</a></p>
+<p style="padding:1em;color:white;background-color:black"></style><c style='color:#FF630D' href="#咸猪手">咸猪手</c>、<c style='color:#FF630D' href="#先受后攻">先受后攻</c>、<c style='color:#FF630D' href="#徒手专精">徒手专精</c>、<c style='color:#FF630D' href="#兵刃专精">兵刃专精</c>、<c style='color:#A100FF' href="#风雷擎天">风雷擎天</c>、<c style='color:#A100FF' href="#地火明夷">地火明夷</c>、<c style='color:#A100FF' href="#水木长生">水木长生</c>、<c style='color:#FF630D' href="#似有道缘">似有道缘</c>、<c style='color:#FF630D' href="#灵力之芽">灵力之芽</c>、<c style='color:#FF630D' href="#体力之芽">体力之芽</c>、<c style='color:red' href="#李四来也！">李四来也！</c>、<c style='color:red' href="#鸡中霸王">鸡中霸王</c>、<c style='color:red' href="#化物">化物</c>、<c style='color:#A100FF' href="#鬼修入门">鬼修入门</c>、<c style='color:#FF630D' href="#红尘剑匣">红尘剑匣</c>、<c style='color:#FF630D' href="#归一决">归一决</c>、<c style='color:#FF630D' href="#星耀尘寰">星耀尘寰</c>、<c style='color:#FF630D' href="#双灵共生">双灵共生</c></p>
 
 <h2 id="金丹逆天改命">金丹逆天改命</h2>
 
