@@ -137,8 +137,10 @@
 		margin-right:10pt;
 	}
 	.content img {
-		zoom: 0.7;
+		zoom: 0.5;
 		max-width: 100%;
+		transition: transform 0.3s ease; /* 添加平滑过渡效果 */
+		cursor: zoom-in;
 	}
 	.content p {
 		margin: 0;
@@ -438,7 +440,7 @@
 <p class="task">当修为达到了瓶颈后，可以服用聚气丸来突破瓶颈。聚气丸可以在城镇中的坊市中购买获得。</p>
 <p class="success">完成后如果身处城外，领取到主线任务：<a href="#前往城镇2">前往城镇</a>。</p>
 <p class="success">完成后如果身处城内，领取到主线任务：<a href="#前往琅琊阁">前往琅琊阁</a>。</p>
-<p class="tips">修为达到练气初期和中期之间的瓶颈后在大地图移动一格触发奇遇<a href="#李四的聚气丸">李四的聚气丸</a>，地狱和洪荒难度下选择在李四处购买，其它难度下在新达镇坊市购买。</p>
+<p class="tips">修为达到练气初期和中期之间的瓶颈后在大地图移动一格触发提示<a href="#李四的聚气丸">李四的聚气丸</a>，地狱和洪荒难度下选择在李四处购买，其它难度下在新达镇坊市购买。</p>
 <hr>
 <p>我：（去城镇中看看是否能寻到适合我的功法吧。）</p>
 
@@ -860,23 +862,6 @@
 <p class="dialog_box">打开看看</p>
 <p><img alt="强光" title="强光" src="鬼谷八荒.files/强光.jpg"></p>
 <p>宝箱突发强光，随之炸裂消失，你的手中出现了一些物品……</p>
-
-<h2 id="李四的聚气丸">李四的聚气丸</h2>
-<p class="association"><a href="#提升修为">提升修为</a></p>
-<p class="trigger">修为达到练气初期和中期之间的瓶颈后在大地图移动一格触发。</p>
-<p class="success">奇遇内容：李四推销<a href="#聚气丸">聚气丸</a>×1。拒绝购买或花费400灵石购买。</p>
-<p class="tips">游戏难度越高物价越高，而李四价格固定为400灵石。所以地狱和洪荒难度下选择在李四处购买，其它难度下在新达镇坊市购买。</p>
-<hr>
-<p><img alt="神秘人李四" title="神秘人李四" src="鬼谷八荒.files/神秘人李四.jpg"></p>
-<p>神秘人李四：小家伙，修炼遇到瓶颈了吧？别着急，我有一枚仙丹，定能助你一举突破至炼气中期！</p>
-<p>神秘人李四：嘿嘿嘿~我这<a style='color:#00B050'>聚气丸</a>，在寻常的坊市中，能卖到800灵石的天价！关键是有价无市，即便你身缠万贯，还不一定能买得到呢！</p>
-<p>神秘人李四：但是，我见你天生骨骼惊奇，是万中无一的修道奇才！既然你我有缘，我又有心想要助你一臂之力…这原价800灵石的<a style='color:#00B050'>聚气丸</a>，现在只需要400灵石我便转让给你。你意如何？</p>
-<hr>
-<p class="dialog_box">1 我买了（需要<br>灵石×400）</p>
-<p>神秘人李四：嘿嘿嘿~果然够爽快，这枚<a style='color:#00B050'>聚气丸</a>是你的了！</p>
-<hr>
-<p class="dialog_box">2 算了</p>
-<p>神秘人李四：啧…不识好歹，不买就拉倒！我还不想卖呢！</p>
 
 <h2 id="神秘洞窟参悟心得">神秘洞窟参悟心得</h2>
 <p><img alt="神秘洞窟" title="神秘洞窟" src="鬼谷八荒.files/神秘洞窟.jpg"></p>
@@ -1799,7 +1784,7 @@
 <p>不久天地间普降甘霖！</p>
 
 <h2 id="山谷震天咆哮">山谷震天咆哮</h2>
-<p class="success">增加修为317±。</p>
+<p class="success">增加修为317±。</p><!--724结晶初期-->
 <hr/>
 <p>前方山谷传来震天咆哮。</p>
 <p><img alt="猿猴与巨蟒" title="猿猴与巨蟒" src="鬼谷八荒.files/猿猴与巨蟒.jpg"/></p>
@@ -2076,6 +2061,23 @@
 
 <h1 id="提示">提示</h1>
 
+<h2 id="李四的聚气丸">李四的聚气丸</h2>
+<p class="association"><a href="#提升修为">提升修为</a></p>
+<p class="trigger">修为达到练气初期和中期之间的瓶颈后在大地图移动一格触发。</p>
+<p class="success">奇遇内容：李四推销<a href="#聚气丸">聚气丸</a>×1。拒绝购买或花费400灵石购买。</p>
+<p class="tips">游戏难度越高物价越高，而李四价格固定为400灵石。所以地狱和洪荒难度下选择在李四处购买，其它难度下在新达镇坊市购买。</p>
+<hr>
+<p><img alt="神秘人李四" title="神秘人李四" src="鬼谷八荒.files/神秘人李四.jpg"></p>
+<p>神秘人李四：小家伙，修炼遇到瓶颈了吧？别着急，我有一枚仙丹，定能助你一举突破至炼气中期！</p>
+<p>神秘人李四：嘿嘿嘿~我这<a style='color:#00B050'>聚气丸</a>，在寻常的坊市中，能卖到800灵石的天价！关键是有价无市，即便你身缠万贯，还不一定能买得到呢！</p>
+<p>神秘人李四：但是，我见你天生骨骼惊奇，是万中无一的修道奇才！既然你我有缘，我又有心想要助你一臂之力…这原价800灵石的<a style='color:#00B050'>聚气丸</a>，现在只需要400灵石我便转让给你。你意如何？</p>
+<hr>
+<p class="dialog_box">1 我买了（需要<br>灵石×400）</p>
+<p>神秘人李四：嘿嘿嘿~果然够爽快，这枚<a style='color:#00B050'>聚气丸</a>是你的了！</p>
+<hr>
+<p class="dialog_box">2 算了</p>
+<p>神秘人李四：啧…不识好歹，不买就拉倒！我还不想卖呢！</p>
+
 <h2 id="路标">路标</h2>
 <p><img alt="路标" title="路标" src="鬼谷八荒.files/路标.jpg"></p>
 <p class="association"><a href="#提升修为">提升修为</a></p>
@@ -2120,6 +2122,34 @@
 <p>修仙者：此乃仙祠，为前些时日出现的，传闻是为供奉和参拜仙人所设，八荒各州皆有。</p>
 <p>修仙者：据说诚心供奉足够数量的东西时，会得到仙人的回馈。似乎不同的仙祠，回馈的东西并不相同，道友若是感兴趣也可前去试试。</p>
 
+<h2 id="李四的炼器谱">李四的炼器谱</h2>
+<p class="trigger">修为达到结晶期初入华封州在大地图移动一格触发。</p>
+<p class="success">奇遇内容：李四推销<a href="#荒炎号角炼器谱">荒炎号角炼器谱</a>×1，并提示法宝相关信息。拒绝购买或花费5000灵石购买。</p>
+<p class="tips">华丰州的工坊中，一本炼器谱售价3000灵石。</p>
+<p class="tips">李四所述秘法的意思是：</p>
+<p class="indent_2em">石灵（玄晶石灵，提升矿材资质）和邪面（黯炎邪面，提升炼器资质）提升资质。</p>
+<p class="indent_2em">城镇（华封及之后区域）工坊卖器谱。</p>
+<p class="indent_2em">核心材料可通过击杀特殊区域中的大妖兽王获得。</p>
+<p class="indent_2em">通用辅助材料可通过击杀普通怪物、陨幽谷或各大区域挖矿获得。</p>
+<p class="indent_2em">稀有辅助材料获取自六气（华丰州内特殊地点中的大妖兽）二境（云陌州内特殊地点中的大妖兽）五镇灵（永恒冰原内特殊地点中的镇灵）道界（暮仙州内道界中的大妖兽）。</p>
+<p class="indent_2em">真火可在宗门中的聚宝仙楼中兑换获得。</p>
+<hr>
+<p><img alt="神秘人李四" title="神秘人李四" src="鬼谷八荒.files/神秘人李四.jpg"></p>
+<p>神秘人李四：道友留步！</p>
+<p>我：阁下有何指教？</p>
+<p>神秘人李四：不知道友可曾听过“法宝”二字？</p>
+<p>神秘人李四：修仙之途本就艰险，今后只会愈加困难。道友若得法宝傍身，想必会轻松不少。</p>
+<p>神秘人李四：在下手中正好有一本荒炎号角炼器谱，此谱乃炼制法宝荒炎号角的必需之物，放眼整个八荒都极为珍贵……</p>
+<p>神秘人李四：眼下你若出价五千灵石，在下便忍痛割爱，将其让于道友，顺便附赠鬼谷秘传的炼器之法，道友以为如何？</p>
+<hr>
+<p class="dialog_box">1 成交（需要 灵石×5000）</p>
+<hr>
+<p class="dialog_box">2 还是算了</p>
+<p>神秘人李四：道友留步！</p>
+<p>神秘人李四：唉，道友可是错过了一番大机缘啊……不过看在你我相遇一场，这秘法便也传于你吧，你可记好了。</p>
+<p>神秘人李四：<a style='color:#007BFF'>石灵邪面修资质，城镇工坊寻器谱。险地异兽取芯材，幽谷挖矿杂质除。六气二境五镇灵，道界之中玄金附。宗门聚宝求真火，千锤百炼法宝出。</a></p>
+<p>神秘人李四：罢了罢了，道友多多保重，在下去也！</p>
+
 <h1 id="物品">物品</h1>
 
 <p>丹符：丹药。</p>
@@ -2151,6 +2181,22 @@
 <p style="padding-top:1em">名称：聚气丸、境界：炼气境、品质：蓝、分类：丹药</p>
 <p class="association"><a href="#李四的聚气丸">李四的聚气丸</a></p>
 <p>介绍文本：可以使炼气前期的修仙者突破修为停滞的瓶颈，步入炼气中期。</p>
+
+<h4 id="一品赤阳丹"><img alt="一品赤阳丹" title="一品赤阳丹" src="鬼谷八荒.files/一品赤阳丹.jpg"></h4>
+<p style="padding-top:1em">名称：一品赤阳丹、境界：结晶境、品质：红、分类：丹药</p>
+<p class="association"><a href="#霓狸仙祠">霓狸仙祠</a></p>
+<p>介绍文本：药性较强的丹药，自然也是十分珍贵的:在关键时刻能够提升你的实力帮助你渡过难关。使用后能暂时提升一定的攻击。</p>
+<p>丹药效果：攻击+32持续20秒</p>
+<p>战斗中消耗：20念力</p>
+<p>战斗中冷却：30秒</p>
+
+<h2 id="道心果">道心果</h2>
+
+<h4 id="六品道心果"><img alt="六品道心果" title="六品道心果" src="鬼谷八荒.files/六品道心果.jpg"></h4>
+<p style="padding-top:1em">名称：六品道心果、品质：灰、分类：丹符</p>
+<p class="association"><a href="#琼芳仙祠">琼芳仙祠</a></p>
+<p>介绍文本：蕴含着强大的法则之力，服用后可以增加修仙者的道点。</p>
+<p>使用效果：道点+2</p>
 
 <h2 id="书籍">书籍</h2>
 
@@ -2620,20 +2666,36 @@
 <h1 id="仙祠">仙祠</h1>
 <p class="association"><a href="#突破结晶境">突破结晶境</a>，<a href="#路过仙祠">路过仙祠</a></p>
 <p class="tips">仙祠是游戏内重要的供奉与奖励系统，分布在各州，玩家每月可前往供奉一次以获得珍稀资源。不同仙祠提供独特奖励，如赤幽州的斗魂仙祠可获取防御丹增强生存能力，烽岚仙祠提供炼器材料；暮仙州的悬壶仙祠能获得回血丹并解锁隐藏剧情；永宁州的琼芳仙祠奖励道心果，助力境界突破；而云陌州的月兰仙祠则赠送坐骑，提升移动速度。仙祠玩法不仅强化角色属性，还结合任务与挑战，如昆吾仙祠需完成剑修任务获取功法，天幻仙祠则涉及器灵天赋优化。合理规划仙祠供奉可大幅提升修仙效率，是玩家成长的关键途径之一。</p>
-<p class="tips">仙祠会在玩家<a href="#突破结晶境">突破结晶境</a>后立刻刷出，如果仙祠刚好在某石阵视野内则可以直接在地图上看见。</p>
+<p class="tips">仙祠会在玩家<a href="#突破结晶境">突破结晶境</a>后刷出，可以在小地图上看见。</p>
+<p class="tips">诗云：拂袖吞日月，抚掌纳乾坤。踏破三千界，谈笑赋长生。</p>
 
 <h2 id="琼芳仙祠">琼芳仙祠</h2>
 <p><img alt="琼芳仙祠" title="琼芳仙祠" src="鬼谷八荒.files/琼芳仙祠.jpg"></p>
+<p class="trigger">位于永宁州。</p>
 <p class="success">供奉奖励：<span class="reward-container">
-	<select id="琼芳仙祠-select" onchange="QiongFangchangeText()">
-		<option value="结晶" gift="六品道心果×11">结晶</option>
-		<option value="金丹" gift="aaa">金丹</option>
-		<option value="具灵" gift="bbb">具灵</option>
-	</select><span id="QiongFangdisplay-text">六品道心果×11</span>。</span></p>
+	<select id="琼芳仙祠-select" onchange="changeText(this)">
+		<option value="六品道心果×11">结晶</option>
+		<option value="啊品道心果×11">金丹</option>
+		<option value="呀品道心果×11">具灵</option>
+	</select><span id="琼芳仙祠-select-text"><a href="#六品道心果">六品道心果</a>×11</span>。</span></p>
 <hr>
 <p><img alt="琼芳仙祠仙人" title="琼芳仙祠仙人" src="鬼谷八荒.files/琼芳仙祠仙人.jpg"></p>
 <p>？？？：嗯……</p>
 <p>？？？：本仙子念在你如此虔诚的份上，就赐你六品道心果*11吧。</p>
+
+<h2 id="霓狸仙祠">霓狸仙祠</h2>
+<p><img alt="霓狸仙祠" title="霓狸仙祠" src="鬼谷八荒.files/霓狸仙祠.jpg"></p>
+<p class="trigger">位于雷泽。</p>
+<p class="success">供奉奖励：<span class="reward-container">
+	<select id="霓狸仙祠-select" onchange="changeText(this)">
+		<option value="一品赤阳丹×5">结晶</option>
+		<option value="b">金丹</option>
+		<option value="c">具灵</option>
+	</select><span id="霓狸仙祠-select-text"><a href="#一品赤阳丹">一品赤阳丹</a>×5</span>。</span></p>
+<hr>
+<p><img alt="霓狸·双双" title="霓狸·双双" src="鬼谷八荒.files/霓狸·双双.jpg"></p>
+<p>霓狸·双双：嗯……你如此有诚意。</p>
+<p>霓狸·双双：那这一品赤阳丹*5你要吗？如果你要的话，我就把这个一品赤阳丹*5赐予你。</p>
 
 <br><br><br>
 <p>鬼谷八荒百科by晚安安</p>
@@ -2662,7 +2724,6 @@
 <br><br><br><br><br><br><br>
 
 </div>
-
 <script>
 	// 处理第一个目录
 	const headings = document.querySelectorAll('.content h1, .content h2');
@@ -2749,12 +2810,29 @@
 			}
 		});
 	});
-	function QiongFangchangeText() {
-		const select = document.getElementById("琼芳仙祠-select");
-		const selectedOption = select.options[select.selectedIndex];
-		const displayText = document.getElementById("QiongFangdisplay-text");
-		displayText.textContent = selectedOption.getAttribute("gift");
+	function changeText(selectElement) {
+		const fullText = selectElement.value;
+		const itemName = fullText.split('×')[0];
+		const quantity = fullText.split('×')[1] || '';
+		const displayText = document.getElementById(selectElement.id+"-text");
+		displayText.innerHTML = `<a href="#${itemName}">${itemName}</a>${quantity ? '×' + quantity : ''}`;
 	}
+	document.addEventListener('DOMContentLoaded', function () {
+		const images = document.querySelectorAll('img');
+		images.forEach(img => {
+			let isZoomed = true;
+			img.addEventListener('click', function () {
+				if (isZoomed) {
+					img.style.zoom=1;
+					img.style.cursor="zoom-out";
+				} else {
+					img.style.zoom=0.5;
+					img.style.cursor="zoom-in";
+				}
+				isZoomed = !isZoomed;
+			});
+		});
+	});
 </script>
 
 </body>
