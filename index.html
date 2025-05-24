@@ -142,9 +142,8 @@
 		margin-right:10pt;
 	}
 	.content img {
-		zoom: 0.5;
+		zoom: 0.4;
 		max-width: 100%;
-		transition: transform 0.3s ease; /* 添加平滑过渡效果 */
 		cursor: zoom-in;
 	}
 	.content p {
@@ -2041,8 +2040,7 @@
 <hr>
 <p class="dialog_box">21 想</p>
 <p>神秘灵体：小笨蛋，帮我击退这人，姐姐告诉你名字。</p>
-<p>女灵葱指点向远方，果见一名修士，目露凶光朝你冲来！</p>
-<p>后同“不发一言”。</p>
+<p>女灵葱指点向远方，果见……后同“1 不发一言”。</p>
 <hr>
 <p class="dialog_box">22 我不想知道了</p>
 <p>神秘灵体：你不想知道，可我偏要告诉你。姐姐叫兰幽。对了，没了我监督也要好好学习，知道了吗？哈哈。</p>
@@ -2059,7 +2057,7 @@
 <p><img alt="奇异的灵体" title="奇异的灵体" src="鬼谷八荒.files/奇异的灵体.jpg"/></p>
 <p>【一子灵】你面前突然出现一个奇异的灵体，此灵轻轻抬手，用一根食指指着你。</p>
 <p>【二子灵】你身前突然云霞聚散，朦胧中一个灵体突然出现伸指指住了你。</p>
-<p><img alt="一子灵" title="一子灵" src="鬼谷八荒.files/一子灵.jpg"/>&nbsp;<img alt="二子灵" title="二子灵" src="鬼谷八荒.files/二子灵.jpg"/></p>
+<p><img alt="一子灵" title="一子灵" src="鬼谷八荒.files/一子灵.jpg"/><a style="padding-left:1em"></a><img alt="二子灵" title="二子灵" src="鬼谷八荒.files/二子灵.jpg"/></p>
 <p>一子灵：这场战斗对于目前的你一定十分吃力了，我给你恢复一下体力！</p>
 <p>一子灵：前路必是满路荆棘，还是多注意注意。我来给你恢复一下状态吧。</p>
 <p>二子灵：还挺能打的嘛，就是有点不要命。回！</p>
@@ -3313,23 +3311,31 @@
 		const fullText = selectElement.value;
 		const itemName = fullText.split('×')[0];
 		const quantity = fullText.split('×')[1] || '';
-		const displayText = document.getElementById(selectElement.id+"-text");
+		const displayText = document.getElementById(selectElement.id + "-text");
 		displayText.innerHTML = `<a href="#${itemName}">${itemName}</a>${quantity ? '×' + quantity : ''}`;
 	}
-	document.addEventListener('DOMContentLoaded', function () {
-		const images = document.querySelectorAll('img');
-		images.forEach(img => {
-			let isZoomed = true;
-			img.addEventListener('click', function () {
-				if (isZoomed) {
-					img.style.zoom=1;
-					img.style.cursor="zoom-out";
-				} else {
-					img.style.zoom=0.5;
-					img.style.cursor="zoom-in";
-				}
-				isZoomed = !isZoomed;
-			});
+
+	function animateZoom(img, isZoomed, duration = 333) {
+		const startZoom = isZoomed ? 0.4 : 0.8;
+		img.style.cursor = isZoomed ? "zoom-out" : "zoom-in";
+		const startTime = performance.now();
+
+		function updateZoom(currentTime) {
+			const elapsed = currentTime - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			const currentZoom = startZoom + (1.2 - startZoom * 2) * progress;
+			img.style.zoom = currentZoom;
+			if (progress < 1) {
+				requestAnimationFrame(updateZoom);
+			}
+		}
+		requestAnimationFrame(updateZoom);
+	}
+	document.querySelectorAll('img').forEach(img => {
+		let isZoomed = true;
+		img.addEventListener('click', () => {
+			animateZoom(img, isZoomed);
+			isZoomed = !isZoomed;
 		});
 	});
 </script>
