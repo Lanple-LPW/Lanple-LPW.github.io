@@ -218,7 +218,6 @@
 	}
 	.content p.trigger::before {
 		content: "🔑";
-		color:green;
 	}
 	.content p.success::before {
 		content: "👍";
@@ -3315,7 +3314,7 @@
 		displayText.innerHTML = `<a href="#${itemName}">${itemName}</a>${quantity ? '×' + quantity : ''}`;
 	}
 
-	function animateZoom(img, isZoomed, duration = 333) {
+	function animateZoom(img, isZoomed, duration = 125) {
 		const startZoom = isZoomed ? 0.4 : 0.8;
 		img.style.cursor = isZoomed ? "zoom-out" : "zoom-in";
 		const startTime = performance.now();
